@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GLA Database</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="Img/icon.png">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+</head>
+
+<body>
+    <div class="background">
+        <div class="rotations">
+            <div class="chest rotationOne">
+
+            </div>
+            <div class="chest rotationTwo">
+
+            </div>
+            <div class="chest specialRot">
+
+            </div>
+        </div>
+        <div class="food-container container-tab">
+            <img src="Img/closeButton.png" alt="Close" class="close-bt" />
+            <div class="food-bg">
+            </div>
+            <div class="food-main">
+                <div class="food-list">
+
+                </div>
+                <div class="food-ing">
+                    <div class="craft-time">
+                        <span class="material-symbols-outlined clock">
+                            timer
+                        </span>
+                        <p id="craft-time"></p>
+                    </div>
+                    <div class="info-space">
+                        <span class="material-symbols-outlined">
+                            priority_high
+                        </span>
+                        <div class="bt-info-space">
+                            <p>Algumas receitas precisam do aumento de espaços de inventário para serem criados em
+                                grandes quantidades</p>
+                        </div>
+                    </div>
+                    <div class="food-info">
+                        <img src="Img/Food/BifeWagyu.png" alt="" class="food-info-img" />
+                        <p class="food-info-name">Bife Wagyu</p>
+                        <div class="food-info-stats">
+                            <div class="food-info-hp">
+                                <div class="food-info-hp-item">
+                                    <img src="Img/Class/Tank.png" alt="" />
+                                    <p id="tank-hp">28050</p>
+                                </div>
+                                <div class="food-info-hp-item">
+                                    <div class="food-info-hp-item-dps">
+                                        <img src="Img/Class/Bruiser.png" alt="" />
+                                        <img src="Img/Class/Dps.png" alt="" />
+                                    </div>
+                                    <p id="dps-hp">18150</p>
+                                </div>
+                                <div class="food-info-hp-item">
+                                    <img src="Img/Class/Sup.png" alt="" />
+                                    <p id="sup-hp">11550</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ingredients">
+                        <div class="ing-input">
+                            <div class="ing-input-bt" id="ing-input-bt-1">
+                                <span class="material-symbols-outlined">
+                                    keyboard_double_arrow_down
+                                </span>
+                            </div>
+                            <div class="ing-input-bt" id="ing-input-bt-2">
+                                <span class="material-symbols-outlined">
+                                    keyboard_arrow_down
+                                </span>
+                            </div>
+                            <input type="text" value="1" />
+                            <div class="ing-input-bt" id="ing-input-bt-3">
+                                <span class="material-symbols-outlined">
+                                    keyboard_arrow_up
+                                </span>
+                            </div>
+                            <div class="ing-input-bt" id="ing-input-bt-4">
+                                <span class="material-symbols-outlined">
+                                    keyboard_double_arrow_up
+                                </span>
+                            </div>
+                            <div class="berry-cost">
+                                <img src="Img/gold.png" alt="" />
+                                <p id="gold-cost">1</p>
+                                <img src="Img/silver.png" alt="" />
+                                <p id="silver-cost">1</p>
+                                <img src="Img/berry.png" alt="" />
+                                <p id="bronze-cost">1</p>
+                            </div>
+                        </div>
+                        <div class="ing-list">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wb-container container-tab">
+            <img src="Img/closeButton.png" alt="Close" class="close-bt" />
+            <div class="wb-list">
+
+            </div>
+            <div class="wb-main">
+                <div class="wb-date-container">
+                    <div class="wb-date-bt" id="wb-date-left">
+                        <span class="material-symbols-outlined">
+                            chevron_left
+                        </span>
+                    </div>
+                    <div class="wb-date">
+                        <p>13/09/2024</p>
+                    </div>
+                    <div class="wb-date-bt" id="wb-date-right">
+                        <span class="material-symbols-outlined">
+                            chevron_right
+                        </span>
+                    </div>
+                </div>
+                <div class="wb-ranking-container">
+                    <div class="wb-rank-topbar">
+                        <div class="wb-topbar-item rank-number">
+                            <p>#</p>
+                        </div>
+                        <div class="wb-topbar-item rank-players">
+                            <p>Jogadores</p>
+                        </div>
+                        <div class="wb-topbar-item rank-wave-dmg">
+                            <p id="wave-dmg-text">Wave</p>
+                        </div>
+                        <div class="wb-topbar-item rank-time">
+                            <p>Tempo</p>
+                        </div>
+                        <div class="wb-topbar-item rank-right">
+                            
+                        </div>
+                    </div>
+                    <div class="wb-rank">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chest-container container-tab">
+            <img src="Img/closeButton2.png" alt="Close" class="close-bt close-bt-2" />
+            <p class="chest-title">Baús</p>
+            <div class="chest-tabs">
+                <div class="chest-tab selected" id="chests">
+                    <p>Baús</p>
+                </div>
+                <div class="chest-tab" id="achievs">
+                    <p>Conquistas</p>
+                </div>
+            </div>
+            <div class="chests-main">
+                <div class="chests-left">
+
+                </div>
+                <div class="chests-right">
+                    <div class="chest-list">
+
+                    </div>
+                    <div class="achiev-list">
+
+                    </div>
+                    <div class="chest-map">
+                        <img src="Img/closeButton2.png" alt="Close" class="map-close-bt" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="menu">
+                <div class="rot-bt">
+                    <div class="bt-info">
+                        <p>Rotações</p>
+                    </div>
+                </div>
+                <div class="dima-bt">
+                    <div class="bt-info">
+                        <p>Planejador de Diamantes</p>
+                    </div>
+                </div>
+                <div class="food-bt">
+                    <div class="bt-info">
+                        <p>Receitas</p>
+                    </div>
+                </div>
+                <div class="chest-bt">
+                    <div class="bt-info">
+                        <p>Baús</p>
+                    </div>
+                </div>
+                <div class="wb-bt">
+                    <div class="bt-info">
+                        <p>World Boss Ranking</p>
+                    </div>
+                </div>
+                <div class="track-bt">
+                    <div class="bt-info">
+                        <p>To Do List</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tabs">
+                <img src="Img/memory.png" alt="" class="tab memory-img">
+                <img src="Img/quiz.png" alt="" class="tab quiz-img">
+            </div>
+            <div class="bg-img">
+                <div class="main-memory">
+                    <div class="main-grid" id="squares-container">
+                    </div>
+                    <div class="bt-div">
+                        <a>Reset</a>
+                    </div>
+                </div>
+            </div>
+            <div class="main-quiz">
+                <div class="quiz-input-box">
+                    <div class="erase-bt">
+                        <span class="material-symbols-outlined backspace">
+                            backspace
+                        </span>
+                    </div>
+                    <input class="quiz-input" type="text" placeholder="Escreva a frase aqui...">
+                </div>
+                <div class="quiz-container">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <img class="lion" src="Img/Lion.png" width="100px" height="119px" alt="">
+    <p class="assinatura">Criado por Lionheart</p>
+    <script src="constants.js"></script>
+    <script src="index.js"></script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
+</body>
+
+</html>
