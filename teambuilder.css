@@ -40,7 +40,7 @@ html, body {
 .group {
     display: flex;
     width: fit-content;
-    height: 70%;
+    height: fit-content;
     border: 1px solid var(--border);
     margin-top: 10px;
     gap: 10px;
@@ -52,15 +52,29 @@ html, body {
     flex-direction: column;
     border: 1px solid var(--border);
     width: 150px;
+    height: fit-content;
     padding: 3px;
+}
+
+.group-nick {
+    width: 150px;
+}
+
+.group-nick>input {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    text-align: center;
+    width: inherit;
 }
 
 .search-bar {
     display: flex;
     align-items: center;
-    height: 200px;
+    height: fit-content;
     justify-content: center;
-    min-height: 200px;
 }
 
 .chars-container {

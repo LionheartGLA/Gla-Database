@@ -168,6 +168,12 @@ groups.forEach(({ class: groupClass, selection, filters }) => {
     });
 });
 
+document.querySelectorAll('.group-nick input').forEach(input => {
+    input.addEventListener('click', (event) => {
+        event.stopPropagation();
+    });
+});
+
 function toggleFilter(filter) {
     activeFilters.has(filter) ? activeFilters.delete(filter) : activeFilters.add(filter);
 }
