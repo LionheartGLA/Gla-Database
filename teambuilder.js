@@ -1,4 +1,5 @@
 const chars = [
+    { name: "Nenhum", image: "Img/Medals/None.png", class: ["Cortante", "Lutador", "Especialista", "Atirador", "Tanque", "DPS", "Bruiser", "Suporte", "Marinheiro", "Fruta do Diabo", "Shichibukai", "Supernova", "Mulher", "Chapéu de Palha", "Realeza", "Tritão", "Enel"] },
     { name: "Aokiji", image: "Img/Medals/Aokiji.png", class: ["Cortante", "Especialista", "Tanque", "Marinheiro", "Fruta do Diabo"] },
     { name: "Bartolomew Kuma", image: "Img/Medals/Kuma.png", class: ["Especialista", "Tanque", "Realeza", "Shichibukai", "Fruta do Diabo"] },
     { name: "Boa Hancock", image: "Img/Medals/Hancock.png", class: ["Lutador", "DPS", "Fruta do Diabo", "Shichibukai", "Realeza"] },
@@ -117,142 +118,54 @@ function addCharToList() {
         charListDiv.appendChild(charDiv);
 
         charDiv.addEventListener('click', () => {
-            switch (selectionActive) {
-                case "none":
-                    break;
-                case "tank":
-                    if (character.class.includes("Tanque")) {
-                        document.querySelector("#tank-img").style.backgroundImage = `url('${character.image}')`;
-                        document.querySelector("#tank").classList.remove("selected");
-                        selectionActive = "none";
-                    }
-                    break;
-                case "dpsa":
-                    if (character.class.includes("DPS") || character.class.includes("Bruiser")) {
-                        document.querySelector("#dpsa-img").style.backgroundImage = `url('${character.image}')`;
-                        document.querySelector("#dpsa").classList.remove("selected");
-                        selectionActive = "none";
-                    }
-                    break;
-                case "dpsb":
-                    if (character.class.includes("DPS") || character.class.includes("Bruiser")) {
-                        document.querySelector("#dpsb-img").style.backgroundImage = `url('${character.image}')`;
-                        document.querySelector("#dpsb").classList.remove("selected");
-                        selectionActive = "none";
-                    }
-                    break;
-                case "dpsc":
-                    if (character.class.includes("DPS") || character.class.includes("Bruiser")) {
-                        document.querySelector("#dpsc-img").style.backgroundImage = `url('${character.image}')`;
-                        document.querySelector("#dpsc").classList.remove("selected");
-                        selectionActive = "none";
-                    }
-                    break;
-                case "dpsd":
-                    if (character.class.includes("DPS") || character.class.includes("Bruiser")) {
-                        document.querySelector("#dpsd-img").style.backgroundImage = `url('${character.image}')`;
-                        document.querySelector("#dpsd").classList.remove("selected");
-                        selectionActive = "none";
-                    }
-                    break;
-                case "sup":
-                    if (character.class.includes("Suporte")) {
-                        document.querySelector("#sup-img").style.backgroundImage = `url('${character.image}')`;
-                        document.querySelector("#sup").classList.remove("selected");
-                        selectionActive = "none";
-                    }
-                    break;
-
-
-
-                default:
-                    break;
+            if (selectionActive === "none") return;
+        
+            const groups = {
+                tank: { img: "#tank-img", filter: "Tanque" },
+                dpsa: { img: "#dpsa-img", filters: ["DPS", "Bruiser"] },
+                dpsb: { img: "#dpsb-img", filters: ["DPS", "Bruiser"] },
+                dpsc: { img: "#dpsc-img", filters: ["DPS", "Bruiser"] },
+                dpsd: { img: "#dpsd-img", filters: ["DPS", "Bruiser"] },
+                sup: { img: "#sup-img", filter: "Suporte" }
+            };
+        
+            const group = groups[selectionActive];
+            if (!group) return;
+        
+            const validClass = Array.isArray(group.filters)
+                ? group.filters.some(f => character.class.includes(f))
+                : character.class.includes(group.filter);
+        
+            if (validClass) {
+                document.querySelector(group.img).style.backgroundImage = `url('${character.image}')`;
+                document.querySelector(`.group-${selectionActive}`).classList.remove("selected");
+                selectionActive = "none";
+                activeFilters = new Set();
+                filterChars();
             }
-        })
+        });
     });
 }
 
-document.querySelector("#tank").addEventListener('click', () => {
-    selectionActive = "none";
-    document.querySelectorAll(".class-icon").forEach(
-        icon => icon.classList.remove("selected")
-    )
-    if (selectionActive !== "none") {
-        selectionActive = "none";
-        selectionActive = "none";
-    } else {
-        document.querySelector("#tank").classList.add("selected");
-        selectionActive = "tank";
-    }
-});
+const groups = [
+    { class: "group-tank", selection: "tank", filters: ["Tanque"] },
+    { class: "group-dpsa", selection: "dpsa", filters: ["DPS", "Bruiser"] },
+    { class: "group-dpsb", selection: "dpsb", filters: ["DPS", "Bruiser"] },
+    { class: "group-dpsc", selection: "dpsc", filters: ["DPS", "Bruiser"] },
+    { class: "group-dpsd", selection: "dpsd", filters: ["DPS", "Bruiser"] },
+    { class: "group-sup", selection: "sup", filters: ["Suporte"] }
+];
 
-document.querySelector("#dpsa").addEventListener('click', () => {
-    selectionActive = "none";
-    document.querySelectorAll(".class-icon").forEach(
-        icon => icon.classList.remove("selected")
-    )
-    if (selectionActive !== "none") {
+groups.forEach(({ class: groupClass, selection, filters }) => {
+    document.querySelector(`.${groupClass}`).addEventListener('click', () => {
         selectionActive = "none";
-    } else {
-        document.querySelector("#dpsa").classList.add("selected");
-        selectionActive = "dpsa";
-    }
-});
-
-document.querySelector("#dpsb").addEventListener('click', () => {
-    selectionActive = "none";
-    document.querySelectorAll(".class-icon").forEach(
-        icon => icon.classList.remove("selected")
-    )
-    if (selectionActive !== "none") {
-        selectionActive = "none";
-        selectionActive = "none";
-    } else {
-        document.querySelector("#dpsb").classList.add("selected");
-        selectionActive = "dpsb";
-    }
-});
-
-document.querySelector("#dpsc").addEventListener('click', () => {
-    selectionActive = "none";
-    document.querySelectorAll(".class-icon").forEach(
-        icon => icon.classList.remove("selected")
-    )
-    if (selectionActive !== "none") {
-        selectionActive = "none";
-        selectionActive = "none";
-    } else {
-        document.querySelector("#dpsc").classList.add("selected");
-        selectionActive = "dpsc";
-    }
-});
-
-document.querySelector("#dpsd").addEventListener('click', () => {
-    selectionActive = "none";
-    document.querySelectorAll(".class-icon").forEach(
-        icon => icon.classList.remove("selected")
-    )
-    if (selectionActive !== "none") {
-        selectionActive = "none";
-        selectionActive = "none";
-    } else {
-        document.querySelector("#dpsd").classList.add("selected");
-        selectionActive = "dpsd";
-    }
-});
-
-document.querySelector("#sup").addEventListener('click', () => {
-    selectionActive = "none";
-    document.querySelectorAll(".class-icon").forEach(
-        icon => icon.classList.remove("selected")
-    )
-    if (selectionActive !== "none") {
-        selectionActive = "none";
-        selectionActive = "none";
-    } else {
-        document.querySelector("#sup").classList.add("selected");
-        selectionActive = "sup";
-    }
+        document.querySelectorAll(".group-item").forEach(icon => icon.classList.remove("selected"));
+        document.querySelector(`.${groupClass}`).classList.add("selected");
+        selectionActive = selection;
+        activeFilters = new Set();
+        filters.forEach(filter => toggleFilter(filter));
+        filterChars();
+    });
 });
 
 function toggleFilter(filter) {
@@ -260,7 +173,6 @@ function toggleFilter(filter) {
 }
 
 function filterChars() {
-    console.log('aaa')
     const allChars = document.querySelectorAll('.char');
     const searchTerm = searchBar.value.toLowerCase();
 
@@ -268,8 +180,12 @@ function filterChars() {
         const charName = char.querySelector('p').innerText.toLowerCase();
         const charData = chars.find(character => character.name.toLowerCase() === charName);
 
-        const showChar = Array.from(activeFilters).every(filter => charData.class.includes(filter)) &&
+        let showChar = Array.from(activeFilters).every(filter => charData.class.includes(filter)) &&
             charName.includes(searchTerm);
+        if (activeFilters.has("DPS") && activeFilters.has("Bruiser")) {
+            showChar = ["DPS", "Bruiser"].some(filter => charData.class.includes(filter)) &&
+                charName.includes(searchTerm);
+        }
 
         char.style.display = showChar ? 'flex' : 'none';
         char.classList.toggle('hovered', hoveredFilter && charData.class.includes(hoveredFilter));
@@ -285,6 +201,10 @@ function handleFilterButtonClick(filter, button) {
 Object.entries(filterButtons).forEach(([filter, button]) => {
     button.addEventListener("click", () => handleFilterButtonClick(filter, button));
 });
+
+document.querySelector(".select-none").addEventListener("click", () => {
+    document.querySelectorAll(".char-img-grouped").forEach(char => char.style.backgroundImage = "url('Img/Medals/None.png')")
+})
 
 window.addEventListener("load", addCharToList);
 document.querySelector('.rot-bt').addEventListener('click', () => window.location.replace('index.html'));

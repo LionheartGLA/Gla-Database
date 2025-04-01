@@ -4,6 +4,8 @@
 :root {
     --background: #201414;
     --border: #544434;
+    --borderHover: #9b8672;
+    --borderSelected: #f5d20c;
     --foreground: #291c16;
 }
 
@@ -110,13 +112,13 @@ html, body {
     justify-content: center;
 }
 
-.class-icon:hover {
-    filter: brightness(1.5);
+.group-item:hover {
+    border: 1px solid var(--borderHover);
     cursor: pointer;
 }
 
-.class-icon.selected {
-    filter: brightness(1.5);
+.group-item.selected {
+    border: 1px solid var(--borderSelected);
 }
 
 .group-char {
