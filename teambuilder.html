@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criador de Grupo</title>
+    <link rel="icon" href="Img/Dima.png">
+    <link rel="stylesheet" href="teambuilder.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+</head>
+
+<body>
+    <div class="background">
+        <div class="main">
+            <div class="rot-bt">
+                <span class="material-symbols-outlined">
+                    arrow_back
+                </span>
+            </div>
+            <div class="search-bar">
+                <div class="group">
+                    <div class="group-tank group-item">
+                        <div class="group-class">
+                            <img id="tank" class="class-icon"src="Img/Class/Tank.png" alt="" width="32px" height="32px">
+                        </div>
+                        <div class="group-char">
+                            <div class="char-grouped">
+                                <div id="tank-img" class="char-img-grouped" style="background-image: url('Img/Medals/Bastille.png');">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group-dpsa group-item">
+                        <div class="group-class">
+                            <img id="dpsa" class="class-icon" src="Img/Class/Dps.png" alt="" width="32px" height="32px">
+                        </div>
+                        <div class="group-char">
+                            <div class="char-grouped">
+                                <div id="dpsa-img" class="char-img-grouped" style="background-image: url('Img/Medals/Baby5.png');">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group-dpsb group-item">
+                        <div class="group-class">
+                            <img id="dpsb" class="class-icon" src="Img/Class/Dps.png" alt="" width="32px" height="32px">
+                        </div>
+                        <div class="group-char">
+                            <div class="char-grouped">
+                                <div id="dpsb-img" class="char-img-grouped" style="background-image: url('Img/Medals/Baby5.png');">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group-dpsc group-item">
+                        <div class="group-class">
+                            <img id="dpsc" class="class-icon" src="Img/Class/Dps.png" alt="" width="32px" height="32px">
+                        </div>
+                        <div class="group-char">
+                            <div class="char-grouped">
+                                <div id="dpsc-img" class="char-img-grouped" style="background-image: url('Img/Medals/Baby5.png');">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group-dpsd group-item">
+                        <div class="group-class">
+                            <img id="dpsd" class="class-icon" src="Img/Class/Dps.png" alt="" width="32px" height="32px">
+                        </div>
+                        <div class="group-char">
+                            <div class="char-grouped">
+                                <div id="dpsd-img" class="char-img-grouped" style="background-image: url('Img/Medals/Baby5.png');">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group-sup group-item">
+                        <div class="group-class">
+                            <img id="sup" class="class-icon" src="Img/Class/Sup.png" alt="" width="32px" height="32px">
+                        </div>
+                        <div class="group-char">
+                            <div class="char-grouped">
+                                <div id="sup-img" class="char-img-grouped" style="background-image: url('Img/Medals/Apoo.png');">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="search-filter">
+                <input type="text" class="search-bar-filter" placeholder="Filtrar">
+                <div class="classes">
+                    <img id="tanque" class="class-bt" src="Img/Class/Tank.png" alt="" width="32px" height="32px">
+                    <img id="bruiser" class="class-bt" src="Img/Class/Bruiser.png" alt="" width="32px" height="32px">
+                    <img id="dps" class="class-bt" src="Img/Class/Dps.png" alt="" width="32px" height="32px">
+                    <img id="suporte" class="class-bt" src="Img/Class/Sup.png" alt="" width="32px" height="32px">
+                    <img id="lutador" class="class-bt" src="Img/Class/Lutador.png" alt="" width="32px" height="32px">
+                    <img id="atirador" class="class-bt" src="Img/Class/Atirador.png" alt="" width="32px" height="32px">
+                    <img id="cortante" class="class-bt" src="Img/Class/Cortante.png" alt="" width="32px" height="32px">
+                    <img id="especialista" class="class-bt" src="Img/Class/Especialista.png" alt="" width="32px"
+                        height="32px">
+                    <img id="marinheiro" class="class-bt" src="Img/Class/Marinheiro.png" alt="" width="32px"
+                        height="32px">
+                    <img id="mugiwara" class="class-bt" src="Img/Class/Mugiwara.png" alt="" width="32px" height="32px">
+                    <img id="mulher" class="class-bt" src="Img/Class/Mulher.png" alt="" width="32px" height="32px">
+                    <img id="realeza" class="class-bt" src="Img/Class/Realeza.png" alt="" width="32px" height="32px">
+                    <img id="supernova" class="class-bt" src="Img/Class/Supernova.png" alt="" width="32px"
+                        height="32px">
+                </div>
+                <p class="select-none">Nenhum Personagem</p>
+            </div>
+            <div class="chars-container">
+                <div class="chars">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="assinatura">
+        <p>Criado por Lionheart</p>
+    </div>
+</body>
+<script src="teambuilder.js"></script>
+<style>
+    .material-symbols-outlined {
+        font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24;
+        color: white;
+    }
+</style>
+
+</html>
