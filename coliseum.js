@@ -19,7 +19,6 @@ const chars = [
     { name: "Portgas D. Ace", image: "Img/Medals/Ace.png", class: ["Atirador", "Especialista", "DPS", "Fruta do Diabo"] },
     { name: "Robin Timeskip", image: "Img/Medals/Robin_ts.png", class: ["Especialista", "DPS", "Chapéu de Palha", "Fruta do Diabo"] },
     { name: "Zoro Timeskip", image: "Img/Medals/Zoro_ts.png", class: ["Cortante", "DPS", "Supernova", "Chapéu de Palha"] },
-    { name: "Sabo", image: "Img/Medals/Sabo.png", class: ["Lutador", "DPS", "Especialista", "Fruta do Diabo"] },
     { name: "Akainu", image: "Img/Medals/Akainu.png", class: ["DPS", "Lutador", "Marinheiro", "Especialista", "Fruta do Diabo"] },
     { name: "Shanks", image: "Img/Medals/Shanks.png", class: ["Cortante", "Bruiser"] },
     { name: "Usopp Timeskip", image: "Img/Medals/Usopp_ts.png", class: ["Atirador", "DPS", "Chapéu de Palha"] },
@@ -74,7 +73,7 @@ const chars = [
     { name: "Bepo", image: "Img/Medals/Bepo.png", class: ["Lutador", "DPS"] },
     { name: "Mr. 2", image: "Img/Medals/Mr2.png", class: ["Lutador", "DPS", "Fruta do Diabo"] },
     { name: "Buggy", image: "Img/Medals/Buggy.png", class: ["Atirador", "DPS", "Fruta do Diabo"] },
-    { name: "Daddy Masterson", image: "Img/Medals/Arlong.png", class: ["Atirador", "DPS", "Marinheiro"] },
+    { name: "Daddy Masterson", image: "Img/Medals/Daddy.png", class: ["Atirador", "DPS", "Marinheiro"] },
     { name: "Mr. 1", image: "Img/Medals/Mr1.png", class: ["Cortante", "Tanque", "Fruta do Diabo"] },
     { name: "Miss Doublefinger", image: "Img/Medals/Doublefinger.png", class: ["Cortante", "Bruiser", "Fruta do Diabo"] },
     { name: "Don Krieg", image: "Img/Medals/Krieg.png", class: ["Atirador", "DPS"] },
@@ -150,29 +149,25 @@ function addCharToList() {
         charDiv.addEventListener('click', () => {
             if (selectionActive === "none") return;
 
-            enemies.forEach((enemy) => {
-                if (enemy.name !== selectionActive) {
-                    if (enemy.char === character) {
-                        enemy.char = null;
-                        const targetImg = document.querySelector(`.${sanitizeName(enemy.name)}-img`);
-                        if (targetImg) {
-                            targetImg.style.backgroundImage = `url('Img/medals/None.png')`;
-                        }
-                    }
+            // Check if the character is already assigned to another enemy
+            let prevEnemy = enemies.find(enemy => enemy.char === character);
+            if (prevEnemy) {
+                prevEnemy.char = null;
+                const prevImg = document.querySelector(`.${sanitizeName(prevEnemy.name)}-img`);
+                if (prevImg) {
+                    prevImg.style.backgroundImage = `url('Img/medals/None.png')`;
                 }
+            }
+
+            // Assign the character to the selected enemy
+            enemies.forEach(enemy => {
                 if (enemy.name === selectionActive) {
-                    if (enemy.char !== null && enemy.char.name !== character.name) {
+                    if (enemy.char) {
                         const prevCharClass = `.${sanitizeName(enemy.char.name)}div`;
                         const prevCharElement = document.querySelector(prevCharClass);
                         if (prevCharElement) {
                             prevCharElement.classList.remove("selected");
                         }
-
-                        enemies.forEach(e => {
-                            if (e.char === character) {
-                                e.char = null;
-                            }
-                        });
                     }
 
                     enemy.char = character;
@@ -195,6 +190,7 @@ function addCharToList() {
         });
     });
 }
+
 
 
 const enemies = [
@@ -310,7 +306,8 @@ Object.entries(filterButtons).forEach(([filter, button]) => {
 });
 
 document.querySelector(".select-none").addEventListener("click", () => {
-    document.querySelectorAll(".char-img-grouped").forEach(char => char.style.backgroundImage = "url('Img/Medals/None.png')")
+    document.querySelectorAll(".coli-img").forEach(char => char.style.backgroundImage = "url('Img/Medals/None.png')");
+    document.querySelectorAll(".char").forEach(char => char.classList.remove("selected"))
 })
 
 document.querySelector(".close-char-selector").addEventListener('click', () => {
