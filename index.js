@@ -3919,6 +3919,10 @@ document.querySelector('.track-bt').addEventListener('click', () => {
     window.location.replace("tracklist.html");
 })
 
+document.querySelector('.coli-bt').addEventListener('click', () => {
+    window.location.replace("coliseum.html");
+})
+
 document.addEventListener('keydown', function (event) {
     if (event.code === 'Space') {
         resetAll()

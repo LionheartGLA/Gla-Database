@@ -284,7 +284,8 @@ body {
 .info-space:hover>.bt-info-space,
 .chest-bt:hover>.bt-info,
 .wb-bt:hover>.bt-info,
-.track-bt:hover>.bt-info {
+.track-bt:hover>.bt-info,
+.coli-bt:hover>.bt-info {
     height: 20px;
     width: fit-content;
     position: absolute;
@@ -344,6 +345,13 @@ body {
 
 .track-bt {
     background-image: url('Img/trackButton.png');
+    background-repeat: no-repeat;
+    height: 34px;
+    width: 34px;
+}
+
+.coli-bt {
+    background-image: url('Img/coliButton.png');
     background-repeat: no-repeat;
     height: 34px;
     width: 34px;
@@ -1153,7 +1161,8 @@ td>a {
 .food-bt:hover,
 .chest-bt:hover,
 .wb-bt:hover,
-.track-bt:hover {
+.track-bt:hover,
+.coli-bt:hover {
     cursor: pointer;
     filter: brightness(1.5);
 }
