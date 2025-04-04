@@ -154,7 +154,7 @@ function addCharToList() {
                 prevEnemy.char = null;
                 const prevImg = document.querySelector(`.${sanitizeName(prevEnemy.name)}-img`);
                 if (prevImg) {
-                    prevImg.style.backgroundImage = `url('Img/medals/None.png')`;
+                    prevImg.style.backgroundImage = `url('Img/Medals/None.png')`;
                 }
             }
 
