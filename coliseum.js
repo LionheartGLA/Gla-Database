@@ -149,7 +149,6 @@ function addCharToList() {
         charDiv.addEventListener('click', () => {
             if (selectionActive === "none") return;
 
-            // Check if the character is already assigned to another enemy
             let prevEnemy = enemies.find(enemy => enemy.char === character);
             if (prevEnemy) {
                 prevEnemy.char = null;
@@ -159,7 +158,6 @@ function addCharToList() {
                 }
             }
 
-            // Assign the character to the selected enemy
             enemies.forEach(enemy => {
                 if (enemy.name === selectionActive) {
                     if (enemy.char) {
