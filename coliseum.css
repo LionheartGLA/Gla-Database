@@ -90,7 +90,8 @@ body {
     position: absolute;
     color: white;
     font-family: 'roboto';
-    bottom: 0;
+    top: 0;
+    justify-self: center;
     cursor: pointer;
     user-select: none;
 }
