@@ -72,7 +72,6 @@ const chars = [
     { id: "H8", name: "Arlong", image: "Img/Medals/Arlong.png", class: ["Lutador", "Bruiser", "Tritão"] },
     { id: "H9", name: "Bepo", image: "Img/Medals/Bepo.png", class: ["Lutador", "DPS"] },
     { id: "I1", name: "Mr 2", image: "Img/Medals/Mr2.png", class: ["Lutador", "DPS", "Fruta do Diabo"] },
-    { id: "I2", name: "Buggy", image: "Img/Medals/Buggy.png", class: ["Atirador", "DPS", "Fruta do Diabo"] },
     { id: "I3", name: "Daddy Masterson", image: "Img/Medals/Daddy.png", class: ["Atirador", "DPS", "Marinheiro"] },
     { id: "I4", name: "Mr 1", image: "Img/Medals/Mr1.png", class: ["Cortante", "Tanque", "Fruta do Diabo"] },
     { id: "I5", name: "Miss Doublefinger", image: "Img/Medals/Doublefinger.png", class: ["Cortante", "Bruiser", "Fruta do Diabo"] },
@@ -96,6 +95,7 @@ const chars = [
     { id: "K5", name: "Mr 4", image: "Img/Medals/Mr4.png", class: ["Bruiser", "Atirador"] },
     { id: "K6", name: "Mr 5", image: "Img/Medals/Mr5.png", class: ["Atirador", "DPS", "Fruta do Diabo"] },
     { id: "K7", name: "Pearl", image: "Img/Medals/Pearl.png", class: ["Lutador", "Especialista", "Tanque"] },
+    { id: "K8", name: "Sabo", image: "Img/Medals/Sabo.png", class: ["Lutador", "Especialista", "DPS", "Fruta do Diabo"] },
 ]
 
 const filterButtons = {
