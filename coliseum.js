@@ -1,101 +1,101 @@
 const chars = [
-    { name: "Nenhum", image: "Img/Medals/None.png", class: ["Cortante", "Lutador", "Especialista", "Atirador", "Tanque", "DPS", "Bruiser", "Suporte", "Marinheiro", "Fruta do Diabo", "Shichibukai", "Supernova", "Mulher", "Chapéu de Palha", "Realeza", "Tritão", "Enel"] },
-    { name: "Aokiji", image: "Img/Medals/Aokiji.png", class: ["Cortante", "Especialista", "Tanque", "Marinheiro", "Fruta do Diabo"] },
-    { name: "Bartolomew Kuma", image: "Img/Medals/Kuma.png", class: ["Especialista", "Tanque", "Realeza", "Shichibukai", "Fruta do Diabo"] },
-    { name: "Boa Hancock", image: "Img/Medals/Hancock.png", class: ["Lutador", "DPS", "Fruta do Diabo", "Shichibukai", "Realeza"] },
-    { name: "Borsalino Kizaru", image: "Img/Medals/Kizaru.png", class: ["Atirador", "Especialista", "DPS", "Marinheiro", "Fruta do Diabo"] },
-    { name: "Brook Timeskip", image: "Img/Medals/Brook_ts.png", class: ["Cortante", "Suporte", "Fruta do Diabo", "Chapéu de Palha"] },
-    { name: "Chopper Timeskip", image: "Img/Medals/Chopper_ts.png", class: ["Lutador", "Suporte", "Fruta do Diabo", "Chapéu de Palha"] },
-    { name: "Donquixote Doflamingo", image: "Img/Medals/Doflamingo.png", class: ["Atirador", "Especialista", "DPS", "Shichibukai", "Fruta do Diabo", "Realeza"] },
-    { name: "Dracule Mihawk", image: "Img/Medals/Mihawk.png", class: ["Cortante", "DPS", "Shichibukai"] },
-    { name: "Emporio Ivankov", image: "Img/Medals/Ivankov.png", class: ["Lutador", "Suporte", "Fruta do Diabo"] },
-    { name: "Enel", image: "Img/Medals/Enel.png", class: ["DPS", "Atirador", "Especialista", "Fruta do Diabo"] },
-    { name: "Franky Timeskip", image: "Img/Medals/Franky_ts.png", class: ["Atirador", "Tanque", "Chapéu de Palha"] },
-    { name: "Jinbe", image: "Img/Medals/Jinbe.png", class: ["Lutador", "Tanque", "Tritão", "Shichibukai"] },
-    { name: "Marshall D. Teach", image: "Img/Medals/Barbanegra.png", class: ["Especialista", "Bruiser", "Fruta do Diabo"] },
-    { name: "Marco", image: "Img/Medals/Marco.png", class: ["Especialista", "Suporte", "Lutador", "Fruta do Diabo"] },
-    { name: "Luffy Timeskip", image: "Img/Medals/Luffy_ts.png", class: ["Lutador", "DPS", "Supernova", "Fruta do Diabo", "Chapéu de Palha"] },
-    { name: "Nami Timeskip", image: "Img/Medals/Nami_ts.png", class: ["Especialista", "DPS", "Chapéu de Palha"] },
-    { name: "Portgas D. Ace", image: "Img/Medals/Ace.png", class: ["Atirador", "Especialista", "DPS", "Fruta do Diabo"] },
-    { name: "Robin Timeskip", image: "Img/Medals/Robin_ts.png", class: ["Especialista", "DPS", "Chapéu de Palha", "Fruta do Diabo"] },
-    { name: "Zoro Timeskip", image: "Img/Medals/Zoro_ts.png", class: ["Cortante", "DPS", "Supernova", "Chapéu de Palha"] },
-    { name: "Akainu", image: "Img/Medals/Akainu.png", class: ["DPS", "Lutador", "Marinheiro", "Especialista", "Fruta do Diabo"] },
-    { name: "Shanks", image: "Img/Medals/Shanks.png", class: ["Cortante", "Bruiser"] },
-    { name: "Usopp Timeskip", image: "Img/Medals/Usopp_ts.png", class: ["Atirador", "DPS", "Chapéu de Palha"] },
-    { name: "Uta", image: "Img/Medals/Uta.png", class: ["DPS", "Especialista", "Fruta do Diabo"] },
-    { name: "Sanji Timeskip", image: "Img/Medals/Sanji_ts.png", class: ["Lutador", "DPS", "Chapéu de Palha", "Realeza"] },
-    { name: "Scratchmen Apoo", image: "Img/Medals/Apoo.png", class: ["Atirador", "Suporte", "Supernova", "Fruta do Diabo"] },
-    { name: "Baby 5", image: "Img/Medals/Baby5.png", class: ["DPS", "Atirador", "Cortante", "Fruta do Diabo", "Mulher"] },
-    { name: "Bartolomeo", image: "Img/Medals/Bartolomeo.png", class: ["Especialista", "DPS", "Fruta do Diabo"] },
-    { name: "Bastille", image: "Img/Medals/Bastille.png", class: ["Cortante", "Tanque", "Marinheiro"] },
-    { name: "Bellamy", image: "Img/Medals/Bellamy.png", class: ["Lutador", "DPS", "Fruta do Diabo"] },
-    { name: "Jewelry Bonney", image: "Img/Medals/Bonney.png", class: ["Lutador", "Suporte", "Fruta do Diabo", "Supernova", "Mulher", "Realeza"] },
-    { name: "Brook", image: "Img/Medals/Brook.png", class: ["Cortante", "Suporte", "Fruta do Diabo", "Chapéu de Palha"] },
-    { name: "Capone Gang Bege", image: "Img/Medals/Capone.png", class: ["Atirador", "DPS", "Supernova", "Fruta do Diabo"] },
-    { name: "Carrot", image: "Img/Medals/Carrot.png", class: ["Cortante", "Especialista", "DPS", "Mulher"] },
-    { name: "Tony Tony Chopper", image: "Img/Medals/Chopper.png", class: ["Lutador", "Suporte", "Fruta do Diabo", "Chapéu de Palha"] },
-    { name: "Crocodile", image: "Img/Medals/Crocodile.png", class: ["Especialista", "Tanque", "Fruta do Diabo", "Shichibukai"] },
-    { name: "Dalmatian", image: "Img/Medals/Dalmatian.png", class: ["Cortante", "Bruiser", "Marinheiro", "Fruta do Diabo"] },
-    { name: "X Drake", image: "Img/Medals/Drake.png", class: ["Lutador", "Bruiser", "Fruta do Diabo", "Supernova", "Marinheiro"] },
-    { name: "Franky", image: "Img/Medals/Franky.png", class: ["Atirador", "Bruiser", "Chapéu de Palha"] },
-    { name: "Basil Hawkins", image: "Img/Medals/Hawkins.png", class: ["Especialista", "Bruiser", "Fruta do Diabo", "Supernova"] },
-    { name: "Hina", image: "Img/Medals/Hina.png", class: ["Lutador", "Bruiser", "Fruta do Diabo", "Marinheiro", "Mulher"] },
-    { name: "Vinsmoke Ichiji", image: "Img/Medals/Ichiji.png", class: ["Bruiser", "Lutador", "Realeza"] },
-    { name: "Jesus Burgess", image: "Img/Medals/Jesus.png", class: ["Lutador", "Tanque"] },
-    { name: "Eustass Kid", image: "Img/Medals/Kid.png", class: ["Atirador", "Tanque", "Fruta do Diabo", "Supernova"] },
-    { name: "Killer", image: "Img/Medals/Killer.png", class: ["Cortante", "DPS", "Supernova"] },
-    { name: "Koala", image: "Img/Medals/Koala.png", class: ["Lutador", "DPS", "Mulher"] },
-    { name: "Leo e Mansherry", image: "Img/Medals/Leo.png", class: ["Especialista", "Suporte", "Realeza", "Fruta do Diabo", "Mulher"] },
-    { name: "Monkey D. Luffy", image: "Img/Medals/Luffy.png", class: ["Bruiser", "Lutador", "Fruta do Diabo", "Chapéu de Palha"] },
-    { name: "Gecko Moria", image: "Img/Medals/Moria.png", class: ["Cortante", "Suporte", "Fruta do Diabo", "Shichibukai"] },
-    { name: "Nami", image: "Img/Medals/Nami.png", class: ["Especialista", "DPS", "Chapéu de Palha", "Mulher"] },
-    { name: "Vinsmoke Niji", image: "Img/Medals/Niji.png", class: ["Atirador", "DPS", "Realeza"] },
-    { name: "Perona", image: "Img/Medals/Perona.png", class: ["Especialista", "Suporte", "Fruta do Diabo", "Mulher"] },
-    { name: "Rebecca", image: "Img/Medals/Rebecca.png", class: ["Cortante", "Tanque", "Realeza", "Mulher"] },
-    { name: "Vinsmoke Reiju", image: "Img/Medals/Reiju.png", class: ["Suporte", "Especialista", "Realeza", "Mulher"] },
-    { name: "Nico Robin", image: "Img/Medals/Robin.png", class: ["Especialista", "DPS", "Fruta do Diabo", "Chapéu de Palha", "Mulher"] },
-    { name: "Ryuma", image: "Img/Medals/Ryuma.png", class: ["Cortante", "DPS"] },
-    { name: "Vinsmoke Sanji", image: "Img/Medals/Sanji.png", class: ["Lutador", "DPS", "Chapéu de Palha", "Realeza"] },
-    { name: "Smoker", image: "Img/Medals/Smoker.png", class: ["Lutador", "Tanque", "Fruta do Diabo", "Marinheiro"] },
-    { name: "Urouge", image: "Img/Medals/Urouge.png", class: ["Lutador", "Tanque", "Fruta do Diabo", "Supernova"] },
-    { name: "Trafalgar Law", image: "Img/Medals/Law.png", class: ["Cortante", "Especialista", "DPS", "Fruta do Diabo", "Supernova"] },
-    { name: "Usopp", image: "Img/Medals/Usopp.png", class: ["Atirador", "DPS", "Chapéu de Palha"] },
-    { name: "Van Augur", image: "Img/Medals/Van_augur.png", class: ["Atirador", "DPS"] },
-    { name: "Vinsmoke Yonji", image: "Img/Medals/Yonji.png", class: ["Lutador", "Tanque", "Realeza"] },
-    { name: "Roronoa Zoro", image: "Img/Medals/Zoro.png", class: ["Cortante", "Bruiser", "Chapéu de Palha"] },
-    { name: "Tashigi", image: "Img/Medals/Tashigi.png", class: ["Cortante", "DPS", "Marinheiro"] },
-    { name: "Buggy", image: "Img/Medals/Buggy.png", class: ["Atirador", "DPS", "Fruta do Diabo"] },
-    { name: "Satori", image: "Img/Medals/Satori.png", class: ["Enel"] },
-    { name: "Gedatsu", image: "Img/Medals/Gedatsu.png", class: ["Enel"] },
-    { name: "Ohm", image: "Img/Medals/Ohm.png", class: ["Enel"] },
-    { name: "Shura", image: "Img/Medals/Shura.png", class: ["Enel"] },
-    { name: "Arlong", image: "Img/Medals/Arlong.png", class: ["Lutador", "Bruiser", "Tritão"] },
-    { name: "Bepo", image: "Img/Medals/Bepo.png", class: ["Lutador", "DPS"] },
-    { name: "Mr. 2", image: "Img/Medals/Mr2.png", class: ["Lutador", "DPS", "Fruta do Diabo"] },
-    { name: "Buggy", image: "Img/Medals/Buggy.png", class: ["Atirador", "DPS", "Fruta do Diabo"] },
-    { name: "Daddy Masterson", image: "Img/Medals/Daddy.png", class: ["Atirador", "DPS", "Marinheiro"] },
-    { name: "Mr. 1", image: "Img/Medals/Mr1.png", class: ["Cortante", "Tanque", "Fruta do Diabo"] },
-    { name: "Miss Doublefinger", image: "Img/Medals/Doublefinger.png", class: ["Cortante", "Bruiser", "Fruta do Diabo"] },
-    { name: "Don Krieg", image: "Img/Medals/Krieg.png", class: ["Atirador", "DPS"] },
-    { name: "Kuro", image: "Img/Medals/Kuro.png", class: ["Cortante", "DPS"] },
-    { name: "Mr. 3", image: "Img/Medals/Mr3.png", class: ["Suporte", "Especialista", "Fruta do Diabo"] },
-    { name: "Nefertari Vivi", image: "Img/Medals/Vivi.png", class: ["Cortante", "Suporte"] },
-    { name: "Wapol", image: "Img/Medals/Wapol.png", class: ["Atirador", "Tanque", "Fruta do Diabo"] },
-    { name: "Alvida", image: "Img/Medals/Alvida.png", class: ["Lutador", "Suporte"] },
-    { name: "Buchi & Sham", image: "Img/Medals/Buchi.png", class: ["Cortante", "Bruiser"] },
-    { name: "Cabaji", image: "Img/Medals/Cabaji.png", class: ["Cortante", "DPS"] },
-    { name: "Chew", image: "Img/Medals/Chew.png", class: ["Atirador", "DPS", "Tritão"] },
-    { name: "Eric", image: "Img/Medals/Eric.png", class: ["Atirador", "DPS", "Cortante", "Fruta do Diabo"] },
-    { name: "Gin", image: "Img/Medals/Gin.png", class: ["Lutador", "Atirador", "DPS"] },
-    { name: "Goldenweek", image: "Img/Medals/Goldenweek.png", class: ["Especialista", "Suporte"] },
-    { name: "Hatchan", image: "Img/Medals/Hatchan.png", class: ["Cortante", "Suporte", "Tritão"] },
-    { name: "Jango", image: "Img/Medals/Jango.png", class: ["Atirador", "Suporte"] },
-    { name: "Kuroobi", image: "Img/Medals/Kuroobi.png", class: ["Lutador", "Tanque", "Tritão"] },
-    { name: "Mohji", image: "Img/Medals/Mohji.png", class: ["Especialista", "Bruiser"] },
-    { name: "Morgan", image: "Img/Medals/Morgan.png", class: ["Cortante", "Bruiser"] },
-    { name: "Mr. 4", image: "Img/Medals/Mr4.png", class: ["Bruiser", "Atirador"] },
-    { name: "Mr. 5", image: "Img/Medals/Mr5.png", class: ["Atirador", "DPS", "Fruta do Diabo"] },
-    { name: "Pearl", image: "Img/Medals/Pearl.png", class: ["Lutador", "Especialista", "Tanque"] },
+    { id: "A1", name: "Nenhum", image: "Img/Medals/None.png", class: ["Cortante", "Lutador", "Especialista", "Atirador", "Tanque", "DPS", "Bruiser", "Suporte", "Marinheiro", "Fruta do Diabo", "Shichibukai", "Supernova", "Mulher", "Chapéu de Palha", "Realeza", "Tritão", "Enel"] },
+    { id: "A2", name: "Aokiji", image: "Img/Medals/Aokiji.png", class: ["Cortante", "Especialista", "Tanque", "Marinheiro", "Fruta do Diabo"] },
+    { id: "A3", name: "Bartolomew Kuma", image: "Img/Medals/Kuma.png", class: ["Especialista", "Tanque", "Realeza", "Shichibukai", "Fruta do Diabo"] },
+    { id: "A4", name: "Boa Hancock", image: "Img/Medals/Hancock.png", class: ["Lutador", "DPS", "Fruta do Diabo", "Shichibukai", "Realeza"] },
+    { id: "A5", name: "Borsalino Kizaru", image: "Img/Medals/Kizaru.png", class: ["Atirador", "Especialista", "DPS", "Marinheiro", "Fruta do Diabo"] },
+    { id: "A6", name: "Brook Timeskip", image: "Img/Medals/Brook_ts.png", class: ["Cortante", "Suporte", "Fruta do Diabo", "Chapéu de Palha"] },
+    { id: "A7", name: "Chopper Timeskip", image: "Img/Medals/Chopper_ts.png", class: ["Lutador", "Suporte", "Fruta do Diabo", "Chapéu de Palha"] },
+    { id: "A8", name: "Donquixote Doflamingo", image: "Img/Medals/Doflamingo.png", class: ["Atirador", "Especialista", "DPS", "Shichibukai", "Fruta do Diabo", "Realeza"] },
+    { id: "A9", name: "Dracule Mihawk", image: "Img/Medals/Mihawk.png", class: ["Cortante", "DPS", "Shichibukai"] },
+    { id: "B1", name: "Emporio Ivankov", image: "Img/Medals/Ivankov.png", class: ["Lutador", "Suporte", "Fruta do Diabo"] },
+    { id: "B2", name: "Enel", image: "Img/Medals/Enel.png", class: ["DPS", "Atirador", "Especialista", "Fruta do Diabo"] },
+    { id: "B3", name: "Franky Timeskip", image: "Img/Medals/Franky_ts.png", class: ["Atirador", "Tanque", "Chapéu de Palha"] },
+    { id: "B4", name: "Jinbe", image: "Img/Medals/Jinbe.png", class: ["Lutador", "Tanque", "Tritão", "Shichibukai"] },
+    { id: "B5", name: "Marshall D Teach", image: "Img/Medals/Barbanegra.png", class: ["Especialista", "Bruiser", "Fruta do Diabo"] },
+    { id: "B6", name: "Marco", image: "Img/Medals/Marco.png", class: ["Especialista", "Suporte", "Lutador", "Fruta do Diabo"] },
+    { id: "B7", name: "Luffy Timeskip", image: "Img/Medals/Luffy_ts.png", class: ["Lutador", "DPS", "Supernova", "Fruta do Diabo", "Chapéu de Palha"] },
+    { id: "B8", name: "Nami Timeskip", image: "Img/Medals/Nami_ts.png", class: ["Especialista", "DPS", "Chapéu de Palha"] },
+    { id: "B9", name: "Portgas D Ace", image: "Img/Medals/Ace.png", class: ["Atirador", "Especialista", "DPS", "Fruta do Diabo"] },
+    { id: "C1", name: "Robin Timeskip", image: "Img/Medals/Robin_ts.png", class: ["Especialista", "DPS", "Chapéu de Palha", "Fruta do Diabo"] },
+    { id: "C2", name: "Zoro Timeskip", image: "Img/Medals/Zoro_ts.png", class: ["Cortante", "DPS", "Supernova", "Chapéu de Palha"] },
+    { id: "C3", name: "Akainu", image: "Img/Medals/Akainu.png", class: ["DPS", "Lutador", "Marinheiro", "Especialista", "Fruta do Diabo"] },
+    { id: "C4", name: "Shanks", image: "Img/Medals/Shanks.png", class: ["Cortante", "Bruiser"] },
+    { id: "C5", name: "Usopp Timeskip", image: "Img/Medals/Usopp_ts.png", class: ["Atirador", "DPS", "Chapéu de Palha"] },
+    { id: "C6", name: "Uta", image: "Img/Medals/Uta.png", class: ["DPS", "Especialista", "Fruta do Diabo"] },
+    { id: "C7", name: "Sanji Timeskip", image: "Img/Medals/Sanji_ts.png", class: ["Lutador", "DPS", "Chapéu de Palha", "Realeza"] },
+    { id: "C8", name: "Scratchmen Apoo", image: "Img/Medals/Apoo.png", class: ["Atirador", "Suporte", "Supernova", "Fruta do Diabo"] },
+    { id: "C9", name: "Baby 5", image: "Img/Medals/Baby5.png", class: ["DPS", "Atirador", "Cortante", "Fruta do Diabo", "Mulher"] },
+    { id: "D1", name: "Bartolomeo", image: "Img/Medals/Bartolomeo.png", class: ["Especialista", "DPS", "Fruta do Diabo"] },
+    { id: "D2", name: "Bastille", image: "Img/Medals/Bastille.png", class: ["Cortante", "Tanque", "Marinheiro"] },
+    { id: "D3", name: "Bellamy", image: "Img/Medals/Bellamy.png", class: ["Lutador", "DPS", "Fruta do Diabo"] },
+    { id: "D4", name: "Jewelry Bonney", image: "Img/Medals/Bonney.png", class: ["Lutador", "Suporte", "Fruta do Diabo", "Supernova", "Mulher", "Realeza"] },
+    { id: "D5", name: "Brook", image: "Img/Medals/Brook.png", class: ["Cortante", "Suporte", "Fruta do Diabo", "Chapéu de Palha"] },
+    { id: "D6", name: "Capone Gang Bege", image: "Img/Medals/Capone.png", class: ["Atirador", "DPS", "Supernova", "Fruta do Diabo"] },
+    { id: "D7", name: "Carrot", image: "Img/Medals/Carrot.png", class: ["Cortante", "Especialista", "DPS", "Mulher"] },
+    { id: "D8", name: "Tony Tony Chopper", image: "Img/Medals/Chopper.png", class: ["Lutador", "Suporte", "Fruta do Diabo", "Chapéu de Palha"] },
+    { id: "D9", name: "Crocodile", image: "Img/Medals/Crocodile.png", class: ["Especialista", "Tanque", "Fruta do Diabo", "Shichibukai"] },
+    { id: "E1", name: "Dalmatian", image: "Img/Medals/Dalmatian.png", class: ["Cortante", "Bruiser", "Marinheiro", "Fruta do Diabo"] },
+    { id: "E2", name: "X Drake", image: "Img/Medals/Drake.png", class: ["Lutador", "Bruiser", "Fruta do Diabo", "Supernova", "Marinheiro"] },
+    { id: "E3", name: "Franky", image: "Img/Medals/Franky.png", class: ["Atirador", "Bruiser", "Chapéu de Palha"] },
+    { id: "E4", name: "Basil Hawkins", image: "Img/Medals/Hawkins.png", class: ["Especialista", "Bruiser", "Fruta do Diabo", "Supernova"] },
+    { id: "E5", name: "Hina", image: "Img/Medals/Hina.png", class: ["Lutador", "Bruiser", "Fruta do Diabo", "Marinheiro", "Mulher"] },
+    { id: "E6", name: "Vinsmoke Ichiji", image: "Img/Medals/Ichiji.png", class: ["Bruiser", "Lutador", "Realeza"] },
+    { id: "E7", name: "Jesus Burgess", image: "Img/Medals/Jesus.png", class: ["Lutador", "Tanque"] },
+    { id: "E8", name: "Eustass Kid", image: "Img/Medals/Kid.png", class: ["Atirador", "Tanque", "Fruta do Diabo", "Supernova"] },
+    { id: "E9", name: "Killer", image: "Img/Medals/Killer.png", class: ["Cortante", "DPS", "Supernova"] },
+    { id: "F1", name: "Koala", image: "Img/Medals/Koala.png", class: ["Lutador", "DPS", "Mulher"] },
+    { id: "F2", name: "Leo e Mansherry", image: "Img/Medals/Leo.png", class: ["Especialista", "Suporte", "Realeza", "Fruta do Diabo", "Mulher"] },
+    { id: "F3", name: "Monkey D Luffy", image: "Img/Medals/Luffy.png", class: ["Bruiser", "Lutador", "Fruta do Diabo", "Chapéu de Palha"] },
+    { id: "F4", name: "Gecko Moria", image: "Img/Medals/Moria.png", class: ["Cortante", "Suporte", "Fruta do Diabo", "Shichibukai"] },
+    { id: "F5", name: "Nami", image: "Img/Medals/Nami.png", class: ["Especialista", "DPS", "Chapéu de Palha", "Mulher"] },
+    { id: "F6", name: "Vinsmoke Niji", image: "Img/Medals/Niji.png", class: ["Atirador", "DPS", "Realeza"] },
+    { id: "F7", name: "Perona", image: "Img/Medals/Perona.png", class: ["Especialista", "Suporte", "Fruta do Diabo", "Mulher"] },
+    { id: "F8", name: "Rebecca", image: "Img/Medals/Rebecca.png", class: ["Cortante", "Tanque", "Realeza", "Mulher"] },
+    { id: "F9", name: "Vinsmoke Reiju", image: "Img/Medals/Reiju.png", class: ["Suporte", "Especialista", "Realeza", "Mulher"] },
+    { id: "G1", name: "Nico Robin", image: "Img/Medals/Robin.png", class: ["Especialista", "DPS", "Fruta do Diabo", "Chapéu de Palha", "Mulher"] },
+    { id: "G2", name: "Ryuma", image: "Img/Medals/Ryuma.png", class: ["Cortante", "DPS"] },
+    { id: "G3", name: "Vinsmoke Sanji", image: "Img/Medals/Sanji.png", class: ["Lutador", "DPS", "Chapéu de Palha", "Realeza"] },
+    { id: "G4", name: "Smoker", image: "Img/Medals/Smoker.png", class: ["Lutador", "Tanque", "Fruta do Diabo", "Marinheiro"] },
+    { id: "G5", name: "Urouge", image: "Img/Medals/Urouge.png", class: ["Lutador", "Tanque", "Fruta do Diabo", "Supernova"] },
+    { id: "G6", name: "Trafalgar Law", image: "Img/Medals/Law.png", class: ["Cortante", "Especialista", "DPS", "Fruta do Diabo", "Supernova"] },
+    { id: "G7", name: "Usopp", image: "Img/Medals/Usopp.png", class: ["Atirador", "DPS", "Chapéu de Palha"] },
+    { id: "G8", name: "Van Augur", image: "Img/Medals/Van_augur.png", class: ["Atirador", "DPS"] },
+    { id: "G9", name: "Vinsmoke Yonji", image: "Img/Medals/Yonji.png", class: ["Lutador", "Tanque", "Realeza"] },
+    { id: "H1", name: "Roronoa Zoro", image: "Img/Medals/Zoro.png", class: ["Cortante", "Bruiser", "Chapéu de Palha"] },
+    { id: "H2", name: "Tashigi", image: "Img/Medals/Tashigi.png", class: ["Cortante", "DPS", "Marinheiro"] },
+    { id: "H3", name: "Buggy", image: "Img/Medals/Buggy.png", class: ["Atirador", "DPS", "Fruta do Diabo"] },
+    { id: "H4", name: "Satori", image: "Img/Medals/Satori.png", class: ["Enel"] },
+    { id: "H5", name: "Gedatsu", image: "Img/Medals/Gedatsu.png", class: ["Enel"] },
+    { id: "H6", name: "Ohm", image: "Img/Medals/Ohm.png", class: ["Enel"] },
+    { id: "H7", name: "Shura", image: "Img/Medals/Shura.png", class: ["Enel"] },
+    { id: "H8", name: "Arlong", image: "Img/Medals/Arlong.png", class: ["Lutador", "Bruiser", "Tritão"] },
+    { id: "H9", name: "Bepo", image: "Img/Medals/Bepo.png", class: ["Lutador", "DPS"] },
+    { id: "I1", name: "Mr 2", image: "Img/Medals/Mr2.png", class: ["Lutador", "DPS", "Fruta do Diabo"] },
+    { id: "I2", name: "Buggy", image: "Img/Medals/Buggy.png", class: ["Atirador", "DPS", "Fruta do Diabo"] },
+    { id: "I3", name: "Daddy Masterson", image: "Img/Medals/Daddy.png", class: ["Atirador", "DPS", "Marinheiro"] },
+    { id: "I4", name: "Mr 1", image: "Img/Medals/Mr1.png", class: ["Cortante", "Tanque", "Fruta do Diabo"] },
+    { id: "I5", name: "Miss Doublefinger", image: "Img/Medals/Doublefinger.png", class: ["Cortante", "Bruiser", "Fruta do Diabo"] },
+    { id: "I6", name: "Don Krieg", image: "Img/Medals/Krieg.png", class: ["Atirador", "DPS"] },
+    { id: "I7", name: "Kuro", image: "Img/Medals/Kuro.png", class: ["Cortante", "DPS"] },
+    { id: "I8", name: "Mr 3", image: "Img/Medals/Mr3.png", class: ["Suporte", "Especialista", "Fruta do Diabo"] },
+    { id: "I9", name: "Nefertari Vivi", image: "Img/Medals/Vivi.png", class: ["Cortante", "Suporte"] },
+    { id: "J1", name: "Wapol", image: "Img/Medals/Wapol.png", class: ["Atirador", "Tanque", "Fruta do Diabo"] },
+    { id: "J2", name: "Alvida", image: "Img/Medals/Alvida.png", class: ["Lutador", "Suporte"] },
+    { id: "J3", name: "Buchi e Sham", image: "Img/Medals/Buchi.png", class: ["Cortante", "Bruiser"] },
+    { id: "J4", name: "Cabaji", image: "Img/Medals/Cabaji.png", class: ["Cortante", "DPS"] },
+    { id: "J5", name: "Chew", image: "Img/Medals/Chew.png", class: ["Atirador", "DPS", "Tritão"] },
+    { id: "J6", name: "Eric", image: "Img/Medals/Eric.png", class: ["Atirador", "DPS", "Cortante", "Fruta do Diabo"] },
+    { id: "J7", name: "Gin", image: "Img/Medals/Gin.png", class: ["Lutador", "Atirador", "DPS"] },
+    { id: "J8", name: "Goldenweek", image: "Img/Medals/Goldenweek.png", class: ["Especialista", "Suporte"] },
+    { id: "J9", name: "Hatchan", image: "Img/Medals/Hatchan.png", class: ["Cortante", "Suporte", "Tritão"] },
+    { id: "K1", name: "Jango", image: "Img/Medals/Jango.png", class: ["Atirador", "Suporte"] },
+    { id: "K2", name: "Kuroobi", image: "Img/Medals/Kuroobi.png", class: ["Lutador", "Tanque", "Tritão"] },
+    { id: "K3", name: "Mohji", image: "Img/Medals/Mohji.png", class: ["Especialista", "Bruiser"] },
+    { id: "K4", name: "Morgan", image: "Img/Medals/Morgan.png", class: ["Cortante", "Bruiser"] },
+    { id: "K5", name: "Mr 4", image: "Img/Medals/Mr4.png", class: ["Bruiser", "Atirador"] },
+    { id: "K6", name: "Mr 5", image: "Img/Medals/Mr5.png", class: ["Atirador", "DPS", "Fruta do Diabo"] },
+    { id: "K7", name: "Pearl", image: "Img/Medals/Pearl.png", class: ["Lutador", "Especialista", "Tanque"] },
 ]
 
 const filterButtons = {
@@ -122,6 +122,42 @@ document.querySelector('.search-bar-filter').addEventListener('input', () => {
     filterChars();
 });
 
+function loadSelectionsFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const chars = params.get('chars');
+    if (chars) {
+        const decoded = decodeURIComponent(chars);
+        const selections = [];
+        for (let i = 0; i < decoded.length; i += 2) {
+            const chunk = decoded.slice(i, i + 2);
+            selections.push(chunk);
+        }
+        return selections;
+    }
+    return Array(62).fill('A1');
+}
+
+const selections = loadSelectionsFromUrl();
+
+function generateUrl(selections) {
+    const flat = selections.map(sel => sel || 'A1').join('');
+    const encoded = encodeURIComponent(flat);
+    const url = `${window.location.origin}${window.location.pathname}?chars=${encoded}`;
+    console.log(url)
+    return url;
+}
+
+function loadChars(selections) {
+    selections.forEach((selection, index) => {
+        document.querySelectorAll(".coli-img").forEach((img, imgindex) => {
+            if (imgindex === index) {
+                img.style.backgroundImage = `url("${chars.find(char => char.id === selection).image}")`;
+                document.querySelector(`.${sanitizeName(chars.find(char => char.id === selection).name)}div`).classList.add("selected");
+                enemies[index].char = chars.find(char => char.id === selection);
+            }
+        })
+    })
+}
 
 function sanitizeName(name) {
     return name.replace(/\s+/g, '');
@@ -149,13 +185,14 @@ function addCharToList() {
         charDiv.addEventListener('click', () => {
             if (selectionActive === "none") return;
 
-            let prevEnemy = enemies.find(enemy => enemy.char === character);
+            let prevEnemy = enemies.find((enemy) => enemy.char === character);
             if (prevEnemy) {
                 prevEnemy.char = null;
                 const prevImg = document.querySelector(`.${sanitizeName(prevEnemy.name)}-img`);
                 if (prevImg) {
                     prevImg.style.backgroundImage = `url('Img/Medals/None.png')`;
                 }
+                selections[enemies.indexOf(prevEnemy)] = "A1";
             }
 
             enemies.forEach(enemy => {
@@ -169,6 +206,12 @@ function addCharToList() {
                     }
 
                     enemy.char = character;
+
+                    const enemyIndex = enemies.indexOf(enemy);
+                    if (enemyIndex !== -1) {
+                        selections[enemyIndex] = character.id;
+                    }
+
 
                     const targetImg = document.querySelector(`.${sanitizeName(selectionActive)}-img`);
                     if (targetImg) {
@@ -188,7 +231,6 @@ function addCharToList() {
         });
     });
 }
-
 
 
 const enemies = [
@@ -304,9 +346,21 @@ Object.entries(filterButtons).forEach(([filter, button]) => {
 });
 
 document.querySelector(".select-none").addEventListener("click", () => {
-    document.querySelectorAll(".coli-img").forEach(char => char.style.backgroundImage = "url('Img/Medals/None.png')");
-    document.querySelectorAll(".char").forEach(char => char.classList.remove("selected"))
-})
+    document.querySelectorAll(".coli-img").forEach(char => {
+      char.style.backgroundImage = "url('Img/Medals/None.png')";
+    });
+  
+    document.querySelectorAll(".char").forEach(char => {
+      char.classList.remove("selected");
+    });
+  
+    selections.fill("A1");
+  
+    enemies.forEach(enemy => {
+      enemy.char = null;
+    });
+  });
+  
 
 document.querySelector(".close-char-selector").addEventListener('click', () => {
     if (charSelector) {
@@ -319,3 +373,30 @@ document.querySelector(".close-char-selector").addEventListener('click', () => {
 
 window.addEventListener("load", addCharToList);
 document.querySelector('.rot-bt').addEventListener('click', () => window.location.replace('index.html'));
+
+document.querySelector(".link-bt").addEventListener("click", () => {
+    const url = generateUrl(selections);
+
+    navigator.clipboard.writeText(url)
+        .then(() => {
+            const message = document.querySelector(".link-bt-cop");
+
+            message.classList.add("show");
+
+            setTimeout(() => {
+                message.classList.remove("show");
+            }, 2000);
+        })
+        .catch(err => {
+            console.error("Clipboard copy failed:", err);
+            alert("Failed to copy the link.");
+        });
+});
+
+
+
+window.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+        loadChars(selections);
+    }, 1000);
+});  

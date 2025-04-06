@@ -9,7 +9,8 @@
     --foreground: #291c16;
 }
 
-html, body {
+html,
+body {
     width: 100svw;
     height: 100svh;
     margin: 0;
@@ -23,6 +24,75 @@ html, body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.rot-bt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 15px;
+    background-color: #281c14;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: brightness(1.6);
+    border-radius: 100%;
+    flex-direction: column;
+    user-select: none;
+}
+
+.link-bt {
+    position: absolute;
+    color: white;
+    right: 0;
+    top: 0;
+    margin: 15px;
+    background-color: #281c14;
+    height: 40px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: brightness(1.6);
+    border-radius: 50px;
+    flex-direction: column;
+    user-select: none;
+    font-family: 'roboto';
+}
+
+.link-bt-cop {
+    position: absolute;
+    filter: brightness(1.6);
+    background-color: #31261c;
+    right: 110px;
+    top: 0;
+    margin: 15px;
+    width: 120px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    pointer-events: none;
+    color: white;
+    font-family: 'roboto';
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.link-bt-cop.show {
+    opacity: 1;
+}
+
+.link-bt:hover {
+    filter: brightness(2);
+    cursor: pointer;
+}
+
+.link-bt:active {
+    scale: 0.95;
 }
 
 .main {
@@ -142,7 +212,7 @@ html, body {
     background-repeat: no-repeat;
     background-position: center;
     scale: 1.3;
-    align-self:flex-end;
+    align-self: flex-end;
 }
 
 .close-char-selector:hover {
@@ -181,7 +251,7 @@ html, body {
     width: 100%;
     aspect-ratio: 1/1;
     background-repeat: no-repeat;
-    background-position:center;
+    background-position: center;
     background-size: contain;
 }
 
@@ -224,7 +294,7 @@ html, body {
     width: 100%;
     aspect-ratio: 1/1;
     background-repeat: no-repeat;
-    background-position:center;
+    background-position: center;
     background-size: contain;
 }
 
@@ -247,7 +317,7 @@ html, body {
     flex-direction: column;
     align-items: center;
     background-repeat: no-repeat;
-    background-position:center;
+    background-position: center;
     justify-content: flex-end;
     background-size: contain;
     user-select: none;
@@ -291,16 +361,16 @@ html, body {
 }
 
 .assinatura {
-    position:fixed;
+    position: fixed;
     color: white;
     font-family: "Roboto", sans-serif;
-    bottom:0;
+    bottom: 0;
     right: 10px;
     font-size: 0.8rem;
 }
 
 .rot-bt {
-    position:absolute;
+    position: absolute;
     left: 0;
     top: 0;
     margin: 15px;
