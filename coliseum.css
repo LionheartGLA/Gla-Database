@@ -86,6 +86,19 @@ body {
     opacity: 1;
 }
 
+.warn {
+    position: absolute;
+    color: white;
+    font-family: 'roboto';
+    bottom: 0;
+    cursor: pointer;
+    user-select: none;
+}
+
+.warn:active {
+    scale: 0.98;
+}
+
 .link-bt:hover {
     filter: brightness(2);
     cursor: pointer;

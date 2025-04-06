@@ -393,7 +393,9 @@ document.querySelector(".link-bt").addEventListener("click", () => {
         });
 });
 
-
+document.querySelector(".warn").addEventListener("click", () => {
+    loadChars(selections)
+})
 
 window.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
