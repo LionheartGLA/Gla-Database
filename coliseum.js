@@ -118,7 +118,7 @@ let charSelector = false;
 
 const searchBar = document.querySelector('.search-bar-filter');
 
-document.querySelector('.search-bar-filter').addEventListener('input', () => {
+searchBar.addEventListener('input', () => {
     filterChars();
 });
 
@@ -226,6 +226,8 @@ function addCharToList() {
                     selectionActive = "none";
                     document.querySelector(".char-selector-bg").style.display = "none";
                     charDiv.classList.add("selected");
+                    searchBar.value = "";
+                    filterChars();
                 }
             });
         });
@@ -234,68 +236,68 @@ function addCharToList() {
 
 
 const enemies = [
-    { name: "Alvida", char: null },
-    { name: "Morgan", char: null },
-    { name: "Mohji", char: null },
-    { name: "Cabaji", char: null },
-    { name: "Buggy", char: null },
-    { name: "Jango", char: null },
-    { name: "Buchi", char: null },
-    { name: "Kuro", char: null },
-    { name: "Pearl", char: null },
-    { name: "Gin", char: null },
-    { name: "Krieg", char: null },
-    { name: "Chew", char: null },
-    { name: "Hatchan", char: null },
-    { name: "Kuroobi", char: null },
-    { name: "Arlong", char: null },
-    { name: "Eric", char: null },
-    { name: "Mr5", char: null },
-    { name: "Mr4", char: null },
-    { name: "Goldenweek", char: null },
-    { name: "Mr3", char: null },
-    { name: "Mr2", char: null },
-    { name: "Doublefinger", char: null },
-    { name: "Mr1", char: null },
-    { name: "Crocodile", char: null },
-    { name: "Wapol", char: null },
-    { name: "Daddy", char: null },
-    { name: "Tashigi", char: null },
-    { name: "Smoker", char: null },
-    { name: "Hina", char: null },
-    { name: "Drake", char: null },
-    { name: "Bastille", char: null },
-    { name: "Dalmatian", char: null },
-    { name: "Bepo", char: null },
-    { name: "Law", char: null },
-    { name: "Hawkins", char: null },
-    { name: "Capone", char: null },
-    { name: "Apoo", char: null },
-    { name: "Urouge", char: null },
-    { name: "Killer", char: null },
-    { name: "Kid", char: null },
-    { name: "Vivi", char: null },
-    { name: "Rebecca", char: null },
-    { name: "Perona", char: null },
-    { name: "Leo", char: null },
-    { name: "Yonji", char: null },
-    { name: "Niji", char: null },
-    { name: "Reiju", char: null },
-    { name: "Ichiji", char: null },
-    { name: "Bonney", char: null },
-    { name: "Usopp", char: null },
-    { name: "Nami", char: null },
-    { name: "Chopper", char: null },
-    { name: "Brook", char: null },
-    { name: "Franky", char: null },
-    { name: "Robin", char: null },
-    { name: "Sanji", char: null },
-    { name: "Zoro", char: null },
-    { name: "Luffy", char: null },
-    { name: "Koala", char: null },
-    { name: "Barto", char: null },
-    { name: "Burgess", char: null },
-    { name: "Sabo", char: null },
+    { name: "Alvida", char: null, data: chars.find(char => char.name === "Alvida") },
+    { name: "Morgan", char: null, data: chars.find(char => char.name === "Morgan") },
+    { name: "Mohji", char: null, data: chars.find(char => char.name === "Mohji") },
+    { name: "Cabaji", char: null, data: chars.find(char => char.name === "Cabaji") },
+    { name: "Buggy", char: null, data: chars.find(char => char.name === "Buggy") },
+    { name: "Jango", char: null, data: chars.find(char => char.name === "Jango") },
+    { name: "Buchi", char: null, data: chars.find(char => char.id === "J3") },
+    { name: "Kuro", char: null, data: chars.find(char => char.name === "Kuro") },
+    { name: "Pearl", char: null, data: chars.find(char => char.name === "Pearl") },
+    { name: "Gin", char: null, data: chars.find(char => char.name === "Gin") },
+    { name: "Krieg", char: null, data: chars.find(char => char.id === "I6") },
+    { name: "Chew", char: null, data: chars.find(char => char.name === "Chew") },
+    { name: "Hatchan", char: null, data: chars.find(char => char.name === "Hatchan") },
+    { name: "Kuroobi", char: null, data: chars.find(char => char.name === "Kuroobi") },
+    { name: "Arlong", char: null, data: chars.find(char => char.name === "Arlong") },
+    { name: "Eric", char: null, data: chars.find(char => char.name === "Eric") },
+    { name: "Mr5", char: null, data: chars.find(char => char.id === "K6") },
+    { name: "Mr4", char: null, data: chars.find(char => char.id === "K5") },
+    { name: "Goldenweek", char: null, data: chars.find(char => char.name === "Goldenweek") },
+    { name: "Mr3", char: null, data: chars.find(char => char.id === "I8") },
+    { name: "Mr2", char: null, data: chars.find(char => char.id === "I1") },
+    { name: "Doublefinger", char: null, data: chars.find(char => char.id === "I5") },
+    { name: "Mr1", char: null, data: chars.find(char => char.id === "I4") },
+    { name: "Crocodile", char: null, data: chars.find(char => char.name === "Crocodile") },
+    { name: "Wapol", char: null, data: chars.find(char => char.name === "Wapol") },
+    { name: "Daddy", char: null, data: chars.find(char => char.id === "I3") },
+    { name: "Tashigi", char: null, data: chars.find(char => char.name === "Tashigi") },
+    { name: "Smoker", char: null, data: chars.find(char => char.name === "Smoker") },
+    { name: "Hina", char: null, data: chars.find(char => char.name === "Hina") },
+    { name: "Drake", char: null, data: chars.find(char => char.id === "E2") },
+    { name: "Bastille", char: null, data: chars.find(char => char.name === "Bastille") },
+    { name: "Dalmatian", char: null, data: chars.find(char => char.name === "Dalmatian") },
+    { name: "Bepo", char: null, data: chars.find(char => char.name === "Bepo") },
+    { name: "Law", char: null, data: chars.find(char => char.id === "G6") },
+    { name: "Hawkins", char: null, data: chars.find(char => char.id === "E4") },
+    { name: "Capone", char: null, data: chars.find(char => char.id === "D6") },
+    { name: "Apoo", char: null, data: chars.find(char => char.id === "C8") },
+    { name: "Urouge", char: null, data: chars.find(char => char.name === "Urouge") },
+    { name: "Killer", char: null, data: chars.find(char => char.name === "Killer") },
+    { name: "Kid", char: null, data: chars.find(char => char.id === "E8") },
+    { name: "Vivi", char: null, data: chars.find(char => char.id === "I9") },
+    { name: "Rebecca", char: null, data: chars.find(char => char.name === "Rebecca") },
+    { name: "Perona", char: null, data: chars.find(char => char.name === "Perona") },
+    { name: "Leo", char: null, data: chars.find(char => char.id === "F2") },
+    { name: "Yonji", char: null, data: chars.find(char => char.id === "G9") },
+    { name: "Niji", char: null, data: chars.find(char => char.id === "F6") },
+    { name: "Reiju", char: null, data: chars.find(char => char.id === "F9") },
+    { name: "Ichiji", char: null, data: chars.find(char => char.id === "E6") },
+    { name: "Bonney", char: null, data: chars.find(char => char.id === "D4") },
+    { name: "Usopp", char: null, data: chars.find(char => char.name === "Usopp") },
+    { name: "Nami", char: null, data: chars.find(char => char.name === "Nami") },
+    { name: "Chopper", char: null, data: chars.find(char => char.id === "D8") },
+    { name: "Brook", char: null, data: chars.find(char => char.name === "Brook") },
+    { name: "Franky", char: null, data: chars.find(char => char.name === "Franky") },
+    { name: "Robin", char: null, data: chars.find(char => char.id === "G1") },
+    { name: "Sanji", char: null, data: chars.find(char => char.id === "G3") },
+    { name: "Zoro", char: null, data: chars.find(char => char.id === "H1") },
+    { name: "Luffy", char: null, data: chars.find(char => char.id === "F3") },
+    { name: "Koala", char: null, data: chars.find(char => char.name === "Koala") },
+    { name: "Barto", char: null, data: chars.find(char => char.name === "Bartolomeo") },
+    { name: "Burgess", char: null, data: chars.find(char => char.id === "E7") },
+    { name: "Sabo", char: null, data: chars.find(char => char.name === "Sabo") },
 ];
 
 enemies.forEach((char) => {
@@ -305,6 +307,8 @@ enemies.forEach((char) => {
         document.querySelector(`.${char.name}`).classList.add("selected");
         selectionActive = char.name;
         document.querySelector(".char-selector-bg").style.display = 'flex';
+        document.querySelector(".select-enemy").style.backgroundImage = `url("${chars.find(charf => charf.id === char.data.id).image}")`;
+        document.querySelector(".select-img").style.backgroundImage = `url("${char.char ? char.char.image : "Img/Medals/None.png"}")`;
         charSelector = true;
     });
 });
@@ -347,20 +351,20 @@ Object.entries(filterButtons).forEach(([filter, button]) => {
 
 document.querySelector(".select-none").addEventListener("click", () => {
     document.querySelectorAll(".coli-img").forEach(char => {
-      char.style.backgroundImage = "url('Img/Medals/None.png')";
+        char.style.backgroundImage = "url('Img/Medals/None.png')";
     });
-  
+
     document.querySelectorAll(".char").forEach(char => {
-      char.classList.remove("selected");
+        char.classList.remove("selected");
     });
-  
+
     selections.fill("A1");
-  
+
     enemies.forEach(enemy => {
-      enemy.char = null;
+        enemy.char = null;
     });
-  });
-  
+});
+
 
 document.querySelector(".close-char-selector").addEventListener('click', () => {
     if (charSelector) {
@@ -368,6 +372,8 @@ document.querySelector(".close-char-selector").addEventListener('click', () => {
         document.querySelector(".char-selector-bg").style.display = "none";
         document.querySelector(`.${selectionActive}`).classList.remove("selected");
         selectionActive = "none";
+        searchBar.value = "";
+        filterChars();
     }
 })
 
