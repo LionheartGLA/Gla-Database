@@ -42,7 +42,7 @@ const chars = [
     { name: "Roronoa Zoro", type: "gold", dates: ["21-02-2025", "27-12-2024", "22-11-2024", "25-10-2024", "20-09-2024", "23-08-2024", "19-07-2024", "31-05-2024"], image: "Img/Medals/Zoro.png", class: ["Cortante", "Bruiser", "Chapéu de Palha"] },
 ]
 
-const lastDate = "11-04-2025";
+const lastDate = "18-04-2025";
 
 function getRotationChars(rotation) {
     return rotation.map(name => chars.find(char => char.name === name));
