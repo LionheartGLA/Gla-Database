@@ -20,7 +20,7 @@ var selectedWb = "Marineford";
 var selectedWbDate = 0;
 
 var chest = "closed";
-var chestSelectedTab = "Chests";
+var chestSelectedTab = "Achievs";
 
 const answers = [
     {
