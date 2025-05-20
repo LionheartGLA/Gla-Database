@@ -3979,7 +3979,7 @@ document.querySelector('.chest-bt').addEventListener('click', () => {
         chest = "opened";
         populateTabLeft();
         populateChestInfo(islands[0]);
-        document.querySelectorAll('.chest-item-div')[0].classList.add('selected');
+        //document.querySelectorAll('.chest-item-div')[0].classList.add('selected');
     } else {
         document.querySelectorAll(".container-tab").forEach(container => {
             container.style.display = "none";
@@ -4212,6 +4212,7 @@ function populateTabLeft() {
 
             const achievName = document.createElement('p');
             achievName.innerText = achiev.name;
+            achievName.classList.add('achiev-info-name');
 
             const achievDesc = document.createElement('p');
             achievDesc.innerText = achiev.description;
