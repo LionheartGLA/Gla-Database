@@ -25,7 +25,7 @@ document.querySelector('.account-right').addEventListener('click', () => {
     }
 })
 
-const eventOn = { isOn: false, start: new Date('2024-11-15'), end: new Date('2024-11-29') };
+const eventOn = { isOn: true, start: new Date('2025-05-30'), end: new Date('2025-06-13') };
 
 const handleResize = () => {
     const width = window.innerWidth;
