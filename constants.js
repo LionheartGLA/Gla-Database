@@ -19,22 +19,22 @@ const chars = [
     { name: "Hina", type: "gold", dates: ["09-05-2025", "07-02-2025", "31-01-2025", "06-12-2024", "01-11-2024", "04-10-2024", "30-08-2024", "21-06-2024", "24-05-2024"], image: "Img/Medals/Hina.png", class: ["Lutador", "Bruiser", "Fruta do Diabo", "Marinheiro", "Mulher"] },
     { name: "Vinsmoke Ichiji", type: "gold", dates: ["23-05-2025", "18-04-2025", "21-03-2025", "03-01-2025", "06-12-2024", "01-11-2024", "25-10-2024", "16-08-2024", "03-05-2024"], image: "Img/Medals/Ichiji.png", class: ["Bruiser", "Lutador", "Realeza"] },
     { name: "Jesus Burgess", type: "gold", dates: ["09-05-2025", "07-03-2025", "03-01-2025", "22-11-2024", "20-09-2024", "02-08-2024", "28-06-2024", "10-05-2024"], image: "Img/Medals/Jesus.png", class: ["Lutador", "Tanque"] },
-    { name: "Eustass Kid", type: "gold", dates: ["28-03-2025", "14-03-2025", "17-01-2025", "15-11-2024", "20-09-2024", "30-08-2024", "12-07-2024", "07-06-2024", "15-03-2024"], image: "Img/Medals/Kid.png", class: ["Atirador", "Tanque", "Fruta do Diabo", "Supernova"] },
+    { name: "Eustass Kid", type: "gold", dates: ["06-06-2025", "28-03-2025", "14-03-2025", "17-01-2025", "15-11-2024", "20-09-2024", "30-08-2024", "12-07-2024", "07-06-2024", "15-03-2024"], image: "Img/Medals/Kid.png", class: ["Atirador", "Tanque", "Fruta do Diabo", "Supernova"] },
     { name: "Killer", type: "gold", dates: ["04-04-2025", "21-02-2025", "27-12-2024", "20-09-2024", "09-08-2024", "21-06-2024", "03-05-2024"], image: "Img/Medals/Killer.png", class: ["Cortante", "DPS", "Supernova"] },
     { name: "Koala", type: "gold", dates: ["30-05-2025", "18-04-2025", "21-03-2025", "27-12-2024", "29-11-2024", "11-10-2024", "30-08-2024", "14-06-2024", "31-05-2024"], image: "Img/Medals/Koala.png", class: ["Lutador", "DPS", "Mulher"] },
     { name: "Trafalgar Law", type: "gold", dates: ["16-05-2025", "25-04-2025", "07-03-2025", "20-12-2024", "01-11-2024", "27-09-2024", "23-08-2024", "05-07-2024", "17-05-2024"], image: "Img/Medals/Law.png", class: ["Cortante", "Especialista", "DPS", "Supernova", "Fruta do Diabo"] },
     { name: "Leo e Mansherry", type: "gold", dates: ["30-05-2025", "25-04-2025", "28-02-2025", "20-12-2024", "11-10-2024", "02-08-2024", "05-07-2024", "14-06-2024", "19-04-2024"], image: "Img/Medals/Leo.png", class: ["Especialista", "Suporte", "Realeza", "Fruta do Diabo", "Mulher"] },
     { name: "Monkey D. Luffy", type: "gold", dates: ["09-05-2025", "11-04-2025", "28-02-2025", "10-01-2025", "29-11-2024", "27-09-2024", "23-08-2024", "28-06-2024", "03-05-2024"], image: "Img/Medals/Luffy.png", class: ["Bruiser", "Lutador", "Fruta do Diabo", "Chapéu de Palha"] },
-    { name: "Gecko Moria", type: "gold", dates: ["02-05-2025", "07-03-2025", "07-02-2025", "20-12-2024", "13-10-2023"], image: "Img/Medals/Moria.png", class: ["Cortante", "Suporte", "Fruta do Diabo", "Shichibukai"] },
-    { name: "Nami", type: "gold", dates: ["04-04-2025", "07-02-2025", "24-01-2025", "01-11-2024", "27-09-2024", "02-08-2024", "21-06-2024", "17-05-2024"], image: "Img/Medals/Nami.png", class: ["Especialista", "DPS", "Chapéu de Palha", "Mulher"] },
-    { name: "Vinsmoke Niji", type: "gold", dates: ["11-04-2025", "21-02-2025", "31-01-2025", "06-12-2024", "18-10-2024", "02-08-2024", "19-07-2024", "24-05-2024", "26-04-2024"], image: "Img/Medals/Niji.png", class: ["Atirador", "DPS", "Realeza"] },
+    { name: "Gecko Moria", type: "gold", dates: ["06-06-2025", "02-05-2025", "07-03-2025", "07-02-2025", "20-12-2024", "13-10-2023"], image: "Img/Medals/Moria.png", class: ["Cortante", "Suporte", "Fruta do Diabo", "Shichibukai"] },
+    { name: "Nami", type: "gold", dates: ["06-06-2025", "04-04-2025", "07-02-2025", "24-01-2025", "01-11-2024", "27-09-2024", "02-08-2024", "21-06-2024", "17-05-2024"], image: "Img/Medals/Nami.png", class: ["Especialista", "DPS", "Chapéu de Palha", "Mulher"] },
+    { name: "Vinsmoke Niji", type: "gold", dates: ["06-06-2025", "11-04-2025", "21-02-2025", "31-01-2025", "06-12-2024", "18-10-2024", "02-08-2024", "19-07-2024", "24-05-2024", "26-04-2024"], image: "Img/Medals/Niji.png", class: ["Atirador", "DPS", "Realeza"] },
     { name: "Perona", type: "gold", dates: ["30-05-2025", "02-05-2025", "14-02-2025", "24-01-2025", "15-11-2024", "04-10-2024", "16-08-2024", "05-07-2024", "07-06-2024", "22-03-2024"], image: "Img/Medals/Perona.png", class: ["Especialista", "Suporte", "Fruta do Diabo", "Mulher"] },
     { name: "Rebecca", type: "gold", dates: ["09-05-2025", "14-02-2025", "27-12-2024", "20-12-2024", "18-10-2024", "09-08-2024", "19-07-2024", "07-06-2024", "05-04-2024"], image: "Img/Medals/Rebecca.png", class: ["Cortante", "Tanque", "Realeza", "Mulher"] },
     { name: "Vinsmoke Reiju", type: "gold", dates: ["23-05-2025", "02-05-2025", "14-02-2025", "10-01-2025", "20-12-2024", "08-11-2024", "13-09-2024", "06-09-2024", "12-07-2024", "10-05-2024"], image: "Img/Medals/Reiju.png", class: ["Suporte", "Especialista", "Realeza", "Mulher"] },
     { name: "Nico Robin", type: "gold", dates: ["09-05-2025", "25-04-2025", "07-03-2025", "17-01-2025", "20-12-2024", "08-11-2024", "20-09-2024", "09-08-2024", "21-06-2024", "10-05-2024", "26-04-2024"], image: "Img/Medals/Robin.png", class: ["Especialista", "DPS", "Fruta do Diabo", "Chapéu de Palha", "Mulher"] },
-    { name: "Ryuma", type: "gold", dates: ["28-03-2025", "03-01-2025", "08-11-2024", "18-10-2024", "26-07-2024", "21-06-2024", "14-06-2024", "12-04-2024"], image: "Img/Medals/Ryuma.png", class: ["Cortante", "DPS"] },
+    { name: "Ryuma", type: "gold", dates: ["06-06-2025", "28-03-2025", "03-01-2025", "08-11-2024", "18-10-2024", "26-07-2024", "21-06-2024", "14-06-2024", "12-04-2024"], image: "Img/Medals/Ryuma.png", class: ["Cortante", "DPS"] },
     { name: "Vinsmoke Sanji", type: "gold", dates: ["16-05-2025", "21-03-2025", "07-02-2025", "03-01-2025", "22-11-2024", "25-10-2024", "18-10-2024", "16-08-2024", "26-07-2024", "24-05-2024"], image: "Img/Medals/Sanji.png", class: ["Lutador", "DPS", "Chapéu de Palha", "Realeza"] },
-    { name: "Smoker", type: "gold", dates: ["25-04-2025", "14-02-2025", "10-01-2025", "06-12-2024", "13-09-2024", "23-08-2024", "12-07-2024", "03-05-2024"], image: "Img/Medals/Smoker.png", class: ["Lutador", "Tanque", "Fruta do Diabo", "Marinheiro"] },
+    { name: "Smoker", type: "gold", dates: ["06-06-2025", "25-04-2025", "14-02-2025", "10-01-2025", "06-12-2024", "13-09-2024", "23-08-2024", "12-07-2024", "03-05-2024"], image: "Img/Medals/Smoker.png", class: ["Lutador", "Tanque", "Fruta do Diabo", "Marinheiro"] },
     { name: "Urouge", type: "gold", dates: ["11-04-2025", "14-03-2025", "24-01-2025", "08-11-2024", "11-10-2024", "06-09-2024", "26-07-2024", "31-05-2024"], image: "Img/Medals/Urouge.png", class: ["Lutador", "Tanque", "Fruta do Diabo", "Supernova"] },
     { name: "Usopp", type: "gold", dates: ["23-05-2025", "28-03-2025", "14-03-2025", "10-01-2025", "04-10-2024", "26-07-2024", "14-06-2024", "03-05-2024"], image: "Img/Medals/Usopp.png", class: ["Atirador", "DPS", "Chapéu de Palha"] },
     { name: "Van Augur", type: "gold", dates: ["23-05-2025", "04-04-2025", "14-03-2025", "24-01-2025", "06-12-2024", "25-10-2024", "04-10-2024", "23-08-2024", "05-07-2024", "17-05-2024"], image: "Img/Medals/Van_augur.png", class: ["Atirador", "DPS"] },
@@ -42,7 +42,7 @@ const chars = [
     { name: "Roronoa Zoro", type: "gold", dates: ["25-04-2025", "21-02-2025", "27-12-2024", "22-11-2024", "25-10-2024", "20-09-2024", "23-08-2024", "19-07-2024", "31-05-2024"], image: "Img/Medals/Zoro.png", class: ["Cortante", "Bruiser", "Chapéu de Palha"] },
 ]
 
-const lastDate = "30-05-2025";
+const lastDate = "06-06-2025";
 
 function getRotationChars(rotation) {
     return rotation
@@ -50,8 +50,8 @@ function getRotationChars(rotation) {
         .map(name => chars.find(char => char.name.toLowerCase().includes(name.toLowerCase())) || null);
 }
 
-const rotationOne = getRotationChars(['Leo e Mansherry', 'Koala', 'Jewelry Bonney']);
-const rotationTwo = getRotationChars(['Uta', 'Capone Gang Bege', 'Perona']);
+const rotationOne = getRotationChars(['Nami', 'Smoker', 'Ryuma']);
+const rotationTwo = getRotationChars(['Vinsmoke Niji', 'Eustass Kid', 'Gecko Moria']);
 
 const specialRot = getRotationChars(['']);
 
