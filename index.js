@@ -20,7 +20,9 @@ var selectedWb = "Marineford";
 var selectedWbDate = 0;
 
 var chest = "closed";
-var chestSelectedTab = "Achievs";
+var chestSelectedTab = "Chests";
+
+var mapSelected = "Shells Town";
 
 const answers = [
     {
@@ -4235,22 +4237,193 @@ function populateTabLeft() {
     }
 }
 
+const chestMap = document.querySelector('.chest-map');
+const mapImg = chestMap.querySelector('.map-img');
+
+let currentFloorChests = [];
+
+let zoom = 1;
+const zoomStep = 0.1;
+const minZoom = 0.1;
+const maxZoom = 1;
+
+let posX = 0;
+let posY = 0;
+
+let isDragging = false;
+let startX, startY;
+let startPosX, startPosY;
+
+const dragSpeed = 1;
+
+function updateMapTransform() {
+    mapImg.style.transform = `translate(${posX}px, ${posY}px) scale(${zoom})`;
+    updateChestIconsPosition();
+}
+
+
+chestMap.addEventListener('wheel', (e) => {
+    e.preventDefault();
+
+    const rect = chestMap.getBoundingClientRect();
+
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    const imgX = (mouseX - posX) / zoom;
+    const imgY = (mouseY - posY) / zoom;
+
+    if (e.deltaY < 0) {
+        zoom = Math.min(zoom + zoomStep, maxZoom);
+    } else {
+        zoom = Math.max(zoom - zoomStep, minZoom);
+    }
+
+    posX = mouseX - imgX * zoom;
+    posY = mouseY - imgY * zoom;
+
+    updateMapTransform();
+});
+
+
+chestMap.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    startX = e.clientX;
+    startY = e.clientY;
+    startPosX = posX;
+    startPosY = posY;
+    chestMap.style.cursor = 'grabbing';
+});
+
+chestMap.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+
+    const dx = (e.clientX - startX)// * dragSpeed;
+    const dy = (e.clientY - startY)// * dragSpeed;
+
+    posX = startPosX + dx;
+    posY = startPosY + dy;
+
+    updateMapTransform();
+});
+
+chestMap.addEventListener('mouseup', () => {
+    isDragging = false;
+    chestMap.style.cursor = 'grab';
+});
+
+chestMap.addEventListener('mouseleave', () => {
+    isDragging = false;
+    chestMap.style.cursor = 'grab';
+});
+
+function updateMap() {
+    mapImg.src = island.maps[currentFloor];
+
+    zoom = 1;
+    posX = 0;
+    posY = 0;
+    updateMapTransform();
+
+    renderChestsOnMap(island, currentFloor);
+}
+
+function fitImageToContainer() {
+    const containerWidth = chestMap.clientWidth;
+    const containerHeight = chestMap.clientHeight;
+
+    const imgNaturalWidth = mapImg.naturalWidth;
+    const imgNaturalHeight = mapImg.naturalHeight;
+
+    if (!imgNaturalWidth || !imgNaturalHeight) return;
+
+    const scaleX = containerWidth / imgNaturalWidth;
+    const scaleY = containerHeight / imgNaturalHeight;
+
+    zoom = Math.min(scaleX, scaleY);
+
+    posX = (containerWidth - imgNaturalWidth * zoom) / 2;
+    posY = (containerHeight - imgNaturalHeight * zoom) / 2;
+
+    updateMapTransform();
+}
+
+function centerMapOnChest(chest, desiredZoom = 2) {
+    const imgWidth = mapImg.naturalWidth;
+    const imgHeight = mapImg.naturalHeight;
+
+    const containerWidth = chestMap.clientWidth;
+    const containerHeight = chestMap.clientHeight;
+
+    zoom = Math.min(desiredZoom, maxZoom);
+
+    const chestX = (chest.x / 100) * imgWidth * zoom;
+    const chestY = (chest.y / 100) * imgHeight * zoom;
+
+    posX = (containerWidth / 2) - chestX;
+    posY = (containerHeight / 2) - chestY;
+
+    updateMapTransform();
+}
+
+function renderChestsOnMap(island, floor) {
+    chestMap.querySelectorAll('.map-chest-icon').forEach(e => e.remove());
+
+    currentFloorChests = [];
+
+    island.chests.forEach((chest, index) => {
+        if (chest.floor === floor) {
+            const chestContainer = document.createElement('div');
+            chestContainer.classList.add('map-chest-icon');
+
+            const chestIcon = document.createElement('img');
+            chestIcon.src = 'Img/closedChest.png';
+            chestIcon.classList.add('chest-icon-img');
+
+            const numberLabel = document.createElement('div');
+            numberLabel.classList.add('chest-number');
+            numberLabel.innerText = index + 1;
+
+            chestContainer.appendChild(chestIcon);
+            chestContainer.appendChild(numberLabel);
+            chestMap.appendChild(chestContainer);
+
+            currentFloorChests.push({ chest, icon: chestContainer });
+        }
+    });
+
+    updateChestIconsPosition();
+}
+
+function updateChestIconsPosition() {
+    const imgWidth = mapImg.naturalWidth || mapImg.width;
+    const imgHeight = mapImg.naturalHeight || mapImg.height;
+
+    currentFloorChests.forEach(({ chest, icon }) => {
+        const left = posX + (chest.x / 100) * imgWidth * zoom;
+        const top = posY + (chest.y / 100) * imgHeight * zoom;
+
+        icon.style.left = `${left}px`;
+        icon.style.top = `${top}px`;
+    });
+}
+
 function populateChestInfo(island) {
     const container = document.querySelector('.chest-list');
     container.innerHTML = '';
 
-    island.chests.forEach((chest, index) => {
+    island.chests.forEach(chest => {
         const chestDiv = document.createElement('div');
         chestDiv.classList.add('chest-div');
 
         const chestImg = document.createElement('div');
         chestImg.classList.add('chest-img');
-
         chestDiv.appendChild(chestImg);
 
         const itemsContainer = document.createElement('div');
         itemsContainer.classList.add('items-container');
-        chest.forEach(e => {
+
+        chest.items.forEach(e => {
             const itemData = items.find(element => element.name === e.item);
             if (itemData) {
                 const itemImg = document.createElement('div');
@@ -4267,17 +4440,85 @@ function populateChestInfo(island) {
                 itemsContainer.appendChild(itemImg);
             }
         });
+
         chestDiv.appendChild(itemsContainer);
         container.appendChild(chestDiv);
 
         chestDiv.addEventListener('click', () => {
             const chestMap = document.querySelector('.chest-map');
-            const map = maps.find(map => map.name === island.name).mapImgs[index];
-            chestMap.style.backgroundImage = `url(${map})`;
+            const mapImg = chestMap.querySelector('.map-img');
+
+            let currentFloor = chest.floor;
+
+            function updateMap(center) {
+                mapImg.src = island.maps[currentFloor];
+
+                mapImg.onload = () => {
+                    renderChestsOnMap(island, currentFloor);
+
+                    if (center == true) {
+                        centerMapOnChest(chest, 2.5);
+                    }
+                };
+            }
+
+            updateMap(true);
+
+            chestMap.querySelector(".map-up").addEventListener('click', () => {
+                if (currentFloor < island.maps.length - 1) {
+                    currentFloor++;
+                    updateMap();
+                }
+            });
+
+            chestMap.querySelector(".map-down").addEventListener('click', () => {
+                if (currentFloor > 0) {
+                    currentFloor--;
+                    updateMap();
+                }
+            });
+
             chestMap.style.display = 'flex';
         });
+
+
+
     });
 }
+
+const coordDisplay = chestMap.querySelector('.map-coordinates');
+
+chestMap.addEventListener('mousemove', (e) => {
+    const rect = chestMap.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    const imgWidth = mapImg.naturalWidth;
+    const imgHeight = mapImg.naturalHeight;
+
+    if (!imgWidth || !imgHeight) {
+        coordDisplay.innerText = '';
+        return;
+    }
+
+    // Convert mouse position to image space
+    const imgX = (mouseX - posX) / zoom;
+    const imgY = (mouseY - posY) / zoom;
+
+    // Convert to percentage
+    const percentX = (imgX / imgWidth) * 100;
+    const percentY = (imgY / imgHeight) * 100;
+
+    if (percentX >= 0 && percentX <= 100 && percentY >= 0 && percentY <= 100) {
+        coordDisplay.innerText = `X: ${percentX.toFixed(2)}  Y: ${percentY.toFixed(2)}`;
+    } else {
+        coordDisplay.innerText = '';
+    }
+});
+
+chestMap.addEventListener('mouseleave', () => {
+    coordDisplay.innerText = '';
+});
 
 document.querySelector('.map-close-bt').addEventListener('click', () => {
     const chestMap = document.querySelector('.chest-map');
