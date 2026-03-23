@@ -1483,7 +1483,7 @@ const islands = [
                     { item: "Chave de Baú", quantity: 2 },
                     { item: "Berry", quantity: 20000 },
                 ],
-                floor: 4,
+                floor: 1,
                 x: 63.38,
                 y: 44.13,
                 w: "Este baú é de uma missão secreta em G-7 Marine Base e não é necessário para a conquista."
