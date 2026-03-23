@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+:root {
+    --background-color: #241a15;
+    --grid-color: #2e2e2e;
+    --backgroundT: #281c14;
+    --backgroundTh: #20140c;
+    --background: #201414;
+    --border: #544434;
+    --foreground: #291c16;
+    --option: #33221c;
+    --selected: #3b2b23;
+}
+
+html, body {
+    width: 100svw;
+    height: 100svh;
+    margin: 0;
+}
+
+.background {
+    background-color: var(--background);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main {
+    background-color: var(--foreground);
+    width: 95%;
+    height: 90%;
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--border);
+    background-color: var(--background);
+    align-items: center;
+    flex-direction: column;
+}
+
+.maps-container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, 90px);
+    gap: 12px;
+    align-self: flex-start;
+    padding-top: 10px;
+    row-gap: 30px;
+}
+
+.map-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    transition: scale 0.05s;
+}
+
+.map-div:hover {
+    scale: 1.08;
+    cursor: pointer;
+}
+
+.map-div:active {
+    scale: 0.97;
+}
+
+.map-name {
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-size: 0.8rem;
+    margin: 0;
+    width: 80px;
+    height: 20px;
+    text-align: center;
+    text-wrap: wrap;
+}
+
+.chest-map {
+  position: relative;
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+  width: 600px;
+  height: 400px;
+}
+
+.map-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  user-select: none;
+  pointer-events: none; /* So icons on top are clickable */
+  will-change: transform;
+}
+
+.chest-map:hover>.map-coordinates {
+    display: flex;
+}
+
+.map-coordinates {
+    display: none;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    pointer-events: none;
+    user-select: none;
+    z-index: 10;
+    font-family: 'roboto', sans-serif;
+}
+
+.map-options {
+    position: absolute;
+    display: flex;
+    bottom: 1%;
+    right: 1%;
+    gap: 6px;
+}
+
+.map-updown {
+    height: 20px;
+    width: 20px;
+    background-color: var(--selected);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.map-updown:hover {
+    filter: brightness(1.2);
+    cursor: pointer;
+}
+
+.map-updown>span {
+    opacity: 0.7;
+}
+
+.chest-map {
+    display: none;
+    position: absolute;
+    width: 80%;
+    aspect-ratio: 1.5/1;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: 3px solid var(--border);
+    border-radius: 10px;
+    background-color: black;
+    background-position: center;
+}
+
+.map-close-bt {
+    background-image: url('Img/closeButton2.png');
+    width: 3.5%;
+    position: absolute;
+    top: 2%;
+    right: 2%;
+}
+
+.map-close-bt:hover {
+    filter: brightness(1.2);
+    cursor: pointer;
+}
+
+.assinatura {
+    position:fixed;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    bottom:0;
+    right: 10px;
+    font-size: 0.8rem;
+}
+
+.rot-bt {
+    position:absolute;
+    left: 0;
+    top: 0;
+    margin: 15px;
+    background-color: #281c14;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: brightness(1.6);
+    border-radius: 100%;
+    flex-direction: column;
+    user-select: none;
+}
+
+.rot-bt:hover {
+    cursor: pointer;
+    filter: brightness(2);
+}
