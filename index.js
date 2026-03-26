@@ -437,7 +437,7 @@ const answers = [
     },
     {
         "text": "A atual recompensa do Bepo é de 500 berry.",
-        "type": "true"
+        "type": "false"
     },
     {
         "text": "A cera do Mr. 3 é tão dura quanto o aço.",
