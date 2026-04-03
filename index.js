@@ -13,7 +13,7 @@ const colors = ["blue", "purple", "pink", "orange", "green", "red"];
 const numberOfSquares = 12;
 
 var food = "closed";
-var selectedFood = "Bife Wagyu";
+var selectedFood = "Paella de Camarão";
 
 var wb = "closed";
 var selectedWb = "Marineford";
@@ -3919,6 +3919,10 @@ document.querySelector('.dima-bt').addEventListener('click', () => {
     window.location.replace("dima.html");
 })
 
+document.querySelector('.map-bt').addEventListener('click', () => {
+    window.location.replace("map.html");
+})
+
 //document.querySelector('.track-bt').addEventListener('click', () => {
 //    window.location.replace("tracklist.html");
 //})
@@ -4293,8 +4297,8 @@ chestMap.addEventListener('mousedown', (e) => {
 chestMap.addEventListener('mousemove', (e) => {
     if (!isDragging) return;
 
-    const dx = (e.clientX - startX)// * dragSpeed;
-    const dy = (e.clientY - startY)// * dragSpeed;
+    const dx = (e.clientX - startX);
+    const dy = (e.clientY - startY);
 
     posX = startPosX + dx;
     posY = startPosY + dy;
@@ -4538,11 +4542,9 @@ chestMap.addEventListener('mousemove', (e) => {
         return;
     }
 
-    // Convert mouse position to image space
     const imgX = (mouseX - posX) / zoom;
     const imgY = (mouseY - posY) / zoom;
 
-    // Convert to percentage
     const percentX = (imgX / imgWidth) * 100;
     const percentY = (imgY / imgHeight) * 100;
 

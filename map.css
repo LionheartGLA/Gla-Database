@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+:root {
+    --background-color: #241a15;
+    --grid-color: #2e2e2e;
+    --backgroundT: #281c14;
+    --backgroundTh: #20140c;
+    --background: #201414;
+    --border: #544434;
+    --foreground: #291c16;
+    --option: #33221c;
+    --selected: #3b2b23;
+}
+
+html, body {
+    width: 100svw;
+    height: 100svh;
+    margin: 0;
+}
+
+.background {
+    background-color: var(--background);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main {
+    background-color: var(--foreground);
+    width: 95%;
+    height: 90%;
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    gap: 10px;
+    position: relative;
+}
+
+.map-selection {
+    border: 2px solid var(--border);
+    background-color: var(--backgroundTh);
+
+    display: none;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    gap: 1rem;
+    overflow-y: auto;
+    padding: 2rem;
+}
+
+.map-selection.open {
+    display: grid;
+}
+
+.island {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-size: 0.8rem;
+    text-align: center;
+
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    user-select: none;
+}
+
+.island:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.island:active {
+    transform: scale(0.95);
+}
+
+.map-selection-bt {
+    position: absolute;
+    background-color: var(--option);
+    color: white;
+    font-family: "Roboto", sans-serif;
+    width: fit-content;
+    height: fit-content;
+    padding: 0 1.5rem;
+    border: none;
+    border-radius: 5px;
+    user-select: none;
+    bottom: 1rem;
+    right: 1rem;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 1rem;
+}
+
+.map-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    color: white;
+    font-size: 1.5rem;
+    font-family: "Roboto", sans-serif;
+
+    pointer-events: none;
+    z-index: 10;
+
+    display: none;
+}
+
+.map-selection-bt:hover {
+    background-color: var(--selected);
+    cursor: pointer;
+}
+
+.map-selection-bt:active {
+    background-color: var(--option);
+    transform: scale(0.95);
+}
+
+.assinatura {
+    position:fixed;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    bottom:0;
+    right: 10px;
+    font-size: 0.8rem;
+}
+
+.rot-bt {
+    position:absolute;
+    left: 0;
+    top: 0;
+    margin: 15px;
+    background-color: #281c14;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: brightness(1.6);
+    border-radius: 100%;
+    flex-direction: column;
+    user-select: none;
+    z-index: 10;
+}
+
+.rot-bt:hover {
+    cursor: pointer;
+    filter: brightness(2);
+}
+
+.change-island {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin-top: -0.8rem;
+}
+
+.chest-map {
+  position: relative;
+  cursor: grab;
+  user-select: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background-color: var(--backgroundTh);
+}
+
+.map-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  user-select: none;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.map-chest-icon, .map-egg-icon {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    user-select: none;
+}
+
+.map-egg-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.map-element.marked {
+    opacity: 0.6;
+}
+
+.map-marker {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: red;
+    font-size: 1rem;
+    font-family: 'roboto', sans-serif;
+    top: 0;
+}
+
+.chest-map:hover>.map-coordinates {
+    display: flex;
+}
+
+.chest-number-div {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.chest-number-info {
+    color: white;
+    font-family: 'roboto', sans-serif;
+    width: fit-content;
+    margin: 0;
+    background-color: #333;
+    border-radius: 50%;
+    padding: 2px 5px;
+}
+
+.map-coordinates {
+    display: none;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    pointer-events: none;
+    user-select: none;
+    z-index: 10;
+    font-family: 'roboto', sans-serif;
+}
+
+.chest-icon-img {
+    width: 100%;
+    height: 100%;
+}
+
+.egg-icon-img {
+    width: 150%;
+    height: 150%;
+}
+
+.chest-number {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #333;
+    color: white;
+    font-size: 12px;
+    border-radius: 50%;
+    padding: 2px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    user-select: none;
+}
+
+.map-options {
+    position: absolute;
+    display: flex;
+    bottom: 0.5%;
+    left: 0.5%;
+    gap: 6px;
+}
+
+.map-updown {
+    height: 30px;
+    width: 30px;
+    background-color: var(--selected);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.map-updown:hover {
+    filter: brightness(1.2);
+    cursor: pointer;
+}
+
+.map-updown>span {
+    opacity: 0.7;
+}

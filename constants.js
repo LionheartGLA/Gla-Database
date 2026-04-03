@@ -631,6 +631,8 @@ const islands = [
                 w: "Este baú só pode ser pego uma vez por conta."
             },
         ],
+        eggs: [
+        ]
     },
     {
         name: "Shells Town", maps: ["Img/Maps/Shells/floor0.png", "Img/Maps/Shells/floor1.png", "Img/Maps/Shells/floor2.png", "Img/Maps/Shells/floor3.png", "Img/Maps/Shells/floor4.png", "Img/Maps/Shells/floor5.png"]
@@ -2077,8 +2079,5 @@ const achievements = [
     { name: "Justiça Feita", description: "Foi derrotado por um Almirante no Sabaody Archipelago.", img: "Img/Achievs/almirantes.png", directions: ["", ""] },
 ]
 
-const updateText = `- Adicionada aba de baús junto com mapa interativo.
-- Adicionada aba de conquistas secretas.
-- Adicionadas novas receitas.
-- Adicionados novos personagens.
-- Removidas abas de rotação e To Do List.`
+const updateText = `- Adicionada a aba de Mapa Interativo. Irei adicionar mais coisas ao mapa aos poucos e, por enquanto,
+há apenas os baús e os ovos do evento de Páscoa, que irei adicionar conforme for descobrindo.`

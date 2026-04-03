@@ -311,7 +311,8 @@ body {
 .chest-bt:hover>.bt-info,
 .wb-bt:hover>.bt-info,
 .track-bt:hover>.bt-info,
-.coli-bt:hover>.bt-info {
+.coli-bt:hover>.bt-info,
+.map-bt:hover>.bt-info {
     height: 20px;
     width: fit-content;
     position: absolute;
@@ -377,6 +378,13 @@ body {
 
 .coli-bt {
     background-image: url('Img/coliButton.png');
+    background-repeat: no-repeat;
+    height: 34px;
+    width: 34px;
+}
+
+.map-bt {
+    background-image: url('Img/mapButton.png');
     background-repeat: no-repeat;
     height: 34px;
     width: 34px;
@@ -953,8 +961,8 @@ td>a {
   overflow: hidden;
   cursor: grab;
   user-select: none;
-  width: 600px; /* or whatever size you want */
-  height: 400px; /* or whatever size you want */
+  width: 600px;
+  height: 400px;
 }
 
 .map-img {
@@ -963,7 +971,7 @@ td>a {
   left: 0;
   transform-origin: 0 0;
   user-select: none;
-  pointer-events: none; /* So icons on top are clickable */
+  pointer-events: none;
   will-change: transform;
 }
 
@@ -1032,12 +1040,6 @@ td>a {
     pointer-events: none;
     user-select: none;
 }
-
-
-
-/*#chests {
-    display: none;
-}*/
 
 .map-options {
     position: absolute;
@@ -1348,7 +1350,8 @@ td>a {
 .chest-bt:hover,
 .wb-bt:hover,
 .track-bt:hover,
-.coli-bt:hover {
+.coli-bt:hover,
+.map-bt:hover {
     cursor: pointer;
     filter: brightness(1.5);
 }

@@ -19,12 +19,10 @@ let startPosX, startPosY;
 
 let shouldFitOnLoad = true;
 
-/* ================= TRANSFORM ================= */
 function updateMapTransform() {
     mapImg.style.transform = `translate(${posX}px, ${posY}px) scale(${zoom})`;
 }
 
-/* ================= ZOOM ================= */
 chestMap.addEventListener('wheel', (e) => {
     e.preventDefault();
 
@@ -45,7 +43,6 @@ chestMap.addEventListener('wheel', (e) => {
     updateMapTransform();
 });
 
-/* ================= DRAG ================= */
 chestMap.addEventListener('mousedown', (e) => {
     isDragging = true;
     startX = e.clientX;
@@ -67,7 +64,6 @@ chestMap.addEventListener('mousemove', (e) => {
     chestMap.addEventListener(evt, ()=> isDragging = false);
 });
 
-/* ================= FIT IMAGE ================= */
 function fitImageToContainer() {
     if (!shouldFitOnLoad) return;
 
@@ -90,7 +86,6 @@ function fitImageToContainer() {
 
 mapImg.onload = fitImageToContainer;
 
-/* ================= FLOOR BUTTONS ================= */
 const upBtn = chestMap.querySelector(".map-up");
 const downBtn = chestMap.querySelector(".map-down");
 
@@ -101,7 +96,7 @@ upBtn.addEventListener('click', () => {
         currentFloor++;
         selectedFloor = currentFloor;
 
-        shouldFitOnLoad = false; // ← KEEP SCALE
+        shouldFitOnLoad = false;
         mapImg.src = currentIsland.maps[currentFloor];
     }
 });
@@ -113,12 +108,11 @@ downBtn.addEventListener('click', () => {
         currentFloor--;
         selectedFloor = currentFloor;
 
-        shouldFitOnLoad = false; // ← KEEP SCALE
+        shouldFitOnLoad = false;
         mapImg.src = currentIsland.maps[currentFloor];
     }
 });
 
-/* ================= ISLAND SELECT ================= */
 islands.forEach(island=>{
     if (island.name === 'East Blue' || island.name === 'Grandline') return;
 
@@ -143,12 +137,11 @@ islands.forEach(island=>{
         currentFloor = 0;
         selectedFloor = 0;
 
-        shouldFitOnLoad = true; // ← FIT ONLY HERE
+        shouldFitOnLoad = true;
         mapImg.src = island.maps[0];
     });
 });
 
-/* ================= COORDS ================= */
 const coordDisplay = chestMap.querySelector('.map-coordinates');
 
 chestMap.addEventListener('mousemove', (e)=>{
@@ -173,7 +166,6 @@ chestMap.addEventListener('mousemove', (e)=>{
         coordDisplay.innerText='';
 });
 
-/* ================= CLOSE ================= */
 document.querySelector('.map-close-bt').addEventListener('click', ()=>{
     chestMap.style.display='none';
 });

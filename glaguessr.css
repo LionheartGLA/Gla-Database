@@ -106,7 +106,7 @@ html, body {
   left: 0;
   transform-origin: 0 0;
   user-select: none;
-  pointer-events: none; /* So icons on top are clickable */
+  pointer-events: none;
   will-change: transform;
 }
 
