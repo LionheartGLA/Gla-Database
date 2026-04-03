@@ -727,6 +727,50 @@ const islands = [
                 y: 54.1
             },
         ],
+        eggs: [
+            {
+                id: 1,
+                floor: 0,
+                x: 48.70,
+                y: 68.67
+            },
+            {
+                id: 2,
+                floor: 1,
+                x: 67.69,
+                y: 57.92
+            },
+            {
+                id: 3,
+                floor: 5,
+                x: 54.77,
+                y: 51.98
+            },
+            {
+                id: 4,
+                floor: 2,
+                x: 31.11,
+                y: 42.72
+            },
+            {
+                id: 5,
+                floor: 3,
+                x: 25.45,
+                y: 53.61
+            },
+            {
+                id: 6,
+                floor: 5,
+                x: 45.85,
+                y: 39.21
+            },
+            {
+                id: 7,
+                floor: 3,
+                x: 53.34,
+                y: 42.90
+            },
+        ]
     },
     {
         name: "Samui Island", maps: ["Img/Maps/Samui/floor0.png", "Img/Maps/Samui/floor1.png", "Img/Maps/Samui/floor2.png", "Img/Maps/Samui/floor3.png"]
