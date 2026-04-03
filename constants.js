@@ -1317,6 +1317,62 @@ const islands = [
                 y: 46.06,
             },
         ],
+        eggs: [
+            {
+                id: 1,
+                floor: 0,
+                x: 47.85,
+                y: 54.22
+            },
+            {
+                id: 2,
+                floor: 2,
+                x: 55.02,
+                y: 55.64
+            },
+            {
+                id: 3,
+                floor: 2,
+                x: 51.82,
+                y: 42.47
+            },
+            {
+                id: 4,
+                floor: 2,
+                x: 55.08,
+                y: 46.20
+            },
+            {
+                id: 5,
+                floor: 0,
+                x: 65.01,
+                y: 44.12
+            },
+            {
+                id: 6,
+                floor: 4,
+                x: 31.45,
+                y: 41.25
+            },
+            {
+                id: 7,
+                floor: 3,
+                x: 35.71,
+                y: 54.65
+            },
+            {
+                id: 8,
+                floor: 1,
+                x: 31.58,
+                y: 51.67
+            },
+            {
+                id: 9,
+                floor: 1,
+                x: 69.24,
+                y: 46.04
+            },
+        ]
     },
     {
         name: "Kumo Island", maps: ["Img/Maps/Kumo/floor0.png", "Img/Maps/Kumo/floor1.png", "Img/Maps/Kumo/floor2.png", "Img/Maps/Kumo/floor3.png"]
