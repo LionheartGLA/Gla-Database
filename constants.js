@@ -2141,6 +2141,50 @@ const islands = [
                 y: 47.58
             },
         ],
+        eggs: [
+            {
+                id: 1,
+                floor: 0,
+                x: 58.95,
+                y: 55.69
+            },
+            {
+                id: 2,
+                floor: 0,
+                x: 56.24,
+                y: 52.20
+            },
+            {
+                id: 3,
+                floor: 1,
+                x: 52.82,
+                y: 44.18
+            },
+            {
+                id: 4,
+                floor: 0,
+                x: 46.11,
+                y: 44.81
+            },
+            {
+                id: 5,
+                floor: 0,
+                x: 46.40,
+                y: 48.35
+            },
+            {
+                id: 6,
+                floor: 0,
+                x: 48.55,
+                y: 50.09
+            },
+            {
+                id: 7,
+                floor: 0,
+                x: 52.17,
+                y: 56.02
+            },
+        ]
     },
     {
         name: "Water 7", maps: ["Img/Maps/Water7/floor0.png", "Img/Maps/Water7/floor1.png", "Img/Maps/Water7/floor2.png", "Img/Maps/Water7/floor3.png", "Img/Maps/Water7/floor4.png", "Img/Maps/Water7/floor5.png"]
@@ -2197,6 +2241,62 @@ const islands = [
                 y: 39.62
             },
         ],
+        eggs: [
+            /*{
+                id: 1,
+                floor: 4,
+                x: 24.67,
+                y: 53.38
+            },
+            {
+                id: 2,
+                floor: 4,
+                x: 48.54,
+                y: 48.03
+            },
+            {
+                id: 3,
+                floor: 4,
+                x: 50.03,
+                y: 61.40
+            },
+            {
+                id: 4,
+                floor: 4,
+                x: 57.46,
+                y: 46.22
+            },
+            {
+                id: 5,
+                floor: 4,
+                x: 61.03,
+                y: 39.00
+            },
+            {
+                id: 6,
+                floor: 4,
+                x: 63.77,
+                y: 54.66
+            },
+            {
+                id: 7,
+                floor: 4,
+                x: 70.36,
+                y: 50.95
+            },
+            {
+                id: 8,
+                floor: 1,
+                x: 55.39,
+                y: 48.55
+            },
+            {
+                id: 9,
+                floor: 0,
+                x: 62.75,
+                y: 53.08
+            },*/
+        ]
     },
     {
         name: "Enies Lobby", maps: ["Img/Maps/EniesLobby/floor0.png"]
@@ -2233,6 +2333,56 @@ const islands = [
                 y: 60.85,
             }
         ],
+        eggs: [
+            {
+                id: 1,
+                floor: 0,
+                x: 45.13,
+                y: 79.37
+            },
+            {
+                id: 2,
+                floor: 0,
+                x: 50.37,
+                y: 76.86
+            },
+            {
+                id: 3,
+                floor: 0,
+                x: 42.65,
+                y: 63.72
+            },
+            {
+                id: 4,
+                floor: 0,
+                x: 46.21,
+                y: 63.36
+            },
+            {
+                id: 5,
+                floor: 0,
+                x: 51.32,
+                y: 64.50
+            },
+            {
+                id: 6,
+                floor: 0,
+                x: 54.91,
+                y: 61.47
+            },
+            {
+                id: 7,
+                floor: 0,
+                x: 51.03,
+                y: 59.71
+            },
+            {
+                id: 8,
+                floor: 0,
+                x: 47.01,
+                y: 56.36
+            },
+        ]
     },
     {
         name: "Amazon Lily", maps: ["Img/Maps/AmazonLily/floor0.png", "Img/Maps/AmazonLily/floor1.png"]
