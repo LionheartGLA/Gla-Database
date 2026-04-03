@@ -1193,6 +1193,62 @@ const islands = [
                 y: 41.06
             },
         ],
+        eggs: [
+            {
+                id: 1,
+                floor: 4,
+                x: 52.00,
+                y: 54.45
+            },
+            {
+                id: 2,
+                floor: 4,
+                x: 73.47,
+                y: 74.02
+            },
+            {
+                id: 3,
+                floor: 6,
+                x: 76.86,
+                y: 48.57
+            },
+            {
+                id: 4,
+                floor: 4,
+                x: 77.82,
+                y: 40.43
+            },
+            {
+                id: 5,
+                floor: 4,
+                x: 41.45,
+                y: 42.83
+            },
+            {
+                id: 6,
+                floor: 8,
+                x: 18.10,
+                y: 70.49
+            },
+            {
+                id: 7,
+                floor: 4,
+                x: 31.85,
+                y: 72.72
+            },
+            {
+                id: 8,
+                floor: 4,
+                x: 68.46,
+                y: 58.50
+            },
+            {
+                id: 9,
+                floor: 4,
+                x: 61.09,
+                y: 50.18
+            },
+        ]
     },
     {
         name: "Loguetown", maps: ["Img/Maps/Loguetown/floor0.png", "Img/Maps/Loguetown/floor1.png", "Img/Maps/Loguetown/floor2.png", "Img/Maps/Loguetown/floor3.png", "Img/Maps/Loguetown/floor4.png"]
