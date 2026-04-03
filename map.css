@@ -317,3 +317,32 @@ html, body {
 .map-updown>span {
     opacity: 0.7;
 }
+
+.warn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #5c1515;
+    padding: 0.3rem;
+    border: 1px solid var(--border);
+    border-radius: 100%;
+}
+
+.warn-text {
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-100%, -50%);
+    background-color: #5c1515;
+    color: white;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    width: 200px;
+    display: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.warn:hover .warn-text {
+    display: flex;
+}

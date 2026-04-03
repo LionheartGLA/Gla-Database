@@ -858,6 +858,62 @@ const islands = [
                 y: 38.42
             },
         ],
+        eggs: [
+            {
+                id: 1,
+                floor: 2,
+                x: 41.17,
+                y: 66.74,
+            },
+            {
+                id: 2,
+                floor: 2,
+                x: 44.74,
+                y: 56.15,
+            },
+            {
+                id: 3,
+                floor: 2,
+                x: 67.00,
+                y: 54.55,
+            },
+            {
+                id: 4,
+                floor: 2,
+                x: 67.28,
+                y: 52.79,
+            },
+            {
+                id: 5,
+                floor: 2,
+                x: 46.29,
+                y: 44.78,
+            },
+            {
+                id: 6,
+                floor: 2,
+                x: 42.76,
+                y: 37.57,
+            },
+            {
+                id: 7,
+                floor: 2,
+                x: 38.82,
+                y: 54.98,
+            },
+            {
+                id: 8,
+                floor: 2,
+                x: 48.27,
+                y: 51.01,
+            },
+            {
+                id: 9,
+                floor: 0,
+                x: 40.42,
+                y: 44.78,
+            },
+        ]
     },
     {
         name: "Syrup Village", maps: ["Img/Maps/Syrup/floor0.png", "Img/Maps/Syrup/floor1.png", "Img/Maps/Syrup/floor2.png", "Img/Maps/Syrup/floor3.png", "Img/Maps/Syrup/floor4.png", "Img/Maps/Syrup/floor5.png"]
