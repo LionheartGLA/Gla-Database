@@ -974,6 +974,56 @@ const islands = [
                 y: 57.52
             },
         ],
+        eggs: [
+            {
+                id: 1,
+                floor: 2,
+                x: 71.68,
+                y: 38.23
+            },
+            {
+                id: 2,
+                floor: 4,
+                x: 52.97,
+                y: 36.17
+            },
+            {
+                id: 3,
+                floor: 1,
+                x: 80.47,
+                y: 68.20
+            },
+            {
+                id: 4,
+                floor: 2,
+                x: 61.59,
+                y: 62.43
+            },
+            {
+                id: 5,
+                floor: 3,
+                x: 47.32,
+                y: 34.42
+            },
+            {
+                id: 6,
+                floor: 5,
+                x: 53.89,
+                y: 33.29
+            },
+            {
+                id: 7,
+                floor: 3,
+                x: 15.52,
+                y: 44.52
+            },
+            {
+                id: 8,
+                floor: 4,
+                x: 26.01,
+                y: 56.80
+            },
+        ]
     },
     {
         name: "Island of Rare Animals", maps: ["Img/Maps/Rare/floor0.png", "Img/Maps/Rare/floor1.png", "Img/Maps/Rare/floor2.png", "Img/Maps/Rare/floor3.png", "Img/Maps/Rare/floor4.png", "Img/Maps/Rare/floor5.png", "Img/Maps/Rare/floor6.png"]
