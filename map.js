@@ -290,7 +290,12 @@ function renderEggsOnMap(island, floor) {
             eggIcon.src = 'Img/egg.png';
             eggIcon.classList.add('egg-icon-img');
 
+            const numberLabel = document.createElement('div');
+            numberLabel.classList.add('chest-number');
+            numberLabel.innerText = index + 1;
+
             eggContainer.appendChild(eggIcon);
+            eggContainer.appendChild(numberLabel);
             chestMap.appendChild(eggContainer);
 
             if (markedEggs[elementId]) {

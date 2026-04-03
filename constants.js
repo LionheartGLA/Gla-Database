@@ -1660,6 +1660,74 @@ const islands = [
                 y: 47.51
             },
         ],
+        eggs: [
+            {
+                id: 1,
+                floor: 0,
+                x: 55.73,
+                y: 57.30
+            },
+            {
+                id: 2,
+                floor: 1,
+                x: 61.66,
+                y: 57.63
+            },
+            {
+                id: 3,
+                floor: 1,
+                x: 55.26,
+                y: 42.56
+            },
+            {
+                id: 4,
+                floor: 3,
+                x: 59.03,
+                y: 42.91
+            },
+            {
+                id: 5,
+                floor: 3,
+                x: 35.15,
+                y: 56.52
+            },
+            {
+                id: 6,
+                floor: 1,
+                x: 58.00,
+                y: 48.49
+            },
+            {
+                id: 7,
+                floor: 1,
+                x: 46.92,
+                y: 44.97
+            },
+            {
+                id: 8,
+                floor: 1,
+                x: 41.40,
+                y: 42.27
+            },
+            {
+                id: 9,
+                floor: 4,
+                x: 34.71,
+                y: 45.43
+            },
+            {
+                id: 10,
+                floor: 1,
+                x: 43.26,
+                y: 46.71
+            },
+            {
+                id: 11,
+                floor: 1,
+                x: 56.87,
+                y: 45.64
+            },
+        ]
     },
     {
         name: "Little Garden", maps: ["Img/Maps/LittleGarden/floor0.png", "Img/Maps/LittleGarden/floor1.png", "Img/Maps/LittleGarden/floor2.png", "Img/Maps/LittleGarden/floor3.png"]
