@@ -825,7 +825,7 @@ const islands = [
                 ],
                 floor: 2,
                 x: 47,
-                y: 44.78
+                y: 44.78,
             },
             {
                 id: 2, items: [
@@ -864,6 +864,7 @@ const islands = [
                 floor: 2,
                 x: 41.17,
                 y: 66.74,
+                warn: "+1"
             },
             {
                 id: 2,
@@ -888,6 +889,7 @@ const islands = [
                 floor: 2,
                 x: 46.29,
                 y: 44.78,
+                warn: "+2"
             },
             {
                 id: 6,
@@ -1782,6 +1784,76 @@ const islands = [
                 y: 64.33
             },
         ],
+        eggs: [
+            {
+                id: 1,
+                floor: 0,
+                x: 56.73,
+                y: 59.82
+            },
+            {
+                id: 2,
+                floor: 0,
+                x: 51.39,
+                y: 36.97
+            },
+            {
+                id: 3,
+                floor: 0,
+                x: 65.86,
+                y: 58.77
+            },
+            {
+                id: 4,
+                floor: 0,
+                x: 60.92,
+                y: 56.97
+            },
+            {
+                id: 5,
+                floor: 0,
+                x: 45.51,
+                y: 45.18
+            },
+            {
+                id: 6,
+                floor: 0,
+                x: 67.71,
+                y: 63.02
+            },
+            {
+                id: 7,
+                floor: 1,
+                x: 40.19,
+                y: 41.51
+            },
+            {
+                id: 8,
+                floor: 0,
+                x: 52.01,
+                y: 41.29,
+                warn: "-1"
+            },
+            {
+                id: 9,
+                floor: 0,
+                x: 43.36,
+                y: 57.19,
+            },
+            {
+                id: 10,
+                floor: 0,
+                x: 69.17,
+                y: 58.23,
+                warn: "-2"
+            },
+            {
+                id: 11,
+                floor: 0,
+                x: 54.19,
+                y: 45.76,
+            },
+        ]
     },
     {
         name: "Jaya", maps: ["Img/Maps/Jaya/floor0.png", "Img/Maps/Jaya/floor1.png", "Img/Maps/Jaya/floor2.png", "Img/Maps/Jaya/floor3.png", "Img/Maps/Jaya/floor4.png", "Img/Maps/Jaya/floor5.png", "Img/Maps/Jaya/floor6.png"]
@@ -1832,6 +1904,116 @@ const islands = [
                 y: 59.65
             },
         ],
+        eggs: [
+            {
+                id: 1,
+                floor: 3,
+                x: 54.44,
+                y: 31.16
+            },
+            {
+                id: 2,
+                floor: 3,
+                x: 53.37,
+                y: 29.10
+            },
+            {
+                id: 3,
+                floor: 3,
+                x: 47.07,
+                y: 49.12
+            },
+            {
+                id: 4,
+                floor: 4,
+                x: 53.50,
+                y: 56.61
+            },
+            {
+                id: 5,
+                floor: 4,
+                x: 47.26,
+                y: 58.05
+            },
+            {
+                id: 6,
+                floor: 3,
+                x: 43.43,
+                y: 58.41
+            },
+            {
+                id: 7,
+                floor: 1,
+                x: 51.74,
+                y: 48.63
+            },
+            {
+                id: 8,
+                floor: 2,
+                x: 48.18,
+                y: 46.96
+            },
+            {
+                id: 9,
+                floor: 5,
+                x: 42.83,
+                y: 48.12
+            },
+            {
+                id: 10,
+                floor: 5,
+                x: 42.47,
+                y: 46.65
+            },
+            {
+                id: 11,
+                floor: 5,
+                x: 45.35,
+                y: 44.12
+            },
+            {
+                id: 12,
+                floor: 5,
+                x: 48.69,
+                y: 44.30
+            },
+            {
+                id: 13,
+                floor: 5,
+                x: 51.31,
+                y: 41.40
+            },
+            {
+                id: 14,
+                floor: 6,
+                x: 52.42,
+                y: 47.46
+            },
+            {
+                id: 15,
+                floor: 6,
+                x: 58.68,
+                y: 44.90
+            },
+            {
+                id: 16,
+                floor: 5,
+                x: 62.65,
+                y: 52.92
+            },
+            {
+                id: 17,
+                floor: 5,
+                x: 48.42,
+                y: 60.01
+            },
+            {
+                id: 18,
+                floor: 5,
+                x: 44.89,
+                y: 53.74
+            },
+        ]
     },
     {
         name: "G-7 Marine Base", maps: ["Img/Maps/g7/floor0.png", "Img/Maps/g7/floor1.png", "Img/Maps/g7/floor2.png", "Img/Maps/g7/floor3.png", "Img/Maps/g7/floor4.png"]
@@ -1942,6 +2124,74 @@ const islands = [
                 w: "Este baú é de uma missão secreta em Drum Island e não é necessário para a conquista."
             },
         ],
+        eggs: [
+            {
+                id: 1,
+                floor: 0,
+                x: 43.50,
+                y: 72.44
+            },
+            {
+                id: 2,
+                floor: 0,
+                x: 41.61,
+                y: 61.86
+            },
+            {
+                id: 3,
+                floor: 0,
+                x: 23.40,
+                y: 70.02
+            },
+            {
+                id: 4,
+                floor: 0,
+                x: 11.49,
+                y: 54.56
+            },
+            {
+                id: 5,
+                floor: 1,
+                x: 24.95,
+                y: 51.51
+            },
+            {
+                id: 6,
+                floor: 2,
+                x: 15.10,
+                y: 41.90
+            },
+            {
+                id: 7,
+                floor: 2,
+                x: 22.31,
+                y: 33.18
+            },
+            {
+                id: 8,
+                floor: 0,
+                x: 38.81,
+                y: 34.90
+            },
+            {
+                id: 9,
+                floor: 0,
+                x: 63.49,
+                y: 60.82
+            },
+            {
+                id: 10,
+                floor: 0,
+                x: 82.18,
+                y: 43.51
+            },
+            {
+                id: 11,
+                floor: 2,
+                x: 19.90,
+                y: 16.43
+            },
+        ]
     },
     {
         name: "Nanimonai Island", maps: ["Img/Maps/Nanimonai/floor0.png", "Img/Maps/Nanimonai/floor1.png", "Img/Maps/Nanimonai/floor2.png", "Img/Maps/Nanimonai/floor3.png"]
@@ -2248,7 +2498,7 @@ const islands = [
             },
         ],
         eggs: [
-            /*{
+            {
                 id: 1,
                 floor: 4,
                 x: 24.67,
@@ -2301,7 +2551,43 @@ const islands = [
                 floor: 0,
                 x: 62.75,
                 y: 53.08
-            },*/
+            },
+            {
+                id: 10,
+                floor: 4,
+                x: 44.32,
+                y: 54.23
+            },
+            {
+                id: 11,
+                floor: 4,
+                x: 30.91,
+                y: 54.85
+            },
+            {
+                id: 12,
+                floor: 4,
+                x: 71.53,
+                y: 61.66
+            },
+            {
+                id: 13,
+                floor: 4,
+                x: 73.82,
+                y: 45.06
+            },
+            {
+                id: 14,
+                floor: 4,
+                x: 70.22,
+                y: 38.01
+            },
+            {
+                id: 14,
+                floor: 0,
+                x: 69.70,
+                y: 46.09
+            },
         ]
     },
     {

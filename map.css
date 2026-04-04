@@ -346,3 +346,18 @@ html, body {
 .warn:hover .warn-text {
     display: flex;
 }
+
+.egg-warning {
+    position: absolute;
+    bottom: -20px;
+    left: -10px;
+    background-color: #5c1515;
+    color: white;
+    padding: 0.3rem;
+    border: 2px solid var(--border);
+    border-radius: 100%;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

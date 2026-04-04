@@ -294,6 +294,13 @@ function renderEggsOnMap(island, floor) {
             numberLabel.classList.add('chest-number');
             numberLabel.innerText = index + 1;
 
+            if (egg.warn !== undefined) {
+                const warnDiv = document.createElement('div');
+                warnDiv.classList.add('egg-warning');
+                warnDiv.innerText = egg.warn;
+                eggContainer.appendChild(warnDiv);
+            }
+
             eggContainer.appendChild(eggIcon);
             eggContainer.appendChild(numberLabel);
             chestMap.appendChild(eggContainer);
