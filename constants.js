@@ -2728,6 +2728,62 @@ const islands = [
                 y: 28.26,
             },
         ],
+        eggs: [
+            {
+                id: 1,
+                floor: 0,
+                x: 44.23,
+                y: 39.56
+            },
+            {
+                id: 2,
+                floor: 1,
+                x: 30.31,
+                y: 36.36
+            },
+            {
+                id: 3,
+                floor: 0,
+                x: 24.85,
+                y: 44.54
+            },
+            {
+                id: 4,
+                floor: 0,
+                x: 44.06,
+                y: 53.65
+            },
+            {
+                id: 5,
+                floor: 0,
+                x: 43.60,
+                y: 66.79
+            },
+            {
+                id: 6,
+                floor: 1,
+                x: 51.79,
+                y: 63.08
+            },
+            {
+                id: 7,
+                floor: 0,
+                x: 49.66,
+                y: 76.84
+            },
+            {
+                id: 8,
+                floor: 0,
+                x: 74.64,
+                y: 50.79
+            },
+            {
+                id: 9,
+                floor: 0,
+                x: 61.32,
+                y: 35.75
+            },
+        ]
     },
     {
         name: "Kuraigana Island", maps: ["Img/Maps/Kuraigana/floor0.png", "Img/Maps/Kuraigana/floor1.png"]
