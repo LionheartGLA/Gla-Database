@@ -2356,6 +2356,80 @@ const islands = [
                 y: 26.37
             },
         ],
+        eggs: [
+            {
+                id: 1,
+                floor: 2,
+                x: 25.88,
+                y: 73.44
+            },
+            {
+                id: 2,
+                floor: 1,
+                x: 59.25,
+                y: 75.71
+            },
+            {
+                id: 3,
+                floor: 1,
+                x: 72.64,
+                y: 46.15
+            },
+            {
+                id: 4,
+                floor: 1,
+                x: 54.43,
+                y: 44.42
+            },
+            {
+                id: 5,
+                floor: 1,
+                x: 50.82,
+                y: 60.60
+            },
+            {
+                id: 6,
+                floor: 2,
+                x: 47.47,
+                y: 67.03
+            },
+            {
+                id: 7,
+                floor: 0,
+                x: 51.02,
+                y: 72.31
+            },
+            {
+                id: 8,
+                floor: 2,
+                x: 75.62,
+                y: 65.98
+            },
+            {
+                id: 9,
+                floor: 3,
+                x: 36.38,
+                y: 79.16
+            },
+            {
+                id: 10,
+                floor: 3,
+                x: 14.47,
+                y: 10.80
+            },
+            {
+                id: 11,
+                floor: 2,
+                x: 27.07,
+                y: 31.54
+            },
+            {
+                id: 12,
+                floor: 1,
+                x: 33.44,
+                y: 19.73
+            },
+        ]
     },
     {
         name: "Skypiea", maps: ["Img/Maps/Skypiea/floor0.png", "Img/Maps/Skypiea/floor1.png"]
