@@ -2294,6 +2294,122 @@ const islands = [
                 y: 47.23
             },
         ],
+        eggs: [
+            {
+                id: 1,
+                floor: 2,
+                x: 24.49,
+                y: 32.83
+            },
+            {
+                id: 2,
+                floor: 2,
+                x: 18.11,
+                y: 49.71
+            },
+            {
+                id: 3,
+                floor: 2,
+                x: 27.11,
+                y: 56.25
+            },
+            {
+                id: 4,
+                floor: 2,
+                x: 17.11,
+                y: 68.26
+            },
+            {
+                id: 5,
+                floor: 2,
+                x: 60.22,
+                y: 77.60
+            },
+            {
+                id: 6,
+                floor: 2,
+                x: 50.83,
+                y: 79.24
+            },
+            {
+                id: 7,
+                floor: 3,
+                x: 67.33,
+                y: 60.24
+            },
+            {
+                id: 8,
+                floor: 2,
+                x: 69.84,
+                y: 52.35
+            },
+            {
+                id: 9,
+                floor: 1,
+                x: 41.51,
+                y: 64.01
+            },
+            {
+                id: 10,
+                floor: 1,
+                x: 32.68,
+                y: 51.78
+            },
+            {
+                id: 11,
+                floor: 1,
+                x: 46.64,
+                y: 45.18
+            },
+            {
+                id: 12,
+                floor: 1,
+                x: 36.11,
+                y: 29.93
+            },
+            {
+                id: 13,
+                floor: 1,
+                x: 46.20,
+                y: 30.40
+            },
+            {
+                id: 14,
+                floor: 3,
+                x: 49.50,
+                y: 29.40
+            },
+            {
+                id: 15,
+                floor: 3,
+                x: 60.35,
+                y: 14.76
+            },
+            {
+                id: 16,
+                floor: 3,
+                x: 67.10,
+                y: 23.10
+            },
+            {
+                id: 17,
+                floor: 1,
+                x: 70.98,
+                y: 48.47
+            },
+            {
+                id: 18,
+                floor: 1,
+                x: 80.05,
+                y: 38.43
+            },
+            {
+                id: 19,
+                floor: 0,
+                x: 32.90,
+                y: 37.51
+            },
+        ]
     },
     {
         name: "Rainbase", maps: ["Img/Maps/Rainbase/floor0.png", "Img/Maps/Rainbase/floor1.png", "Img/Maps/Rainbase/floor2.png", "Img/Maps/Rainbase/floor3.png", "Img/Maps/Rainbase/floor4.png", "Img/Maps/Rainbase/floor5.png"]
