@@ -24,6 +24,9 @@ const mapSelectorButton = document.querySelector('.map-selection-bt');
 const mapUpButton = document.querySelector('.map-up');
 const mapDownButton = document.querySelector('.map-down');
 
+const eggCountContainer = document.querySelector('.egg-count');
+const eggCountNumber = document.querySelector('.egg-count-number');
+
 let selectedMap = null;
 
 function populateMapSelector() {
@@ -141,16 +144,7 @@ chestMap.addEventListener('wheel', (e) => {
     updateMapTransform();
 });
 
-chestMap.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    startX = e.clientX;
-    startY = e.clientY;
-    startPosX = posX;
-    startPosY = posY;
-    chestMap.style.cursor = 'grabbing';
-});
-
-chestMap.addEventListener('mousemove', (e) => {
+chestMap.addEventListener('pointermove', (e) => {
     if (!isDragging) return;
 
     const dx = e.clientX - startX;
@@ -162,16 +156,104 @@ chestMap.addEventListener('mousemove', (e) => {
     updateMapTransform();
 });
 
-chestMap.addEventListener('mouseup', () => {
+chestMap.addEventListener('pointerup', (e) => {
+    isDragging = false;
+    chestMap.style.cursor = 'grab';
+
+    chestMap.releasePointerCapture(e.pointerId);
+});
+
+chestMap.addEventListener('pointercancel', () => {
     isDragging = false;
     chestMap.style.cursor = 'grab';
 });
 
-chestMap.addEventListener('mouseleave', () => {
-    isDragging = false;
-    chestMap.style.cursor = 'grab';
-    coordDisplay.innerText = '';
-    lastCoords = null;
+let pointers = new Map();
+let initialPinchDistance = null;
+let initialZoom = zoom;
+
+function getDistance(p1, p2) {
+    const dx = p1.clientX - p2.clientX;
+    const dy = p1.clientY - p2.clientY;
+    return Math.sqrt(dx * dx + dy * dy);
+}
+
+let dragMoved = false;
+
+chestMap.addEventListener('pointerdown', (e) => {
+    pointers.set(e.pointerId, e);
+
+    if (pointers.size > 1) {
+        isDragging = false;
+        return;
+    }
+
+    isDragging = true;
+    dragMoved = false;
+
+    startX = e.clientX;
+    startY = e.clientY;
+
+    startPosX = posX;
+    startPosY = posY;
+
+    chestMap.style.cursor = 'grabbing';
+});
+
+chestMap.addEventListener('pointermove', (e) => {
+    if (!pointers.has(e.pointerId)) return;
+
+    pointers.set(e.pointerId, e);
+
+    if (pointers.size === 2) {
+        const [p1, p2] = Array.from(pointers.values());
+
+        const currentDistance = getDistance(p1, p2);
+
+        if (!initialPinchDistance) {
+            initialPinchDistance = currentDistance;
+            initialZoom = zoom;
+            return;
+        }
+
+        const scale = currentDistance / initialPinchDistance;
+        let newZoom = initialZoom * scale;
+
+        newZoom = Math.max(minZoom, Math.min(maxZoom, newZoom));
+
+        const rect = chestMap.getBoundingClientRect();
+        const centerX = ((p1.clientX + p2.clientX) / 2) - rect.left;
+        const centerY = ((p1.clientY + p2.clientY) / 2) - rect.top;
+
+        const imgX = (centerX - posX) / zoom;
+        const imgY = (centerY - posY) / zoom;
+
+        zoom = newZoom;
+
+        posX = centerX - imgX * zoom;
+        posY = centerY - imgY * zoom;
+
+        updateMapTransform();
+    }
+});
+
+function resetPinch() {
+    initialPinchDistance = null;
+}
+
+chestMap.addEventListener('pointerup', (e) => {
+    pointers.delete(e.pointerId);
+    if (pointers.size < 2) resetPinch();
+});
+
+chestMap.addEventListener('pointercancel', (e) => {
+    pointers.delete(e.pointerId);
+    resetPinch();
+});
+
+chestMap.addEventListener('pointerleave', (e) => {
+    pointers.delete(e.pointerId);
+    resetPinch();
 });
 
 const loadingText = document.querySelector('.map-loading');
@@ -203,6 +285,8 @@ function loadMap(showLoading = true) {
         loadingText.style.display = 'none';
 
         updateFloorButtons();
+
+        updateEggCount();
     };
 }
 
@@ -356,6 +440,7 @@ function toggleEggMarker(container) {
     }
 
     saveMarkedEggs(markedEggs);
+    updateEggCount();
 }
 
 function applyMarker(container) {
@@ -449,8 +534,15 @@ function changeFloor(direction) {
     loadMap(false);
 }
 
-mapUpButton.addEventListener('click', () => changeFloor(1));
-mapDownButton.addEventListener('click', () => changeFloor(-1));
+function addButtonPress(button, callback) {
+    button.addEventListener('pointerdown', (e) => {
+        e.preventDefault();
+        callback();
+    });
+}
+
+addButtonPress(mapUpButton, () => changeFloor(1));
+addButtonPress(mapDownButton, () => changeFloor(-1));
 
 function updateFloorButtons() {
     if (!selectedMap) return;
@@ -459,6 +551,30 @@ function updateFloorButtons() {
 
     mapUpButton.style.opacity = currentFloor >= maxFloor ? '0.3' : '1';
     mapDownButton.style.opacity = currentFloor <= 0 ? '0.3' : '1';
+}
+
+function updateEggCount() {
+    if (!selectedMap || !selectedMap.eggs || selectedMap.eggs.length === 0) {
+        eggCountContainer.style.display = 'none';
+        return;
+    }
+
+    const markedEggs = getMarkedEggs();
+
+    let total = 0;
+    let marked = 0;
+
+    selectedMap.eggs.forEach((egg, index) => {
+        const elementId = `${selectedMap.name}-egg-${index}-floor-${egg.floor}`;
+        total++;
+
+        if (markedEggs[elementId]) {
+            marked++;
+        }
+    });
+
+    eggCountContainer.style.display = 'flex';
+    eggCountNumber.innerText = `${marked}/${total}`;
 }
 
 function startMap() {

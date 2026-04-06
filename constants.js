@@ -815,7 +815,7 @@ const islands = [
         ],
     },
     {
-        name: "Orange Town", maps: ["Img/Maps/Orange/floor0.png", "Img/Maps/Orange/floor1.png", "Img/Maps/Orange/floor2.png"]
+        name: "Orange Town", maps: ["Img/Maps/Orange/floor0.png", "Img/Maps/Orange/floor1.png", "Img/Maps/Orange/floor2.png", "Img/Maps/Orange/floor3.png", "Img/Maps/Orange/floor4.png"]
         , chests: [
             {
                 id: 1, items: [
@@ -861,10 +861,9 @@ const islands = [
         eggs: [
             {
                 id: 1,
-                floor: 2,
-                x: 41.17,
-                y: 66.74,
-                warn: "+1"
+                floor: 3,
+                x: 41.23,
+                y: 66.48,
             },
             {
                 id: 2,
@@ -886,10 +885,9 @@ const islands = [
             },
             {
                 id: 5,
-                floor: 2,
-                x: 46.29,
-                y: 44.78,
-                warn: "+2"
+                floor: 4,
+                x: 45.14,
+                y: 44.47,
             },
             {
                 id: 6,
@@ -1744,7 +1742,7 @@ const islands = [
                 id: 1, items: [
                     { item: "Poção Média de EXP", quantity: 6 },
                 ],
-                floor: 1,
+                floor: 3,
                 x: 41.26,
                 y: 38.87
             },
@@ -1754,7 +1752,7 @@ const islands = [
                     { item: "Bolsa de Jóias", quantity: 1 },
                     { item: "Poção Grande de EXP", quantity: 1 },
                 ],
-                floor: 0,
+                floor: 2,
                 x: 48.77,
                 y: 38.56
             },
@@ -1763,7 +1761,7 @@ const islands = [
                     { item: "Bolsa de Jóias", quantity: 6 },
                     { item: "Poção Média de EXP", quantity: 6 },
                 ],
-                floor: 0,
+                floor: 2,
                 x: 63.73,
                 y: 64.78
             },
@@ -1771,7 +1769,7 @@ const islands = [
                 id: 4, items: [
                     { item: "Cálice de Ouro", quantity: 11 },
                 ],
-                floor: 0,
+                floor: 2,
                 x: 34.48,
                 y: 49.58
             },
@@ -1779,7 +1777,7 @@ const islands = [
                 id: 5, items: [
                     { item: "Poção de Stamina da GL", quantity: 1 },
                 ],
-                floor: 0,
+                floor: 2,
                 x: 51.04,
                 y: 64.33
             },
@@ -1787,69 +1785,67 @@ const islands = [
         eggs: [
             {
                 id: 1,
-                floor: 0,
+                floor: 2,
                 x: 56.73,
                 y: 59.82
             },
             {
                 id: 2,
-                floor: 0,
+                floor: 2,
                 x: 51.39,
                 y: 36.97
             },
             {
                 id: 3,
-                floor: 0,
+                floor: 2,
                 x: 65.86,
                 y: 58.77
             },
             {
                 id: 4,
-                floor: 0,
+                floor: 2,
                 x: 60.92,
                 y: 56.97
             },
             {
                 id: 5,
-                floor: 0,
+                floor: 2,
                 x: 45.51,
                 y: 45.18
             },
             {
                 id: 6,
-                floor: 0,
+                floor: 2,
                 x: 67.71,
                 y: 63.02
             },
             {
                 id: 7,
-                floor: 1,
+                floor: 3,
                 x: 40.19,
                 y: 41.51
             },
             {
                 id: 8,
-                floor: 0,
-                x: 52.01,
-                y: 41.29,
-                warn: "-1"
+                floor: 1,
+                x: 52.24,
+                y: 41.51,
             },
             {
                 id: 9,
-                floor: 0,
+                floor: 2,
                 x: 43.36,
                 y: 57.19,
             },
             {
                 id: 10,
                 floor: 0,
-                x: 69.17,
-                y: 58.23,
-                warn: "-2"
+                x: 69.42,
+                y: 58.44,
             },
             {
                 id: 11,
-                floor: 0,
+                floor: 2,
                 x: 54.19,
                 y: 45.76,
             },
@@ -2608,7 +2604,7 @@ const islands = [
         ]
     },
     {
-        name: "Skypiea", maps: ["Img/Maps/Skypiea/floor0.png", "Img/Maps/Skypiea/floor1.png"]
+        name: "Skypiea", maps: ["Img/Maps/Skypiea/floor0.png", "Img/Maps/Skypiea/floor1.png", "Img/Maps/Skypiea/floor2.png"]
         , chests: [
             {
                 id: 1, items: [
@@ -2662,10 +2658,9 @@ const islands = [
             },
             {
                 id: 3,
-                floor: 1,
-                x: 52.82,
-                y: 44.18,
-                warn: "+1"
+                floor: 2,
+                x: 52.95,
+                y: 44.03,
             },
             {
                 id: 4,

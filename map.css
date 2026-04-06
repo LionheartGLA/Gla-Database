@@ -361,3 +361,25 @@ html, body {
     align-items: center;
     justify-content: center;
 }
+
+.egg-count {
+    position: absolute;
+    background-color: var(--option);
+    color: white;
+    border: 2px solid var(--border);
+    font-size: 1.1rem;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    max-height: 34px;
+    gap: 0.5rem;
+    z-index: 10;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    padding-inline: 0.5rem;
+    font-family: 'roboto', sans-serif;
+}
+
+.chest-map {
+    touch-action: none;
+}
