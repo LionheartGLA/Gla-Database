@@ -2664,7 +2664,8 @@ const islands = [
                 id: 3,
                 floor: 1,
                 x: 52.82,
-                y: 44.18
+                y: 44.18,
+                warn: "+1"
             },
             {
                 id: 4,
