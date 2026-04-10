@@ -39,7 +39,7 @@ const chars = [
     { name: "Van Augur", image: "Img/Medals/Van_augur.png", class: ["Atirador", "DPS"] },
     { name: "Vinsmoke Yonji", image: "Img/Medals/Yonji.png", class: ["Lutador", "Tanque", "Realeza"] },
     { name: "Roronoa Zoro", image: "Img/Medals/Zoro.png", class: ["Cortante", "Bruiser", "Chapéu de Palha"] },
-    { name: "Kalifa", image: "Img/Medals/Kalifa.png", class: ["Suporte", "Especialista", "Fruta do Diabo"] },
+    { name: "Kalifa", image: "Img/Medals/Kalifa.png", class: ["Suporte", "Especialista", "Fruta do Diabo", "Mulher"] },
     { name: "Jabra", image: "Img/Medals/Jabra.png", class: ["DPS", "Cortante", "Fruta do Diabo"] },
     { name: "Kaku", image: "Img/Medals/Kaku.png", class: ["DPS", "Atirador", "Cortante", "Fruta do Diabo"] },
     { name: "Rob Lucci", image: "Img/Medals/RobLucci.png", class: ["Lutador", "DPS", "Fruta do Diabo"] },
