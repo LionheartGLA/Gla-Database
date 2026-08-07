@@ -3311,5 +3311,5 @@ const achievements = [
     { name: "Justiça Feita", description: "Foi derrotado por um Almirante no Sabaody Archipelago.", img: "Img/Achievs/almirantes.png", directions: ["", ""] },
 ]
 
-const updateText = `- Adicionada a aba de Mapa Interativo. Irei adicionar mais coisas ao mapa aos poucos e, por enquanto,
-há apenas os baús e os ovos do evento de Páscoa, que irei adicionar conforme for descobrindo.`
+const updateText = `- Yamato adicionado ao Planejador de Coliseu.
+- Arrumado um bug no Planejador de Coliseu que alguns ID de personagens estavam duplicados.`
