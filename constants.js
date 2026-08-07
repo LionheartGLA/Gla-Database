@@ -3312,4 +3312,5 @@ const achievements = [
 ]
 
 const updateText = `- Yamato adicionado ao Planejador de Coliseu.
-- Arrumado um bug no Planejador de Coliseu que alguns ID de personagens estavam duplicados.`
+- Arrumado um bug no Planejador de Coliseu que alguns ID de personagens estavam duplicados.
+- Adicionado FOXY CALC a página inicial para ajudar durante o evento de aniversário do GLA.`

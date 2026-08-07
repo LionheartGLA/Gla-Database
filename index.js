@@ -2,9 +2,11 @@ let tab = 'memory';
 
 const memoryDiv = document.querySelector('.main-memory');
 const quizDiv = document.querySelector('.main-quiz');
+const calculatorDiv = document.querySelector('.main-calculator');
 
 const memoryBt = document.querySelector('.memory-img');
 const quizBt = document.querySelector('.quiz-img');
+const calculatorBt = document.querySelector('.calc-img');
 
 const quizInput = document.querySelector('.quiz-input')
 const answersDiv = document.querySelector('.quiz-container');
@@ -3718,13 +3720,25 @@ function setTab(tabName) {
     if (tabName === 'memory') {
         memoryDiv.style.display = 'flex';
         quizDiv.style.display = 'none';
+        calculatorDiv.style.display = 'none';
         memoryBt.classList.add('selected');
         quizBt.classList.remove('selected');
+        calculatorBt.classList.remove('selected');
         background.style.backgroundImage = "url('Img/background.png')";
     } else if (tabName === 'quiz') {
         quizDiv.style.display = 'flex';
         memoryDiv.style.display = 'none';
+        calculatorDiv.style.display = 'none';
         quizBt.classList.add('selected');
+        memoryBt.classList.remove('selected');
+        calculatorBt.classList.remove('selected');
+        background.style.backgroundImage = "none";
+    } else if (tabName === 'calculator') {
+        calculatorDiv.style.display = 'flex';
+        quizDiv.style.display = 'none';
+        memoryDiv.style.display = 'none';
+        calculatorBt.classList.add('selected');
+        quizBt.classList.remove('selected');
         memoryBt.classList.remove('selected');
         background.style.backgroundImage = "none";
     }
@@ -3886,6 +3900,10 @@ memoryBt.addEventListener('click', function (event) {
 
 quizBt.addEventListener('click', function (event) {
     setTab('quiz');
+});
+
+calculatorBt.addEventListener('click', function (event) {
+    setTab('calculator');
 });
 
 document.querySelectorAll('.square').forEach(square => {

@@ -74,7 +74,7 @@ body {
     top: 3px;
 }
 
-.main-quiz {
+.main-quiz, .main-calculator {
     display: none;
     background-color: var(--backgroundT);
     border: 1px solid #4c3a2e;
@@ -241,6 +241,8 @@ body {
     padding-inline: 10px;
     display: none;
     z-index: 10;
+    user-select: none;
+    pointer-events: none;
 }
 
 .assinatura {
@@ -1473,6 +1475,128 @@ td>a {
     width: 66px;
     height: 68px;
     translate: -7% -7%;
+}
+
+.resolver {
+  max-width:400px;
+  font-family:Arial,sans-serif;
+}
+
+.resolver input {
+  padding:10px;
+  font-size:16px;
+}
+
+#numberPad {
+  display:grid;
+  grid-template-columns:repeat(3, 60px);
+  gap:10px;
+  margin:10px 0;
+}
+
+.zero {
+  grid-column:2;
+}
+
+.calc-target {
+    color: white;
+    font-family: 'roboto', sans-serif;
+    font-size: 1.5rem;
+}
+
+#rTarget {
+    width: 100%;
+    height: 60px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.calc-main {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    gap: 4rem;
+    width: 40%;
+}
+
+.numBox {
+  width:60px;
+  height:60px;
+  text-align:center;
+  font-size:24px;
+  cursor:pointer;
+  border:2px solid #555;
+  border-radius:8px;
+}
+
+.numBox.selected {
+  background:#e3a93c;
+  color:black;
+  border-color:#e3a93c;
+}
+
+.ops {
+  display:flex;
+  gap:5px;
+  margin:10px 0;
+  min-width: 300px;
+  min-height: 60px;
+  margin-top: 2rem;
+}
+
+.ops button {
+  flex:1;
+  padding:10px;
+  cursor:pointer;
+  font-size: 3rem;
+}
+
+.ops .active {
+  background:#e3a93c;
+}
+
+#rSolve {
+  background-image: url("Img/button.png");
+    width: 120px;
+    height: 38px;
+    scale: 1.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'roboto';
+    background-repeat: no-repeat;
+    background-size: cover;
+    user-select: none;
+    color: white;
+    border: 0;
+    margin-top: 2rem;
+}
+
+#rSolve:hover {
+    filter: brightness(1.2);
+    cursor: pointer;
+}
+
+#rOutput {
+  margin-top:20px;
+  color: white;
+  font-family: 'roboto', sans-serif;
+  font-size: 1.2rem;
+}
+
+.expr {
+  font-size:22px;
+  font-weight:bold;
+}
+
+.steps {
+  font-size:14px;
+}
+
+.clear {
+  background:#E8705F;
+  color:white;
 }
 
 @media (max-width: 600px) {
