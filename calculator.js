@@ -105,7 +105,6 @@ function solve(numbers, target, ops) {
 
 
 
-// Seleção dos números
 document.querySelectorAll(".numBox")
 .forEach(input => {
 
@@ -117,7 +116,6 @@ document.querySelectorAll(".numBox")
 
 
 
-// Seleção das operações
 document.querySelectorAll(".ops button")
 .forEach(button => {
 
@@ -137,7 +135,6 @@ document.getElementById("clearNumbers").onclick = () => {
 
 
 
-// Resolver
 document.getElementById("rSolve").onclick = () => {
 
 
@@ -176,10 +173,7 @@ document.getElementById("rSolve").onclick = () => {
   }
 
 
-
   const result = solve(numbers, target, ops);
-
-
 
   output.innerHTML = result
     ? `<div class="expr">${result} = ${target}</div>`

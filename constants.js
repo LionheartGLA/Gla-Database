@@ -44,6 +44,13 @@ const chars = [
 
 const lastDate = "18-07-2025";
 
+const eggEvent = false;
+
+const updateText = `- Yamato adicionado ao Planejador de Coliseu.
+- Arrumado um bug no Planejador de Coliseu que alguns ID de personagens estavam duplicados.
+- Adicionado FOXY CALC a página inicial para ajudar durante o evento de aniversário do GLA.
+- Removido os ovos do mapa interativo visto que o evento ja acabou.`;
+
 function getRotationChars(rotation) {
     return rotation
         .filter(name => name.trim() !== '')
@@ -3310,7 +3317,3 @@ const achievements = [
     { name: "Fugiu do Caos", description: "Escapou do Sabaody Archipelago com os Rosy Life Riders.", img: "Img/Achievs/caos.png", directions: ["", ""] },
     { name: "Justiça Feita", description: "Foi derrotado por um Almirante no Sabaody Archipelago.", img: "Img/Achievs/almirantes.png", directions: ["", ""] },
 ]
-
-const updateText = `- Yamato adicionado ao Planejador de Coliseu.
-- Arrumado um bug no Planejador de Coliseu que alguns ID de personagens estavam duplicados.
-- Adicionado FOXY CALC a página inicial para ajudar durante o evento de aniversário do GLA.`

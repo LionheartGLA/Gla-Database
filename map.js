@@ -286,7 +286,9 @@ function loadMap(showLoading = true) {
 
         updateFloorButtons();
 
-        updateEggCount();
+        if(eggEvent) {
+            updateEggCount();
+        }
     };
 }
 
@@ -316,7 +318,10 @@ function renderMapElements() {
     chestMap.querySelectorAll('.map-element').forEach(e => e.remove());
 
     renderChestsOnMap(selectedMap, currentFloor);
-    renderEggsOnMap(selectedMap, currentFloor);
+    if(eggEvent) {
+        eggCountContainer.style.display = 'flex';
+        renderEggsOnMap(selectedMap, currentFloor);
+    }
 }
 
 function renderChestsOnMap(island, floor) {
