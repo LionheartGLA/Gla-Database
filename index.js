@@ -3941,6 +3941,10 @@ document.querySelector('.map-bt').addEventListener('click', () => {
     window.location.replace("map.html");
 })
 
+document.querySelector('.medic-bt').addEventListener('click', () => {
+    window.location.replace("kureha.html");
+})
+
 //document.querySelector('.track-bt').addEventListener('click', () => {
 //    window.location.replace("tracklist.html");
 //})

@@ -46,10 +46,14 @@ const lastDate = "18-07-2025";
 
 const eggEvent = false;
 
-const updateText = `- Yamato adicionado ao Planejador de Coliseu.
+const updateText = `-Adicionada nova página "Pacientes da Kureha" para ajudar quem quer pegar a skin do Chopper.
+Nesta página você pode clicar em cada cama para escolher um paciente. Passar o mouse por cima da cura mostra o nome dela.
+Você pode clicar na imagem da mesa de construção que você não sabe onde fica para abrir um mapa indicando sua localização.
+Passar o mouse em cima de um paciente que faz som ira tocar o som dele apenas na lista de escolha.
+Alguns pacientes podem ser achados pesquisando nomes diferentes como por exemplo procurar Branco irá mostrar o paciente branco,
+o de Cabelo branco e o Vampiro.
 - Arrumado um bug no Planejador de Coliseu que alguns ID de personagens estavam duplicados.
-- Adicionado FOXY CALC a página inicial para ajudar durante o evento de aniversário do GLA.
-- Removido os ovos do mapa interativo visto que o evento ja acabou.`;
+- Adicionado FOXY CALC a página inicial para ajudar durante o evento de aniversário do GLA.`;
 
 function getRotationChars(rotation) {
     return rotation
@@ -2127,6 +2131,93 @@ const islands = [
                 w: "Este baú é de uma missão secreta em Drum Island e não é necessário para a conquista."
             },
         ],
+        craft: [
+            {
+                id: 1,
+                name: "Cortador",
+                floor: 1,
+                x: 19.33,
+                y: 16.12
+            },
+            {
+                id: 2,
+                name: "Fogão",
+                floor: 1,
+                x: 19.33,
+                y: 16.27
+            },
+            {
+                id: 3,
+                name: "Armário",
+                floor: 1,
+                x: 19.33,
+                y: 16.43
+            },
+            {
+                id: 4,
+                name: "Geladeira",
+                floor: 1,
+                x: 19.39,
+                y: 15.98
+            },
+            {
+                id: 5,
+                name: "Toalhas",
+                floor: 1,
+                x: 19.79,
+                y: 16.02
+            },
+            {
+                id: 6,
+                name: "Prateleira",
+                floor: 1,
+                x: 19.92,
+                y: 15.95
+            },
+            {
+                id: 7,
+                name: "Pilão",
+                floor: 1,
+                x: 20.02,
+                y: 16.26
+            },
+            {
+                id: 8,
+                name: "Mangás",
+                floor: 1,
+                x: 20.03,
+                y: 17.39
+            },
+            {
+                id: 9,
+                name: "Vpx Quebrado",
+                floor: 1,
+                x: 18.71,
+                y: 18.33
+            },
+            {
+                id: 10,
+                name: "Remédios",
+                floor: 2,
+                x: 19.51,
+                y: 16.71
+            },
+            {
+                id: 11,
+                name: "Livros",
+                floor: 2,
+                x: 23.05,
+                y: 16.14
+            },
+            {
+                id: 12,
+                name: "Depósito",
+                floor: 2,
+                x: 23.33,
+                y: 17.49
+            },
+        ]
+        ,
         eggs: [
             {
                 id: 1,
@@ -3316,4 +3407,203 @@ const achievements = [
     { name: "Ele estava pedindo por isso!", description: "Desferiu um golpe contra um Dragão Celestial.", img: "Img/Achievs/punch.png", directions: ["", ""] },
     { name: "Fugiu do Caos", description: "Escapou do Sabaody Archipelago com os Rosy Life Riders.", img: "Img/Achievs/caos.png", directions: ["", ""] },
     { name: "Justiça Feita", description: "Foi derrotado por um Almirante no Sabaody Archipelago.", img: "Img/Achievs/almirantes.png", directions: ["", ""] },
+]
+
+const patients = [
+    { name: "Amarelo", img: "Img/Kureha/Pacientes/Amarelo.png", cure: "Pomada de Cala", search: ["Amarelado"] },
+    { name: "Apaixonado", img: "Img/Kureha/Pacientes/Apaixonado.png", cure: "Mangá Ecchi", search: ["Olho rosa"] },
+    { name: "Arranhado", img: "Img/Kureha/Pacientes/Arranhado.png", cure: "Gaze com Pomada Curativa", search: ["Vermelho", "Corte", "Cortado"] },
+    { name: "Assustado", img: "Img/Kureha/Pacientes/Assustado.png", cure: "Chá de Ervas", search: ["Olho aberto"] },
+    { name: "Azul", img: "Img/Kureha/Pacientes/Azul.png", cure: "Pomada de Horne", search: ["Azulado"] },
+    { name: "Babando", img: "Img/Kureha/Pacientes/Babando.png", cure: "Babador" },
+    { name: "Bafo", img: "Img/Kureha/Pacientes/Bafo.gif", cure: "Creme Dental" },
+    { name: "Batman", img: "Img/Kureha/Pacientes/Batman.png", cure:"Urso de Pelúcia" },
+    { name: "Branco", img: "Img/Kureha/Pacientes/Branco.png", cure:"Pomada de Liane" },
+    { name: "Cabelo Branco", img: "Img/Kureha/Pacientes/CabeloBranco.png", cure: "Compressa de Camomila" },
+    { name: "Canibal", img: "Img/Kureha/Pacientes/Canibal.png", cure: "Como ser vegano vol. 1", search: ["Focinheira", "Hannibal"] },
+    { name: "Careca", img: "Img/Kureha/Pacientes/Careca.png", cure: "Peruca", search: ["Queda de cabelo"] },
+    { name: "Chopper", img: "Img/Kureha/Pacientes/Chopper.png", cure: "Serra", search: ["Alce", "Veado", "Chifre"] },
+    { name: "Depressivo", img: "Img/Kureha/Pacientes/Chorando.png", cure: "Pílulas Antidepressivas", search: ["Chorando", "Lagrimas"] },
+    { name: "Coração Batendo", img: "Img/Kureha/Pacientes/CoracaoBatendo.png", cure: "Pílula para Cardíaco", audio: "Img/Kureha/Audio/Coracao.wav", search: ["Cardíaco"] },
+    { name: "Dedo Quebrado", img: "Img/Kureha/Pacientes/DedoQuebrado.png", cure: "Tala", search: ["Dedo enfaixado"] },
+    { name: "Endemoniado", img: "Img/Kureha/Pacientes/Endemoniado.png", cure: "Bíblia", audio: "Img/Kureha/Audio/Demonio.wav", search: ["Demonio", "Possuido", "Satanas"] },
+    { name: "Enjoado", img: "Img/Kureha/Pacientes/Enjoado.gif", cure: "Chá de Boldo", audio: "Img/Kureha/Audio/Enjoado.wav" },
+    { name: "Espirrando", img: "Img/Kureha/Pacientes/Espirro.gif", cure: "Chá de Alecrim", audio: "Img/Kureha/Audio/Espirro.wav" },
+    { name: "Febre", img: "Img/Kureha/Pacientes/Febre.gif", cure: "Chá de Macela", search: ["Quente", "Temperatura", "Gas"] },
+    { name: "Fedido", img: "Img/Kureha/Pacientes/Fedido.gif", cure: "Sabonete", search: ["Fedendo"] },
+    { name: "Fome", img: "Img/Kureha/Pacientes/Fome.png", cure: "Chá de Hortelã", audio: "Img/Kureha/Audio/Fome.wav", search: ["Faminto", "Barriga vazia"] },
+    { name: "Frost", img: "Img/Kureha/Pacientes/Frost.png", cure: "Bolsa cheia de Gemas", search: ["Aokiji"] },
+    { name: "Funk", img: "Img/Kureha/Pacientes/Funk.gif", cure: "Como cantar como um Anjo vol. 1", audio: "Img/Kureha/Audio/Funk.wav", search: ["Funkeiro", "Cantando", "Musica"] },
+    { name: "Invisivel", img: "Img/Kureha/Pacientes/Invisivel.png", cure: "Pote de Tinta Nude" },
+    { name: "Jason", img: "Img/Kureha/Pacientes/Jason.png", cure: "Pílula de Controle Emocional", search: ["Mascara", "Faca", "Assassino"] },
+    { name: "Manchas Roxas", img: "Img/Kureha/Pacientes/ManchasRoxas.png", cure: "Pomada de Hortelã", search: ["Roxo"] },
+    { name: "Manchas Verdes", img: "Img/Kureha/Pacientes/ManchasVerdes.png", cure: "Pomada de Camomila" },
+    { name: "Mão Inchada", img: "Img/Kureha/Pacientes/MaoInchada.png", cure: "Antibiótico de Alho" },
+    { name: "Mentiroso", img: "Img/Kureha/Pacientes/Mentiroso.png", cure: "Soro da Verdade", search: ["Nariz", "Narigudo", "Usopp"] },
+    { name: "Motoqueiro Fantasma", img: "Img/Kureha/Pacientes/MotoqueiroFantasma.gif", cure: "Chá de Camomila", search: ["Cabeça", "Fogo"] },
+    { name: "Mumia", img: "Img/Kureha/Pacientes/Mumia.png", cure: "Pomada para cuidar da Pele", search: ["Queimadura", "Enfaixado"] },
+    { name: "Naruto", img: "Img/Kureha/Pacientes/Naruto.png", cure: "Mangá Shonen" },
+    { name: "Olho Enfaixado", img: "Img/Kureha/Pacientes/OlhoEnfaixado.png", cure: "Gaze com Liane" },
+    { name: "Olho Roxo", img: "Img/Kureha/Pacientes/OlhoRoxo.png", cure: "Saco de Gelo", search: ["Olho Inchado"] },
+    { name: "Orelha Inchada", img: "Img/Kureha/Pacientes/OrelhaInchada.png", cure: "Compressa de Ervas", search: ["Orelhudo"] },
+    { name: "Perna Enfaixada", img: "Img/Kureha/Pacientes/PernaEnfaixada.png", cure: "Pílula Antibiótica", search: ["Perna quebrada"] },
+    { name: "Queixo Inchado", img: "Img/Kureha/Pacientes/QueixoInchado.png", cure: "Compressa de Tomilho" },
+    { name: "Robin", img: "Img/Kureha/Pacientes/Robin.png", cure: "Mão Mecânica" },
+    { name: "Ronaldinho", img: "Img/Kureha/Pacientes/Ronaldinho.png", cure: "Bola de Futebol" },
+    { name: "Sem Dentes", img: "Img/Kureha/Pacientes/SemDente.png", cure: "Dentadura" },
+    { name: "Shoque", img: "Img/Kureha/Pacientes/Shock.gif", cure: "Chá de Dente de Leão", search: ["Super Shock"] },
+    { name: "Soluço", img: "Img/Kureha/Pacientes/Soluco.gif", cure: "Chá de Canela", audio: "Img/Kureha/Audio/Soluco.wav" },
+    { name: "Stormtrooper", img: "Img/Kureha/Pacientes/Stormtrooper.png", cure: "Programa de Aimbot", search: ["Star Wars"] },
+    { name: "Testa Inchada", img: "Img/Kureha/Pacientes/TestaInchada.png", cure: "Antibiótico Natural" },
+    { name: "Tosse", img: "Img/Kureha/Pacientes/Tosse.gif", cure: "Xarope de Limão", audio: "Img/Kureha/Audio/Tossindo.wav", search: ["Tossindo"] },
+    { name: "Tremendo", img: "Img/Kureha/Pacientes/Tremendo.gif", cure: "Chá de Tomilho" },
+    { name: "Vampiro", img: "Img/Kureha/Pacientes/Vampiro.png", cure: "Soro de Alho", search: ["Branco"] },
+    { name: "Yugi", img: "Img/Kureha/Pacientes/Yugi.png", cure: "Quebra-cabeça Misterioso", search: ["Yugioh"] },
+]
+
+const kurehaItemBook = [
+    { name: "Como cantar como um Anjo vol. 1", img: "Img/Kureha/Books/ComoCantarComoUmAnjoVol1.png" },
+    { name: "A Arte da Guerra", img: "Img/Kureha/Books/AArteDaGuerra.png" },
+    { name: "Bíblia", img: "Img/Kureha/Books/Biblia.png" },
+    { name: "Como ser vegano vol. 1", img: "Img/Kureha/Books/ComoSerVeganoVol1.png" },
+    { name: "A Arte de Apostar vol. 1", img: "Img/Kureha/Books/AArteDeApostarVol1.png" },
+]
+
+const kurehaItemCabinet = [
+    { name: "Camomila", img: "Img/Kureha/Cabinet/Camomila.png" },
+    { name: "Macela", img: "Img/Kureha/Cabinet/Macela.png" },
+    { name: "Hortelã", img: "Img/Kureha/Cabinet/Hortela.png" },
+    { name: "Mel", img: "Img/Kureha/Cabinet/Mel.png" },
+    { name: "Boldo", img: "Img/Kureha/Cabinet/Boldo.png" },
+    { name: "Alecrim", img: "Img/Kureha/Cabinet/Alecrim.png" },
+    { name: "Canela", img: "Img/Kureha/Cabinet/Canela.png" },
+    { name: "Gengibre", img: "Img/Kureha/Cabinet/Gengibre.png" },
+    { name: "Tomilho", img: "Img/Kureha/Cabinet/Tomilho.png" },
+    { name: "Dente de Leão", img: "Img/Kureha/Cabinet/DenteDeLeao.png" },
+    { name: "Limão", img: "Img/Kureha/Cabinet/Limao.png" },
+    { name: "Alho", img: "Img/Kureha/Cabinet/Alho.png" },
+]
+
+const kurehaItemCupboard = [
+    { name: "Copo", img: "Img/Kureha/Cupboard/Copo.png" },
+    { name: "Água", img: "Img/Kureha/Cupboard/Agua.png" },
+    { name: "Pano", img: "Img/Kureha/Cupboard/Pano.png" },
+    { name: "Pomada Curativa", img: "Img/Kureha/Cupboard/PomadaCurativa.png" },
+    { name: "Sabonete", img: "Img/Kureha/Cupboard/Sabonete.png" },
+    { name: "Gaze", img: "Img/Kureha/Cupboard/Gaze.png" },
+    { name: "Creme Dental", img: "Img/Kureha/Cupboard/CremeDental.png" },
+    { name: "Protetor Solar", img: "Img/Kureha/Cupboard/ProtetorSolar.png" },
+    { name: "Tala", img: "Img/Kureha/Cupboard/Tala.png" },
+    { name: "Álcool", img: "Img/Kureha/Cupboard/Alcool.png" },
+]
+
+const kurehaItemFridge = [
+    { name: "Tomates", img: "Img/Kureha/Fridge/Tomates.png" },
+    { name: "Cogumelo", img: "Img/Kureha/Fridge/Cogumelo.png" },
+    { name: "Ovos", img: "Img/Kureha/Fridge/Ovos.png" },
+    { name: "Bacon", img: "Img/Kureha/Fridge/Bacon.png" },
+    { name: "Folhas Verdes", img: "Img/Kureha/Fridge/FolhasVerdes.png" },
+    { name: "Leite", img: "Img/Kureha/Fridge/Leite.png" },
+    { name: "Queijo", img: "Img/Kureha/Fridge/Queijo.png" },
+    { name: "Peixe Cru", img: "Img/Kureha/Fridge/PeixeCru.png" },
+    { name: "Bife Cru", img: "Img/Kureha/Fridge/BifeCru.png" },
+    { name: "Limão", img: "Img/Kureha/Fridge/Limao.png" },
+    { name: "Manteiga", img: "Img/Kureha/Fridge/Manteiga.png" },
+    { name: "Vinho Barato", img: "Img/Kureha/Fridge/VinhoBarato.png" },
+    { name: "Peru de Natal Cru", img: "Img/Kureha/Fridge/PeruDeNatalCru.png"},
+    { name: "Molde de Gelo", img: "Img/Kureha/Fridge/MoldeDeGelo.png", },
+    { name: "Cubos de Gelo", img: "Img/Kureha/Fridge/CubosDeGelo.png", ing: [{ "Água": 1, "Molde de Gelo": 1 }] },
+    { name: "Saco de Gelo", img: "Img/Kureha/Fridge/SacoDeGelo.png", ing: [{ "Cubos de Gelo": 1, "Pano": 1 }] },
+]
+
+const kurehaItemPills = [
+    { name: "Pílula de Controle Emocional", img: "Img/Kureha/Pills/PilulaDeControleEmocional.png" },
+    { name: "Pílula Antibiótica", img: "Img/Kureha/Pills/PilulaAntibiotica.png" },
+    { name: "Pílulas Antidepressivas", img: "Img/Kureha/Pills/PilulasAntidepressivas.png" },
+    { name: "Pílula para Cardíaco", img: "Img/Kureha/Pills/PilulaParaCardiaco.png" },
+    { name: "Pílula Omega 3", img: "Img/Kureha/Pills/PilulaOmega3.png" },
+    { name: "Pílula de Regeneração", img: "Img/Kureha/Pills/PilulaDeRegeneracao.png" },
+]
+
+const kurehaItemWarehouse = [
+    { name: "Dentadura", img: "Img/Kureha/Warehouse/Dentadura.png" },
+    { name: "Peruca", img: "Img/Kureha/Warehouse/Peruca.png" },
+    { name: "Babador", img: "Img/Kureha/Warehouse/Babador.png" },
+    { name: "Urso de Pelúcia", img: "Img/Kureha/Warehouse/UrsoDePelucia.png" },
+    { name: "Pote de Tinta Rosa", img: "Img/Kureha/Warehouse/PoteDeTintaRosa.png" },
+    { name: "Pote de Tinta Azul", img: "Img/Kureha/Warehouse/PoteDeTintaAzul.png" },
+    { name: "Pote de Tinta Nude", img: "Img/Kureha/Warehouse/PoteDeTintaNude.png" },
+    { name: "Bola de Futebol", img: "Img/Kureha/Warehouse/BolaDeFutebol.png" },
+    { name: "Quebra-cabeça Misterioso", img: "Img/Kureha/Warehouse/QuebraCabecaMisterioso.png" },
+    { name: "Bolsa cheia de Gemas", img: "Img/Kureha/Warehouse/BolsaCheiaDeGemas.png" },
+    { name: "Serra", img: "Img/Kureha/Warehouse/Serra.png" },
+]
+
+const kurehaItemManga = [
+    { name: "Mangá de Comédia", img: "Img/Kureha/Manga/MangaDeComedia.png" },
+    { name: "Mangá Isekai", img: "Img/Kureha/Manga/MangaIsekai.png" },
+    { name: "Mangá Ecchi", img: "Img/Kureha/Manga/MangaEcchi.png" },
+    { name: "Mangá de Romance", img: "Img/Kureha/Manga/MangaDeRomance.png" },
+    { name: "Mangá de Horror", img: "Img/Kureha/Manga/MangaDeHorror.png" },
+    { name: "Mangá Shonen", img: "Img/Kureha/Manga/MangaShonen.png" },
+]
+
+const kurehaItemRobot = [
+    { name: "Mão Mecânica", img: "Img/Kureha/Robot/MaoMecanica.png" },
+    { name: "Programa de Aimbot", img: "Img/Kureha/Robot/ProgramaDeAimbot.png" },
+]
+
+const pestleCraft = [
+     { name: "Pomada de Camomila", img: "Img/Kureha/Pestle/PomadaDeCamomila.png", ing: [{ "Camomila": 5, "Pomada Curativa": 1 }] },
+     { name: "Pomada de Hortelã", img: "Img/Kureha/Pestle/PomadaDeHortela.png", ing: [{ "Hortelã": 5, "Pomada Curativa": 1 }] },
+     { name: "Pomada de Cala", img: "Img/Kureha/Pestle/PomadaDeCala.png", ing: [{ "Camomila": 2,"Macela": 3, "Pomada Curativa": 1 }] },
+     { name: "Pomada para cuidar da Pele", img: "Img/Kureha/Pestle/PomadaParaCuidarDaPele.png", ing: [{ "Protetor Solar": 1, "Pomada Curativa": 1, "Pílula de Regeneração": 1 }] },
+     { name: "Pomada de Horne", img: "Img/Kureha/Pestle/PomadaDeHorne.png", ing: [{ "Hortelã": 2,"Canela": 3, "Pomada Curativa": 1 }] },
+     { name: "Pomada de Liane", img: "Img/Kureha/Pestle/PomadaDeLiane.png", ing: [{ "Limão": 2,"Canela": 5, "Pomada Curativa": 1 }] },
+]
+
+const towelCraft = [
+     { name: "Compressa de Camomila", img: "Img/Kureha/Towel/CompressaDeCamomila.png", ing: [{ "Chá de Camomila": 1, "Pano": 5 }] },
+     { name: "Compressa de Ervas", img: "Img/Kureha/Towel/CompressaDeErvas.png", ing: [{ "Chá de Ervas": 1, "Pano": 5 }] },
+     { name: "Compressa de Tomilho", img: "Img/Kureha/Towel/CompressaDeTomilho.png", ing: [{ "Chá de Tomilho": 1, "Pano": 5 }] },
+     { name: "Gaze com Liane", img: "Img/Kureha/Towel/GazeComLiane.png", ing: [{ "Gaze": 1, "Pomada de Liane": 1 }] },
+     { name: "Gaze com Pomada Curativa", img: "Img/Kureha/Towel/GazeComPomadaCurativa.png", ing: [{ "Gaze": 2, "Pomada Curativa": 1 }] },
+]
+
+const stoveCraft = [
+     { name: "Antibiótico de Alho", img: "Img/Kureha/Stove/AntibioticoDeAlho.png", ing: [{ "Copo": 1, "Água": 1, "Alho Descascado": 5, "Hortelã": 2, "Mel": 1, "Alecrim": 1, "Boldo": 1 }] },
+     { name: "Chá de Macela", img: "Img/Kureha/Stove/ChaDeMacela.png", ing: [{ "Copo": 1, "Água": 1, "Macela": 5 }] },
+     { name: "Chá de Hortelã", img: "Img/Kureha/Stove/ChaDeHortela.png", ing: [{ "Copo": 1, "Água": 1, "Hortelã": 3, "Mel": 2 }] },
+     { name: "Chá de Ervas", img: "Img/Kureha/Stove/ChaDeErvas.png", ing: [{ "Copo": 1, "Água": 1, "Boldo": 2, "Camomila": 2, "Alecrim": 1 }] },
+     { name: "Chá de Alecrim", img: "Img/Kureha/Stove/ChaDeAlecrim.png", ing: [{ "Copo": 1, "Água": 1, "Alecrim": 5 }] },
+     { name: "Chá de Canela", img: "Img/Kureha/Stove/ChaDeCanela.png", ing: [{ "Copo": 1, "Água": 1, "Canela": 5 }] },
+     { name: "Xarope de Limão", img: "Img/Kureha/Stove/XaropeDeLimao.png", ing: [{ "Copo": 1, "Água": 1, "Limão Picado": 5, "Mel": 3, "Canela": 2 }] },
+     { name: "Antibiótico Natural", img: "Img/Kureha/Stove/AntibioticoNatural.png", ing: [{ "Copo": 1, "Água": 1, "Limão Picado": 2, "Gengibre Picado": 2, "Mel": 1, "Alecrim": 1, "Boldo": 1 }] },
+     { name: "Chá de Tomilho", img: "Img/Kureha/Stove/ChaDeTomilho.png", ing: [{ "Copo": 1, "Água": 1, "Tomilho": 2, "Mel": 1, "Canela": 2, "Limão Picado": 2 }] },
+     { name: "Chá de Camomila", img: "Img/Kureha/Stove/ChaDeCamomila.png", ing: [{ "Copo": 1, "Água": 1, "Camomila": 5 }] },
+     { name: "Chá de Dente de Leão", img: "Img/Kureha/Stove/ChaDeDenteDeLeao.png", ing: [{ "Copo": 1, "Água": 1, "Dente de Leão": 5 }] },
+     { name: "Chá de Boldo", img: "Img/Kureha/Stove/ChaDeBoldo.png", ing: [{ "Copo": 1, "Água": 1, "Boldo": 5 }] },
+     { name: "Soro da Verdade", img: "Img/Kureha/Stove/SoroDaVerdade.png", ing: [{ "Copo": 1, "Água": 1, "Boldo": 2, "Camomila": 2, "Canela": 1 }] },
+     { name: "Soro de Alho", img: "Img/Kureha/Stove/SoroDeAlho.png", ing: [{ "Soro da Verdade": 1, "Alho Descascado": 10 }] },
+]
+
+const cutterCraft = [
+ { name: "Alho Descascado", img: "Img/Kureha/Cutter/AlhoDescascado.png", ing: [{ "Alho": 1 }] },
+ { name: "Gengibre Picado", img: "Img/Kureha/Cutter/GengibrePicado.png", ing: [{ "Gengibre": 1 }] },
+ { name: "Limão Picado", img: "Img/Kureha/Cutter/LimaoPicado.png", ing: [{ "Limão": 1 }] },
+]
+
+const crafters = [
+    { name: "Armário", img: "Img/Kureha/Craft/Cabinet.png", items: kurehaItemCabinet },
+    { name: "Prateleira", img: "Img/Kureha/Craft/Cupboard.png", items: kurehaItemCupboard },
+    { name: "Geladeira", img: "Img/Kureha/Craft/Fridge.png", items: kurehaItemFridge },
+    { name: "Cortador", img: "Img/Kureha/Craft/Cutter.png", items: cutterCraft },
+    { name: "Fogão", img: "Img/Kureha/Craft/Stove.png", items: stoveCraft },
+    { name: "Toalhas", img: "Img/Kureha/Craft/Towels.png", items: towelCraft },
+    { name: "Pilão", img: "Img/Kureha/Craft/Pestle.png", items: pestleCraft },
+    { name: "Mangás", img: "Img/Kureha/Craft/Manga.png", items: kurehaItemManga },
+    { name: "Remédios", img: "Img/Kureha/Craft/Pills.png", items: kurehaItemPills },
+    { name: "Livros", img: "Img/Kureha/Craft/Books.png", items: kurehaItemBook },
+    { name: "Depósito", img: "Img/Kureha/Craft/Warehouse.png", items: kurehaItemWarehouse },
+    { name: "Vpx Quebrado", img: "Img/Kureha/Craft/Robot.png", items: kurehaItemRobot },
 ]

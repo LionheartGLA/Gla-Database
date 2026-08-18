@@ -315,7 +315,8 @@ body {
 .wb-bt:hover>.bt-info,
 .track-bt:hover>.bt-info,
 .coli-bt:hover>.bt-info,
-.map-bt:hover>.bt-info {
+.map-bt:hover>.bt-info,
+.medic-bt:hover>.bt-info {
     height: 20px;
     width: fit-content;
     position: absolute;
@@ -388,6 +389,13 @@ body {
 
 .map-bt {
     background-image: url('Img/mapButton.png');
+    background-repeat: no-repeat;
+    height: 34px;
+    width: 34px;
+}
+
+.medic-bt {
+    background-image: url('Img/medicButton.png');
     background-repeat: no-repeat;
     height: 34px;
     width: 34px;
@@ -1354,7 +1362,8 @@ td>a {
 .wb-bt:hover,
 .track-bt:hover,
 .coli-bt:hover,
-.map-bt:hover {
+.map-bt:hover,
+.medic-bt:hover {
     cursor: pointer;
     filter: brightness(1.5);
 }
