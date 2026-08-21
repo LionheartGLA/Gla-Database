@@ -70,65 +70,58 @@ const tableClassMap = {
 function getAllRequiredItems(
     itemName,
     result = new Map(),
-    visited = new Set()
+    path = new Set(),
+    multiplier = 1
 ) {
-
-    if (visited.has(itemName)) {
+    if (path.has(itemName)) {
+        console.warn(
+            `Circular crafting recipe detected: "${itemName}"`
+        );
         return result;
     }
 
-    visited.add(itemName);
-
-
-    const item =
-        itemByName.get(itemName);
-
+    const item = itemByName.get(itemName);
 
     if (!item) {
-
         console.warn(
             `Item "${itemName}" was not found.`
         );
-
         return result;
     }
-
 
     if (!item.ing) {
         return result;
     }
 
+    const newPath = new Set(path);
+    newPath.add(itemName);
 
     for (const ingredientList of item.ing) {
 
-        for (
-            const [ingredientName, amount]
-            of Object.entries(ingredientList)
-        ) {
+        for (const [ingredientName, amount] of Object.entries(ingredientList)) {
+
+            const requiredAmount = amount * multiplier;
 
             const currentAmount =
                 result.get(ingredientName) || 0;
 
             result.set(
                 ingredientName,
-                currentAmount + amount
+                currentAmount + requiredAmount
             );
-
 
             if (itemByName.has(ingredientName)) {
 
                 getAllRequiredItems(
                     ingredientName,
                     result,
-                    visited
+                    newPath,
+                    requiredAmount
                 );
 
             }
-
         }
-
     }
-
 
     return result;
 }

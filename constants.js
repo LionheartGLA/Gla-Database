@@ -3507,7 +3507,6 @@ const kurehaItemFridge = [
     { name: "Queijo", img: "Img/Kureha/Fridge/Queijo.png" },
     { name: "Peixe Cru", img: "Img/Kureha/Fridge/PeixeCru.png" },
     { name: "Bife Cru", img: "Img/Kureha/Fridge/BifeCru.png" },
-    { name: "Limão", img: "Img/Kureha/Fridge/Limao.png" },
     { name: "Manteiga", img: "Img/Kureha/Fridge/Manteiga.png" },
     { name: "Vinho Barato", img: "Img/Kureha/Fridge/VinhoBarato.png" },
     { name: "Peru de Natal Cru", img: "Img/Kureha/Fridge/PeruDeNatalCru.png"},
