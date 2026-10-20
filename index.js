@@ -3716,6 +3716,12 @@ renderAnswers(answers);
 
 const background = document.querySelector('.bg-img');
 
+if (birthdayEvent) {
+    document.querySelector('.calc-img').style.display = 'flex';
+} else {
+    document.querySelector('.calc-img').style.display = 'none';
+}
+
 function setTab(tabName) {
     if (tabName === 'memory') {
         memoryDiv.style.display = 'flex';

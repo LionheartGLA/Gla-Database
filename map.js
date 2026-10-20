@@ -1,22 +1,99 @@
-const STORAGE_KEY = 'markedChests';
 
-function getMarkedChests() {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+/* =========================================
+   EVENT CONFIGURATION
+========================================= */
+
+
+/* =========================================
+   MARKER CONFIGURATION
+========================================= */
+
+const CHEST_MARKER = {
+    id: 'chest',
+    dataKey: 'chests',
+    storageKey: 'markedChests',
+
+    icon: 'Img/closedChest.png',
+    className: 'map-chest-icon',
+    iconClass: 'chest-icon-img',
+
+    showNumber: true,
+    showWarning: false,
+
+    counter: null
+};
+
+const EGG_MARKER = {
+    id: 'egg',
+    dataKey: 'eggs',
+    storageKey: 'markedEggs',
+
+    icon: 'Img/egg.png',
+    className: 'map-egg-icon',
+    iconClass: 'egg-icon-img',
+
+    showNumber: true,
+    showWarning: true,
+
+    counter: {
+        container: '.egg-count',
+        number: '.egg-count-number'
+    },
+
+    enabled: () => eggEvent
+};
+
+
+const OSIRIS_MARKER = {
+    id: 'osiris',
+    dataKey: 'osiris',
+    storageKey: 'markedOsiris',
+    icon: 'Img/osiris.png',
+    className: 'map-osiris-icon',
+    iconClass: 'osiris-icon-img',
+    showNumber: true,
+    showWarning: false,
+    counter: null
+};
+
+
+const mapMarkers = [
+    CHEST_MARKER,
+    EGG_MARKER,
+    OSIRIS_MARKER,
+];
+
+
+/* =========================================
+   LOCAL STORAGE
+========================================= */
+
+function getMarkedItems(marker) {
+    try {
+        const data = localStorage.getItem(marker.storageKey);
+
+        return data ? JSON.parse(data) : {};
+    } catch (error) {
+        console.error('Error loading markers:', error);
+        return {};
+    }
 }
 
-function saveMarkedChests(data) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+function saveMarkedItems(marker, data) {
+    try {
+        localStorage.setItem(
+            marker.storageKey,
+            JSON.stringify(data)
+        );
+    } catch (error) {
+        console.error('Error saving markers:', error);
+    }
 }
 
-const EGG_STORAGE_KEY = 'markedEggs';
 
-function getMarkedEggs() {
-    return JSON.parse(localStorage.getItem(EGG_STORAGE_KEY)) || {};
-}
-
-function saveMarkedEggs(data) {
-    localStorage.setItem(EGG_STORAGE_KEY, JSON.stringify(data));
-}
+/* =========================================
+   DOM ELEMENTS
+========================================= */
 
 const mapSelector = document.querySelector('.map-selection');
 const mapSelectorButton = document.querySelector('.map-selection-bt');
@@ -24,10 +101,48 @@ const mapSelectorButton = document.querySelector('.map-selection-bt');
 const mapUpButton = document.querySelector('.map-up');
 const mapDownButton = document.querySelector('.map-down');
 
-const eggCountContainer = document.querySelector('.egg-count');
-const eggCountNumber = document.querySelector('.egg-count-number');
+const chestMap = document.querySelector('.chest-map');
+const mapImg = chestMap.querySelector('.map-img');
+const coordDisplay = chestMap.querySelector('.map-coordinates');
+
+const loadingText = document.querySelector('.map-loading');
+
+
+/* =========================================
+   MAP STATE
+========================================= */
 
 let selectedMap = null;
+
+let currentFloor = 0;
+let currentFloorElements = [];
+
+let zoom = 1;
+
+const zoomStep = 0.1;
+const minZoom = 0.1;
+const maxZoom = 3;
+
+let posX = 0;
+let posY = 0;
+
+let isDragging = false;
+
+let startX = 0;
+let startY = 0;
+
+let startPosX = 0;
+let startPosY = 0;
+
+let dragMoved = false;
+let suppressNextClick = false;
+
+let lastCoords = null;
+
+
+/* =========================================
+   MAP SELECTOR
+========================================= */
 
 function populateMapSelector() {
     mapSelector.innerHTML = '';
@@ -40,21 +155,26 @@ function populateMapSelector() {
         islandName.textContent = island.name;
 
         const islandImage = document.createElement('img');
+
         islandImage.src = `Img/Maps/${island.name}.png`;
         islandImage.alt = island.name;
 
         islandElement.appendChild(islandImage);
         islandElement.appendChild(islandName);
+
         mapSelector.appendChild(islandElement);
 
         islandElement.addEventListener('click', () => {
             mapSelector.classList.remove('open');
-            selectedMap = island;
 
+            selectedMap = island;
             currentFloor = 0;
 
-            document.querySelector('.map-select-img').src = `Img/Maps/${island.name}.png`;
-            document.querySelector('.island-name').textContent = island.name;
+            document.querySelector('.map-select-img').src =
+                `Img/Maps/${island.name}.png`;
+
+            document.querySelector('.island-name').textContent =
+                island.name;
 
             loadMap(true);
         });
@@ -67,26 +187,10 @@ mapSelectorButton.addEventListener('click', () => {
     mapSelector.classList.toggle('open');
 });
 
-const chestMap = document.querySelector('.chest-map');
-const mapImg = chestMap.querySelector('.map-img');
-const coordDisplay = chestMap.querySelector('.map-coordinates');
 
-let currentFloor = 0;
-let currentFloorChests = [];
-
-let zoom = 1;
-const zoomStep = 0.1;
-const minZoom = 0.1;
-const maxZoom = 3;
-
-let posX = 0;
-let posY = 0;
-
-let isDragging = false;
-let startX, startY;
-let startPosX, startPosY;
-
-let lastCoords = null;
+/* =========================================
+   MAP TRANSFORM
+========================================= */
 
 function updateMapTransform() {
     const containerWidth = chestMap.clientWidth;
@@ -116,13 +220,21 @@ function updateMapTransform() {
     posX = Math.max(minX, Math.min(maxX, posX));
     posY = Math.max(minY, Math.min(maxY, posY));
 
-    mapImg.style.transform = `translate(${posX}px, ${posY}px) scale(${zoom})`;
+    mapImg.style.transform =
+        `translate(${posX}px, ${posY}px) scale(${zoom})`;
 
     updateMapElementsPosition();
 }
 
+
+/* =========================================
+   MOUSE WHEEL ZOOM
+========================================= */
+
 chestMap.addEventListener('wheel', (e) => {
     e.preventDefault();
+
+    if (!mapImg.naturalWidth) return;
 
     const rect = chestMap.getBoundingClientRect();
 
@@ -142,54 +254,50 @@ chestMap.addEventListener('wheel', (e) => {
     posY = mouseY - imgY * zoom;
 
     updateMapTransform();
-});
+}, { passive: false });
 
-chestMap.addEventListener('pointermove', (e) => {
-    if (!isDragging) return;
 
-    const dx = e.clientX - startX;
-    const dy = e.clientY - startY;
+/* =========================================
+   POINTER / DRAG / PINCH ZOOM
+========================================= */
 
-    posX = startPosX + dx;
-    posY = startPosY + dy;
+const pointers = new Map();
 
-    updateMapTransform();
-});
-
-chestMap.addEventListener('pointerup', (e) => {
-    isDragging = false;
-    chestMap.style.cursor = 'grab';
-
-    chestMap.releasePointerCapture(e.pointerId);
-});
-
-chestMap.addEventListener('pointercancel', () => {
-    isDragging = false;
-    chestMap.style.cursor = 'grab';
-});
-
-let pointers = new Map();
 let initialPinchDistance = null;
 let initialZoom = zoom;
 
 function getDistance(p1, p2) {
     const dx = p1.clientX - p2.clientX;
     const dy = p1.clientY - p2.clientY;
+
     return Math.sqrt(dx * dx + dy * dy);
 }
 
-let dragMoved = false;
+function resetPinch() {
+    initialPinchDistance = null;
+}
 
 chestMap.addEventListener('pointerdown', (e) => {
-    pointers.set(e.pointerId, e);
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+
+    pointers.set(e.pointerId, {
+        clientX: e.clientX,
+        clientY: e.clientY
+    });
 
     if (pointers.size > 1) {
         isDragging = false;
+        dragMoved = true;
+        suppressNextClick = true;
+
+        resetPinch();
         return;
     }
 
     isDragging = true;
+
     dragMoved = false;
+    suppressNextClick = false;
 
     startX = e.clientX;
     startY = e.clientY;
@@ -203,8 +311,12 @@ chestMap.addEventListener('pointerdown', (e) => {
 chestMap.addEventListener('pointermove', (e) => {
     if (!pointers.has(e.pointerId)) return;
 
-    pointers.set(e.pointerId, e);
+    pointers.set(e.pointerId, {
+        clientX: e.clientX,
+        clientY: e.clientY
+    });
 
+    // PINCH ZOOM
     if (pointers.size === 2) {
         const [p1, p2] = Array.from(pointers.values());
 
@@ -217,13 +329,19 @@ chestMap.addEventListener('pointermove', (e) => {
         }
 
         const scale = currentDistance / initialPinchDistance;
-        let newZoom = initialZoom * scale;
 
-        newZoom = Math.max(minZoom, Math.min(maxZoom, newZoom));
+        const newZoom = Math.max(
+            minZoom,
+            Math.min(maxZoom, initialZoom * scale)
+        );
 
         const rect = chestMap.getBoundingClientRect();
-        const centerX = ((p1.clientX + p2.clientX) / 2) - rect.left;
-        const centerY = ((p1.clientY + p2.clientY) / 2) - rect.top;
+
+        const centerX =
+            ((p1.clientX + p2.clientX) / 2) - rect.left;
+
+        const centerY =
+            ((p1.clientY + p2.clientY) / 2) - rect.top;
 
         const imgX = (centerX - posX) / zoom;
         const imgY = (centerY - posY) / zoom;
@@ -234,29 +352,65 @@ chestMap.addEventListener('pointermove', (e) => {
         posY = centerY - imgY * zoom;
 
         updateMapTransform();
+
+        dragMoved = true;
+        suppressNextClick = true;
+
+        return;
     }
+
+    // NORMAL DRAGGING
+    if (!isDragging) return;
+
+    const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
+
+    if (Math.abs(dx) > 5 || Math.abs(dy) > 5) {
+        dragMoved = true;
+        suppressNextClick = true;
+    }
+
+    if (!dragMoved) return;
+
+    posX = startPosX + dx;
+    posY = startPosY + dy;
+
+    updateMapTransform();
 });
 
-function resetPinch() {
-    initialPinchDistance = null;
+function endPointer(e) {
+    pointers.delete(e.pointerId);
+
+    if (pointers.size < 2) {
+        resetPinch();
+    }
+
+    isDragging = false;
+    chestMap.style.cursor = 'grab';
 }
 
-chestMap.addEventListener('pointerup', (e) => {
-    pointers.delete(e.pointerId);
-    if (pointers.size < 2) resetPinch();
-});
+chestMap.addEventListener('pointerup', endPointer);
+chestMap.addEventListener('pointercancel', endPointer);
 
-chestMap.addEventListener('pointercancel', (e) => {
-    pointers.delete(e.pointerId);
-    resetPinch();
-});
 
-chestMap.addEventListener('pointerleave', (e) => {
-    pointers.delete(e.pointerId);
-    resetPinch();
-});
+/* =========================================
+   PREVENT ACCIDENTAL CLICKS AFTER DRAGGING
+========================================= */
 
-const loadingText = document.querySelector('.map-loading');
+chestMap.addEventListener('click', (e) => {
+    if (!suppressNextClick) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+
+    suppressNextClick = false;
+}, true);
+
+
+/* =========================================
+   LOAD MAP
+========================================= */
 
 function loadMap(showLoading = true) {
     if (!selectedMap) return;
@@ -270,10 +424,9 @@ function loadMap(showLoading = true) {
         });
     }
 
-    mapImg.src = selectedMap.maps[currentFloor];
-
     mapImg.onload = () => {
         fitImageToContainer();
+
         renderMapElements();
 
         mapImg.style.visibility = 'visible';
@@ -285,12 +438,21 @@ function loadMap(showLoading = true) {
         loadingText.style.display = 'none';
 
         updateFloorButtons();
-
-        if(eggEvent) {
-            updateEggCount();
-        }
+        updateAllMarkerCounters();
     };
+
+    mapImg.src = selectedMap.maps[currentFloor];
+
+    // Handle cached images
+    if (mapImg.complete && mapImg.naturalWidth) {
+        mapImg.onload();
+    }
 }
+
+
+/* =========================================
+   FIT IMAGE TO CONTAINER
+========================================= */
 
 function fitImageToContainer() {
     const containerWidth = chestMap.clientWidth;
@@ -312,165 +474,245 @@ function fitImageToContainer() {
     updateMapTransform();
 }
 
+
+/* =========================================
+   RENDER ALL MARKERS
+========================================= */
+
 function renderMapElements() {
     if (!selectedMap) return;
 
-    chestMap.querySelectorAll('.map-element').forEach(e => e.remove());
+    chestMap.querySelectorAll('.map-element').forEach(e => {
+        e.remove();
+    });
 
-    renderChestsOnMap(selectedMap, currentFloor);
-    if(eggEvent) {
-        eggCountContainer.style.display = 'flex';
-        renderEggsOnMap(selectedMap, currentFloor);
-    }
-}
+    currentFloorElements = [];
 
-function renderChestsOnMap(island, floor) {
-    currentFloorChests = [];
+    mapMarkers.forEach(marker => {
+        if (marker.enabled && !marker.enabled()) return;
 
-    const markedChests = getMarkedChests();
-
-    island.chests.forEach((chest, index) => {
-        if (chest.floor === floor) {
-            const elementId = `${island.name}-chest-${index}-floor-${chest.floor}`;
-
-            const chestContainer = document.createElement('div');
-            chestContainer.classList.add('map-element', 'map-chest-icon');
-            chestContainer.dataset.id = elementId;
-
-            const chestIcon = document.createElement('img');
-            chestIcon.src = 'Img/closedChest.png';
-            chestIcon.classList.add('chest-icon-img');
-
-            const numberLabel = document.createElement('div');
-            numberLabel.classList.add('chest-number');
-            numberLabel.innerText = index + 1;
-
-            chestContainer.appendChild(chestIcon);
-            chestContainer.appendChild(numberLabel);
-            chestMap.appendChild(chestContainer);
-
-            if (markedChests[elementId]) {
-                applyMarker(chestContainer);
-            }
-
-            chestContainer.addEventListener('click', () => {
-                toggleMarker(chestContainer);
-            });
-
-            currentFloorChests.push({ data: chest, element: chestContainer });
-        }
+        renderMarkersOnMap(
+            marker,
+            selectedMap,
+            currentFloor
+        );
     });
 
     updateMapElementsPosition();
+    updateAllMarkerCounters();
 }
 
-function renderEggsOnMap(island, floor) {
-    const markedEggs = getMarkedEggs();
 
-    island.eggs?.forEach((egg, index) => {
-        if (egg.floor === floor) {
-            const elementId = `${island.name}-egg-${index}-floor-${egg.floor}`;
+/* =========================================
+   GENERIC MARKER RENDERER
+========================================= */
 
-            const eggContainer = document.createElement('div');
-            eggContainer.classList.add('map-element', 'map-egg-icon');
-            eggContainer.dataset.id = elementId;
+function renderMarkersOnMap(marker, island, floor) {
+    const items = island[marker.dataKey] || [];
 
-            const eggIcon = document.createElement('img');
-            eggIcon.src = 'Img/egg.png';
-            eggIcon.classList.add('egg-icon-img');
+    const markedItems = getMarkedItems(marker);
 
+    items.forEach((item, index) => {
+        if (item.floor !== floor) return;
+
+        const elementId =
+            `${island.name}-${marker.id}-${index}-floor-${item.floor}`;
+
+        const container = document.createElement('div');
+
+        container.classList.add(
+            'map-element',
+            marker.className
+        );
+
+        container.dataset.id = elementId;
+
+        // Icon
+        const icon = document.createElement('img');
+
+        icon.src = marker.icon;
+        icon.classList.add(marker.iconClass);
+        icon.draggable = false;
+
+        container.appendChild(icon);
+
+        // Number
+        if (marker.showNumber) {
             const numberLabel = document.createElement('div');
+
             numberLabel.classList.add('chest-number');
             numberLabel.innerText = index + 1;
 
-            if (egg.warn !== undefined) {
-                const warnDiv = document.createElement('div');
-                warnDiv.classList.add('egg-warning');
-                warnDiv.innerText = egg.warn;
-                eggContainer.appendChild(warnDiv);
-            }
-
-            eggContainer.appendChild(eggIcon);
-            eggContainer.appendChild(numberLabel);
-            chestMap.appendChild(eggContainer);
-
-            if (markedEggs[elementId]) {
-                applyMarker(eggContainer);
-            }
-
-            eggContainer.addEventListener('click', () => {
-                toggleEggMarker(eggContainer);
-            });
-
-            currentFloorChests.push({ data: egg, element: eggContainer });
+            container.appendChild(numberLabel);
         }
+
+        // Warning
+        if (marker.showWarning && item.warn !== undefined) {
+            const warning = document.createElement('div');
+
+            warning.classList.add('egg-warning');
+            warning.innerText = item.warn;
+
+            container.appendChild(warning);
+        }
+
+        chestMap.appendChild(container);
+
+        // Restore saved marker
+        if (markedItems[elementId]) {
+            applyMarker(container);
+        }
+
+        // CLICK TO ADD / REMOVE X
+        container.addEventListener('click', (e) => {
+            e.stopPropagation();
+
+            if (suppressNextClick) {
+                suppressNextClick = false;
+                return;
+            }
+
+            toggleMapMarker(marker, container);
+        });
+
+        // Register position
+        currentFloorElements.push({
+            data: item,
+            element: container
+        });
     });
-
-    updateMapElementsPosition();
 }
 
-function toggleMarker(container) {
+
+/* =========================================
+   TOGGLE MARKER
+========================================= */
+
+function toggleMapMarker(marker, container) {
     const id = container.dataset.id;
-    const markedChests = getMarkedChests();
+
+    const markedItems = getMarkedItems(marker);
 
     if (container.classList.contains('marked')) {
+        // REMOVE X
         container.classList.remove('marked');
 
-        const existingMarker = container.querySelector('.map-marker');
-        if (existingMarker) existingMarker.remove();
+        const existingMarker =
+            container.querySelector('.map-marker');
 
-        delete markedChests[id];
+        if (existingMarker) {
+            existingMarker.remove();
+        }
+
+        delete markedItems[id];
     } else {
+        // ADD X
         applyMarker(container);
-        markedChests[id] = true;
+
+        markedItems[id] = true;
     }
 
-    saveMarkedChests(markedChests);
+    // SAVE TO BROWSER
+    saveMarkedItems(marker, markedItems);
+
+    // UPDATE COUNTER
+    updateMarkerCounter(marker);
 }
 
-function toggleEggMarker(container) {
-    const id = container.dataset.id;
-    const markedEggs = getMarkedEggs();
 
-    if (container.classList.contains('marked')) {
-        container.classList.remove('marked');
-
-        const existingMarker = container.querySelector('.map-marker');
-        if (existingMarker) existingMarker.remove();
-
-        delete markedEggs[id];
-    } else {
-        applyMarker(container);
-        markedEggs[id] = true;
-    }
-
-    saveMarkedEggs(markedEggs);
-    updateEggCount();
-}
+/* =========================================
+   CREATE X MARKER
+========================================= */
 
 function applyMarker(container) {
     if (container.querySelector('.map-marker')) return;
 
     const marker = document.createElement('div');
+
     marker.classList.add('map-element', 'map-marker');
+
     marker.innerText = 'X';
 
     container.classList.add('marked');
     container.appendChild(marker);
 }
 
+
+/* =========================================
+   GENERIC COUNTERS
+========================================= */
+
+function updateMarkerCounter(marker) {
+    if (!marker.counter || !selectedMap) return;
+
+    const counterContainer = document.querySelector(
+        marker.counter.container
+    );
+
+    const counterNumber = document.querySelector(
+        marker.counter.number
+    );
+
+    if (!counterContainer || !counterNumber) return;
+
+    const enabled = marker.enabled ? marker.enabled() : true;
+
+    const items = selectedMap[marker.dataKey] || [];
+
+    if (!enabled || items.length === 0) {
+        counterContainer.style.display = 'none';
+        return;
+    }
+
+    const markedItems = getMarkedItems(marker);
+
+    let marked = 0;
+
+    items.forEach((item, index) => {
+        const id =
+            `${selectedMap.name}-${marker.id}-${index}-floor-${item.floor}`;
+
+        if (markedItems[id]) {
+            marked++;
+        }
+    });
+
+    counterContainer.style.display = 'flex';
+
+    counterNumber.innerText = `${marked}/${items.length}`;
+}
+
+function updateAllMarkerCounters() {
+    mapMarkers.forEach(marker => {
+        updateMarkerCounter(marker);
+    });
+}
+
+
+/* =========================================
+   UPDATE MARKER POSITIONS
+========================================= */
+
 function updateMapElementsPosition() {
     const imgWidth = mapImg.naturalWidth || mapImg.width;
     const imgHeight = mapImg.naturalHeight || mapImg.height;
 
-    currentFloorChests.forEach(({ data, element }) => {
-        const left = posX + (data.x / 100) * imgWidth * zoom;
-        const top = posY + (data.y / 100) * imgHeight * zoom;
+    currentFloorElements.forEach(({ data, element }) => {
+        const left =
+            posX + (data.x / 100) * imgWidth * zoom;
+
+        const top =
+            posY + (data.y / 100) * imgHeight * zoom;
 
         element.style.left = `${left}px`;
         element.style.top = `${top}px`;
     });
 }
+
+
+/* =========================================
+   CENTER MAP ON ELEMENT
+========================================= */
 
 function centerMapOnElement(element, desiredZoom = 2) {
     const imgWidth = mapImg.naturalWidth;
@@ -479,7 +721,10 @@ function centerMapOnElement(element, desiredZoom = 2) {
     const containerWidth = chestMap.clientWidth;
     const containerHeight = chestMap.clientHeight;
 
-    zoom = Math.min(desiredZoom, maxZoom);
+    zoom = Math.max(
+        minZoom,
+        Math.min(desiredZoom, maxZoom)
+    );
 
     const x = (element.x / 100) * imgWidth * zoom;
     const y = (element.y / 100) * imgHeight * zoom;
@@ -490,8 +735,14 @@ function centerMapOnElement(element, desiredZoom = 2) {
     updateMapTransform();
 }
 
+
+/* =========================================
+   MAP COORDINATES
+========================================= */
+
 chestMap.addEventListener('mousemove', (e) => {
     const rect = chestMap.getBoundingClientRect();
+
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
 
@@ -510,9 +761,22 @@ chestMap.addEventListener('mousemove', (e) => {
     const percentX = (imgX / imgWidth) * 100;
     const percentY = (imgY / imgHeight) * 100;
 
-    if (percentX >= 0 && percentX <= 100 && percentY >= 0 && percentY <= 100) {
-        coordDisplay.innerText = `X: ${percentX.toFixed(2)}  Y: ${percentY.toFixed(2)}  F: ${currentFloor}`;
-        lastCoords = { x: percentX, y: percentY, floor: currentFloor };
+    if (
+        percentX >= 0 &&
+        percentX <= 100 &&
+        percentY >= 0 &&
+        percentY <= 100
+    ) {
+        coordDisplay.innerText =
+            `X: ${percentX.toFixed(2)}  ` +
+            `Y: ${percentY.toFixed(2)}  ` +
+            `F: ${currentFloor}`;
+
+        lastCoords = {
+            x: percentX,
+            y: percentY,
+            floor: currentFloor
+        };
     } else {
         coordDisplay.innerText = '';
         lastCoords = null;
@@ -522,15 +786,27 @@ chestMap.addEventListener('mousemove', (e) => {
 chestMap.addEventListener('click', () => {
     if (!lastCoords) return;
 
-    console.log(`{ x: ${lastCoords.x.toFixed(2)}, y: ${lastCoords.y.toFixed(2)}, floor: ${lastCoords.floor} }`);
+    console.log(
+        `{ x: ${lastCoords.x.toFixed(2)}, ` +
+        `y: ${lastCoords.y.toFixed(2)}, ` +
+        `floor: ${lastCoords.floor} }`
+    );
 });
+
+
+/* =========================================
+   FLOOR NAVIGATION
+========================================= */
 
 function changeFloor(direction) {
     if (!selectedMap) return;
 
     const maxFloor = selectedMap.maps.length - 1;
 
-    const newFloor = Math.max(0, Math.min(maxFloor, currentFloor + direction));
+    const newFloor = Math.max(
+        0,
+        Math.min(maxFloor, currentFloor + direction)
+    );
 
     if (newFloor === currentFloor) return;
 
@@ -554,44 +830,39 @@ function updateFloorButtons() {
 
     const maxFloor = selectedMap.maps.length - 1;
 
-    mapUpButton.style.opacity = currentFloor >= maxFloor ? '0.3' : '1';
-    mapDownButton.style.opacity = currentFloor <= 0 ? '0.3' : '1';
+    mapUpButton.style.opacity =
+        currentFloor >= maxFloor ? '0.3' : '1';
+
+    mapDownButton.style.opacity =
+        currentFloor <= 0 ? '0.3' : '1';
 }
 
-function updateEggCount() {
-    if (!selectedMap || !selectedMap.eggs || selectedMap.eggs.length === 0) {
-        eggCountContainer.style.display = 'none';
-        return;
-    }
 
-    const markedEggs = getMarkedEggs();
-
-    let total = 0;
-    let marked = 0;
-
-    selectedMap.eggs.forEach((egg, index) => {
-        const elementId = `${selectedMap.name}-egg-${index}-floor-${egg.floor}`;
-        total++;
-
-        if (markedEggs[elementId]) {
-            marked++;
-        }
-    });
-
-    eggCountContainer.style.display = 'flex';
-    eggCountNumber.innerText = `${marked}/${total}`;
-}
+/* =========================================
+   START MAP
+========================================= */
 
 function startMap() {
     if (!islands || islands.length === 0) return;
 
     selectedMap = islands[0];
+
     loadMap(true);
     updateFloorButtons();
 }
 
+
+/* =========================================
+   RETURN BUTTON
+========================================= */
+
 document.querySelector('.rot-bt').addEventListener('click', () => {
     window.location.replace('index.html');
 });
+
+
+/* =========================================
+   INITIALIZE
+========================================= */
 
 startMap();

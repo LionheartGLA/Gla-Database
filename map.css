@@ -383,3 +383,61 @@ html, body {
 .chest-map {
     touch-action: none;
 }
+
+
+.chest-map {
+    touch-action: none;
+    overflow: hidden;
+    cursor: grab;
+}
+
+.map-img {
+    transform-origin: top left;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.map-element {
+    position: absolute;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+
+.chest-map {
+    position: relative;
+    overflow: hidden;
+    touch-action: none;
+    cursor: grab;
+}
+
+.map-img {
+    transform-origin: top left;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.map-element {
+    position: absolute;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.map-chest-icon,
+.map-egg-icon {
+    cursor: pointer;
+}
+
+.map-marker {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    color: red;
+    font-size: 22px;
+
+    pointer-events: none;
+    z-index: 10;
+}

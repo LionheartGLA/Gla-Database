@@ -45,15 +45,15 @@ const chars = [
 const lastDate = "18-07-2025";
 
 const eggEvent = false;
+const currentMonth = new Date().getMonth();
+if (currentMonth === 7) {
+    birthdayEvent = true;
+} else {
+    birthdayEvent = false;
+}
 
-const updateText = `-Adicionada nova página "Pacientes da Kureha" para ajudar quem quer pegar a skin do Chopper.
-Nesta página você pode clicar em cada cama para escolher um paciente. Passar o mouse por cima da cura mostra o nome dela.
-Você pode clicar na imagem da mesa de construção que você não sabe onde fica para abrir um mapa indicando sua localização.
-Passar o mouse em cima de um paciente que faz som ira tocar o som dele apenas na lista de escolha.
-Alguns pacientes podem ser achados pesquisando nomes diferentes como por exemplo procurar Branco irá mostrar o paciente branco,
-o de Cabelo branco e o Vampiro.
-- Arrumado um bug no Planejador de Coliseu que alguns ID de personagens estavam duplicados.
-- Adicionado FOXY CALC a página inicial para ajudar durante o evento de aniversário do GLA.`;
+const updateText = `-Adicionado Restos de Faraó ao Mapa Interativo (Conquista do Osiris).
+-Agora o Foxy Calc só aparece em Agosto.`;
 
 function getRotationChars(rotation) {
     return rotation
@@ -2503,6 +2503,50 @@ const islands = [
                 x: 32.90,
                 y: 37.51
             },
+        ],
+        osiris: [
+            {
+                id: 1,
+                floor: 2,
+                x: 37.00,
+                y: 38.26
+            },
+            {
+                id: 2,
+                floor: 1,
+                x: 45.58,
+                y: 49.94
+            },
+            {
+                id: 3,
+                floor: 2,
+                x: 19.32,
+                y: 57.70
+            },
+            {
+                id: 4,
+                floor: 3,
+                x: 40.34,
+                y: 61.07
+            },
+            {
+                id: 5,
+                floor: 2,
+                x: 36.99,
+                y: 75.40
+            },
+            {
+                id: 6,
+                floor: 2,
+                x: 54.38,
+                y: 49.37
+            },
+            {
+                id: 7,
+                floor: 1,
+                x: 69.61,
+                y: 32.09
+            },
         ]
     },
     {
@@ -2698,6 +2742,50 @@ const islands = [
                 floor: 1,
                 x: 74.47,
                 y: 37.75
+            },
+        ],
+        osiris: [
+            {
+                id: 1,
+                floor: 1,
+                x: 57.39,
+                y: 83.00
+            },
+            {
+                id: 2,
+                floor: 3,
+                x: 39.78,
+                y: 75.64
+            },
+            {
+                id: 3,
+                floor: 2,
+                x: 24.01,
+                y: 68.71
+            },
+            {
+                id: 4,
+                floor: 1,
+                x: 31.41,
+                y: 20.68
+            },
+            {
+                id: 5,
+                floor: 1,
+                x: 55.44,
+                y: 33.16
+            },
+            {
+                id: 6,
+                floor: 1,
+                x: 70.77,
+                y: 53.30
+            },
+            {
+                id: 7,
+                floor: 1,
+                x: 83.91,
+                y: 32.24
             },
         ]
     },

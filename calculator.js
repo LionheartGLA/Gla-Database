@@ -3,8 +3,7 @@
 const symbols = {
   "+": "+",
   "-": "−",
-  "*": "×",
-  "/": "÷"
+  "*": "×"
 };
 
 const output = document.getElementById("rOutput");
@@ -49,9 +48,6 @@ function solve(numbers, target, ops) {
 
         else if (op === "*")
           result = value * numbers[i];
-
-        else if (op === "/" && numbers[i] !== 0)
-          result = value / numbers[i];
 
 
         if (result !== undefined) {
