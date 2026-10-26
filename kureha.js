@@ -435,38 +435,31 @@ function updateCraftingTables() {
         }
 
 
-        for (
-            const [itemName, amount]
-            of items
-        ) {
 
-            const isCure =
-                Object
-                    .values(bedPatients)
-                    .some(
-                        patient =>
-                            patient &&
-                            patient.cure === itemName
-                    );
+        for (const item of crafter.items) {
+            const itemName = item.name;
 
-
-            const element =
-                createCraftingItem(
-                    itemName,
-                    amount,
-                    isCure
-                );
-
-
-            if (element) {
-
-                itemsContainer.appendChild(
-                    element
-                );
-
+            if (!items.has(itemName)) {
+                continue;
             }
 
+            const amount = items.get(itemName);
+
+            const isCure = Object.values(bedPatients).some(
+                patient => patient && patient.cure === itemName
+            );
+
+            const element = createCraftingItem(
+                itemName,
+                amount,
+                isCure
+            );
+
+            if (element) {
+                itemsContainer.appendChild(element);
+            }
         }
+
 
     }
 
@@ -681,7 +674,7 @@ function populatePatientList(patients) {
             document.createElement('img');
 
         bedImg.src =
-            'Img/Kureha/bed.png';
+            'Img/Kureha/Bed.png';
 
         bedImg.classList.add(
             'bed-img'

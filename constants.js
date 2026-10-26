@@ -53,7 +53,10 @@ if (currentMonth === 7) {
 }
 
 const updateText = `-Adicionado Restos de Faraó ao Mapa Interativo (Conquista do Osiris).
--Agora o Foxy Calc só aparece em Agosto.`;
+-Agora o Foxy Calc só aparece em Agosto.
+-Arrumadas algumas imagens que não estavam aparecendo nos Pacientes da Kureha.
+-Arrumado nome da cura do paciente aparecendo debaixo do próximo paciente em telas pequenas.
+-Agora os ingredientes das curas de cada mesa de craft aparecerá na mesma ordem das mesas do jogo.`;
 
 function getRotationChars(rotation) {
     return rotation
@@ -3637,7 +3640,7 @@ const kurehaItemManga = [
 
 const kurehaItemRobot = [
     { name: "Mão Mecânica", img: "Img/Kureha/Robot/MaoMecanica.png" },
-    { name: "Programa de Aimbot", img: "Img/Kureha/Robot/ProgramaDeAimbot.png" },
+    { name: "Programa de Aimbot", img: "Img/Kureha/Robot/ProgramaDeAimBot.png" },
 ]
 
 const pestleCraft = [

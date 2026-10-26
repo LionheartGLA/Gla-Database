@@ -514,9 +514,6 @@ body {
 
 .cure-info {
     display: none;
-}
-
-.cure:hover>.cure-info {
     height: 20px;
     width: fit-content;
     position: absolute;
@@ -525,7 +522,6 @@ body {
     transform: translate(0, -50%);
     background-color: var(--option);
     border: 1px solid var(--border);
-    display: flex;
     justify-content: center;
     align-items: center;
     color: white;
@@ -535,4 +531,30 @@ body {
     padding-right: 4px;
     text-wrap: nowrap;
     pointer-events: none;
+    z-index: 2;
+}
+
+.cure:hover>.cure-info {
+    display: flex;
+}
+
+
+.bed {
+    z-index: 1;
+}
+
+.bed:hover {
+    z-index: 10;
+}
+
+.cure {
+    z-index: 2;
+}
+
+.cure-info {
+    z-index: 100;
+}
+
+.patient-selector {
+    z-index: 99;
 }
